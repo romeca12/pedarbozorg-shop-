@@ -1,6 +1,20 @@
+import Container from "@/components/Container"
+import { Metadata } from "next"
+
+
+
+
+export const metadata: Metadata = {
+  title: "محصولات",
+}
+
+
+
 function prodcuts() {
   return (
-    <div>prodcuts</div>
+    <Container>
+      <div>prodcuts</div>
+    </Container>
   )
 }
 

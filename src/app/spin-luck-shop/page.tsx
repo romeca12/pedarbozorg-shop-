@@ -2,16 +2,15 @@ import Container from "@/components/Container"
 import { Metadata } from "next"
 
 export const metadata : Metadata = {
-  title: "درباره ما",
+  title: "گردونه شانس"
 }
 
-function aboutUs() {
-
-  return(
+function spinLuckShop() {
+  return (
     <Container>
-      <h1>درباره ما</h1>
+      <h1>گردونه شانس</h1>
     </Container>
   )
 }
 
-export default aboutUs
+export default spinLuckShop

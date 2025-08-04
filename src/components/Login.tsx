@@ -1,10 +1,7 @@
 "use client"
 
 import { Dispatch, SetStateAction, useState } from "react";
-
 import "../app/globals.css";
-
-
 
 export default function Login({ openLogin, setOpenLogin }: { openLogin: boolean, setOpenLogin: Dispatch<SetStateAction<boolean>> }) {
 
