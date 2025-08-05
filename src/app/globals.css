@@ -64,15 +64,19 @@
 body {
   font-family: "iranyekan", sans-serif;
   font-weight: 300;
+  position: relative;
 }
-
 
 button {
   cursor: pointer;
 }
 
 .header {
-  box-shadow: 0px 0px 2px #333;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #ffffff;
+  width: 100%;    
 }
 .limit {
   padding-right: 15px;
@@ -110,7 +114,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 117px;
+  height: 70px;
 }
 .header .header-right-desktop {
   display: flex;
@@ -126,7 +130,7 @@ button {
 .header .header-cover-desktop .header-midle-desktop .cover-ul ul {
   display: flex;
   width: 400px;
- 
+
   justify-content: space-between;
 }
 .header .header-cover-desktop .header-midle-desktop .input-header {
@@ -292,11 +296,11 @@ button {
   padding-right: 8px;
 }
 
-.bottom_login .bottom_login_variable .two-btn{
-  background-color: #EDEDED;
-  color: #ADADAD;
+.bottom_login .bottom_login_variable .two-btn {
+  background-color: #ededed;
+  color: #adadad;
 }
-.bottom_login .bottom_login_variable .number{
+.bottom_login .bottom_login_variable .number {
   color: #3d8361;
 }
 
@@ -306,7 +310,6 @@ button {
   }
 }
 @media screen and (max-width: 768px) {
-
 }
 @media screen and (max-width: 592px) {
   .limit-desktop {
@@ -315,7 +318,7 @@ button {
   }
 }
 
-@media screen and (max-width: 452px){
+@media screen and (max-width: 452px) {
   #login {
     width: 90px;
   }

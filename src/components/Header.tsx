@@ -17,7 +17,7 @@
 //   remove,
 //   arrow,
 // } from "../assets/img/icon";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../app/globals.css";
 import Login from "./Login";
 import Link from "next/link";
@@ -35,8 +35,27 @@ function Header() {
     setStatusMenu(false);
   }
 
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsScrolled(true)
+      } else {
+        setIsScrolled(false)
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }
+    , [])
+
   return (
-    <header className="header">
+    <header className={`header ${isScrolled ? "shadow-md" : ""}`}>
       <div className="header-main-desktop">
         <div className="header-cover-desktop limit-desktop">
           <Link href="/">
@@ -73,7 +92,7 @@ function Header() {
           onClick={closeMenu}
         ></div>
 
-        <div className={`cover-ul ${statusMenu ? "active" : ""}`}>
+        <div className={`cover-ul mt-4 ${statusMenu ? "active" : ""}`}>
           <div className="tap-menu">
             <button onClick={closeMenu}>
               <img className="" src="./images/Buttons.svg" alt="" />
@@ -82,9 +101,9 @@ function Header() {
           </div>
           <ul>
 
-            <li className="group">
+            <li className="group li-nav">
               <Link href="/">صفحه اصلی</Link>
-              <img className={`pr-3.5 pt-1 ${pathname == "/" ? "block" : "opacity-0"} ${pathname !== "/" ? "group-hover:opacity-100 transition-opacity duration-300" : ""}`} src="./images/Frame.svg" alt="عکس زیر منو" />
+              <img className={`pr-3.5 pt-1 ${pathname == "/" ? "block" : "opacity-0"} ${pathname !== "/" ? "group-hover:opacity-100 transition-opacity duration-200" : ""}`} src="./images/Frame.svg" alt="عکس زیر منو" />
             </li>
             <li className="group">
               <Link href="/products">محصولات</Link>
