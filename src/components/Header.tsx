@@ -1,22 +1,5 @@
 "use client"
-// import { Link } from "react-router-dom";
 
-// import {
-//   menu,
-//   instagram,
-//   know,
-//   logo,
-//   login,
-//   cart,
-//   logoCircle,
-//   search,
-//   logintwo,
-//   downmenu,
-//   buttonmenu,
-//   bg,
-//   remove,
-//   arrow,
-// } from "../assets/img/icon";
 import { useEffect, useState } from "react";
 import "../app/globals.css";
 import Login from "./Login";
@@ -39,7 +22,7 @@ function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100) {
+      if (window.scrollY > 15) {
         setIsScrolled(true)
       } else {
         setIsScrolled(false)
@@ -55,7 +38,7 @@ function Header() {
     , [])
 
   return (
-    <header className={`header ${isScrolled ? "shadow-md" : ""}`}>
+    <header className={`header ${isScrolled ? "shadow-md bg-[#F4F6FF]" : ""}`}>
       <div className="header-main-desktop">
         <div className="header-cover-desktop limit-desktop">
           <Link href="/">

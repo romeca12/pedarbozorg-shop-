@@ -1,12 +1,15 @@
-import Container from "@/components/Container"
+
+import Container from "@/components/Container";
+import SwiperSlider from "@/components/Swiper";
+import Background from "./components/Background";
 
 
 export default function Home() {
   return (
-    <div>
-      <Container>
-        <h1 style={{marginBottom: "1000px"}}>صفحه اصلی</h1>
-      </Container>
-    </div>
+    <Container>
+      <Background/>
+      <SwiperSlider />
+    </Container >
+
   );
 }

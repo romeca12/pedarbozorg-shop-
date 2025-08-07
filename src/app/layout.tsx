@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/Header";
 import NextTopLoader from "nextjs-toploader";
+import Header from "@/components/Header";
 
 
 export const metadata: Metadata = {
@@ -25,7 +25,7 @@ export default function RootLayout({
           height={3}
           showSpinner={false}
         />
-        <Navbar />
+        <Header/>
         {children}
       </body>
     </html>
