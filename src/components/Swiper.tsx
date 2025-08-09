@@ -20,7 +20,7 @@ export default function SwiperSlider() {
   // const nextRef = useRef(null)
 
   return (
-    <>
+    <div className="flex justify-center">
       <Swiper
         effect={'cards'}
         grabCursor={true}
@@ -46,24 +46,34 @@ export default function SwiperSlider() {
         className="mySwiper"
       >
         <SwiperSlide className="cover-slider cover-slider-1">
-          <h1 className="text-center mt-8 text-gray-900 text-5xl">Slider1</h1>
+          <div>
+            <h1 className="text-center mt-8 text-gray-900 text-5xl">Slider1</h1>
+          </div>
         </SwiperSlide>
         <SwiperSlide className="cover-slider cover-slider-2">
-          <h1 className="text-center mt-8 text-gray-900 text-5xl">Slider2</h1>
+          <div>
+            <h1 className="text-center mt-8 text-gray-900 text-5xl">Slider2</h1>
+          </div>
         </SwiperSlide>
         <SwiperSlide className="cover-slider cover-slider-3">
-          <h1 className="text-center mt-8 text-gray-900 text-5xl">Slider3</h1>
+          <div>
+            <h1 className="text-center mt-8 text-gray-900 text-5xl">Slider3</h1>
+          </div>
         </SwiperSlide>
         <SwiperSlide className="cover-slider cover-slider-4">
-          <h1 className="text-center mt-8 text-gray-900 text-5xl">Slider4</h1>
+          <div>
+            <h1 className="text-center mt-8 text-gray-900 text-5xl">Slider4</h1>
+          </div>
         </SwiperSlide>
         <SwiperSlide className="cover-slider cover-slider-5">
-          <h1 className="text-center mt-8 text-gray-900 text-5xl">Slider5</h1>
+          <div>
+            <h1 className="text-center mt-8 text-gray-900 text-5xl">Slider5</h1>
+          </div>
         </SwiperSlide>
 
         <div className="prev-slider"></div>
         <div className="next-slider"></div>
       </Swiper>
-    </>
+    </div>
   )
 }
