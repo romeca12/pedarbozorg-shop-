@@ -84,6 +84,8 @@ function Background() {
                 </defs>
             </svg>
 
+            <img className="absolute top-[280px] right-0 w-[80px]" src="./images/Vector1.svg" alt="پس زمینه سایت وکتور 2" />
+            <img className="absolute top-[280px] left-0 w-[80px]" src="./images/Vector2.svg" alt="پس زمینه سایت وکتور 1" />
         </div>
         // <img className="w-[164px] h-[174px] absolute z-10 top-[100px] right-[0px]" src="./images/OBJECTS1.svg" alt="" />
     )

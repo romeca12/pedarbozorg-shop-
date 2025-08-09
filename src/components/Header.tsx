@@ -38,7 +38,7 @@ function Header() {
     , [])
 
   return (
-    <header className={`header ${isScrolled ? "shadow-md bg-[#F4F6FF]" : ""}`}>
+    <header className={`header ${isScrolled ? "shadow-md bg-secondary" : ""}`}>
       <div className="header-main-desktop">
         <div className="header-cover-desktop limit-desktop">
           <Link href="/">
