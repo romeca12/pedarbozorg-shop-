@@ -108,11 +108,10 @@ button {
 }
 
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
   right: 0;
-  z-index: 10000 !important;
-  /* background-color: transparent; */
+  z-index: 10;
   width: 100%;
 }
 .limit {
@@ -348,8 +347,8 @@ button {
   width: 950px;
   max-width: 88%;
   height: 476px;
-  margin-top: 30px;
   position: relative;
+  margin-top: 25px;
 }
 
 .swiper-slide {
@@ -516,14 +515,6 @@ button {
   .header .header-cover-desktop .header-midle-desktop .input-header input {
     width: 35vw;
   }
-  .header .header-main-desktop .cover-ul ul {
-    /* width: 300px; */
-    max-width: 315px;
-  }
-  .header .header-main-desktop .cover-ul ul li {
-    font-size: 10px;
-    color: #3d8361;
-  }
 }
 
 .header .header-cover-mobile {
@@ -532,7 +523,14 @@ button {
 .header .header-main-desktop .cover-ul .tap-menu {
   display: none;
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 420px) {
+  .header .header-main-desktop .cover-ul ul {
+    max-width: 315px;
+  }
+  .header .header-main-desktop .cover-ul ul li {
+    font-size: 10px;
+    /* color: #3d8361; */
+  }
   .header .header-cover-desktop {
     display: none;
   }
@@ -621,5 +619,14 @@ button {
     top: 0px;
     background-color: rgba(0, 0, 0, 0.336);
     backdrop-filter: blur(8px);
+  }
+  .show-img-menu {
+    display: none;
+  }
+  .swiper {
+    margin-top: 0px;
+  }
+  .down-420 {
+    margin-top: 60px;
   }
 }
