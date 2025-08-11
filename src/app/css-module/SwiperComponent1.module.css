@@ -1,0 +1,149 @@
+.myCustomSwiper  {
+  width: 950px;
+  max-width: 88%;
+  position: relative;
+  margin-top: 25px;
+  height: 476px;
+}
+
+.myCustomSwiper :global(.swiper-slide) {
+  border-radius: 16px;
+  width: 100% !important;
+}
+.myCustomSwiper :global(.swiper-slide:not(.swiper-slide-active):after) {
+  content: "";
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  backdrop-filter: blur(12px);
+  background-color: #ffffff2b;
+  width: 100%;
+  height: 100%;
+}
+
+.myCustomSwiper :global(.cover-slider) {
+  /* backdrop-filter: blue(40px) !important; */
+  width: 100%;
+  height: 100%;
+}
+.myCustomSwiper :global(.cover-slider-1) {
+  background: url("../../../public/images/bg-slider1.webp") no-repeat center center;
+  background-size: cover;
+  background-position: center;
+}
+.myCustomSwiper :global(.cover-slider-2) {
+  background: url("../../../public/images/bg-slider2.webp") no-repeat center center;
+  background-size: cover;
+  background-position: center;
+}
+.myCustomSwiper :global(.cover-slider-3) {
+  background: url("../../../public/images/bg-slider3.webp") no-repeat center center;
+  background-size: cover;
+  background-position: center;
+}
+.myCustomSwiper :global(.cover-slider-4) {
+  background: url("../../../public/images/bg-slider4.webp") no-repeat center center;
+  background-size: cover;
+  background-position: center;
+}
+.myCustomSwiper :global(.cover-slider-5) {
+  background: url("../../../public/images/bg-slider5.webp") no-repeat center center;
+  background-size: cover;
+  background-position: center;
+}
+.myCustomSwiper :global(.prev-slider) {
+  position: absolute;
+  font-size: 25px;
+  top: 50%;
+  right: -70px;
+  z-index: 10;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transform: translateX(50%);
+  color: #ffffffea;
+}
+.myCustomSwiper :global(.prev-slider:after) {
+  content: "▶";
+  padding-top: 11.5px;
+  padding-bottom: 0px;
+  padding-right: 14px;
+  border-radius: 8px;
+  position: absolute;
+  height: 55px;
+  width: 55px;
+  top: 0px;
+  right: 0px;
+  z-index: 0;
+  background-color: rgba(255, 255, 255, 0.055);
+  backdrop-filter: blur(20px);
+}
+
+.myCustomSwiper :global(.next-slider) {
+  position: absolute;
+  font-size: 25px;
+  top: 50%;
+  left: -13px;
+  z-index: 10;
+  cursor: pointer;
+  transform: translateY(-50%);
+  color: #ffffffea;
+}
+.myCustomSwiper :global(.next-slider::before) {
+  content: "◀";
+  padding-top: 11.5px;
+  padding-right: 17px;
+  border-radius: 8px;
+  position: absolute;
+  height: 55px;
+  width: 55px;
+  top: 0px;
+  right: 0px;
+  z-index: 0;
+  background-color: rgba(255, 255, 255, 0.055);
+  backdrop-filter: blur(20px);
+}
+.myCustomSwiper :global(.swiper-pagination-bullet) {
+  width: 12px !important;
+  height: 8px !important;
+  border-radius: 10px !important;
+  margin: 0 4px !important;
+  background: #ffffffa6 !important;
+  opacity: 1 !important;
+  transition: all 0.7s ease;
+  transform-origin: left center;
+}
+.myCustomSwiper :global(.swiper-pagination-bullet-active) {
+  background: rgb(255, 251, 0) !important;
+  width: 33px !important;
+}
+@media screen and (max-width: 926px) {
+  .myCustomSwiper :global(.swiper-pagination) {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 22.5px;
+    margin-left: 5%;
+  }
+  .myCustomSwiper  {
+    max-width: 100vw;
+    height: 300px;
+  }
+  .myCustomSwiper :global(.next-slider) {
+    top: auto;
+    right: 82px;
+    bottom: 65px;
+  }
+  .myCustomSwiper :global(.prev-slider) {
+    bottom: 65px;
+    top: auto;
+    right: 16px;
+  }
+  .myCustomSwiper :global(.swiper-slide) {
+    border-radius: 0px;
+    /* width: 100% !important; */
+  }
+}
+@media screen and (max-width: 420px) {
+  .myCustomSwiper :global(.swiper) {
+    margin-top: 0px;
+  }
+}

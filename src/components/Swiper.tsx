@@ -5,12 +5,13 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
+
 import 'swiper/css';
 import 'swiper/css/effect-cards';
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-// import './styles.css';
+import styles from '../app/css-module/SwiperComponent1.module.css';
 
 // import required modules
 import { EffectCards, Navigation, Pagination, Autoplay } from 'swiper/modules';
@@ -32,18 +33,17 @@ export default function SwiperSlider() {
           nextEl: ".next-slider",
           prevEl: ".prev-slider",
         }}
+        loopAdditionalSlides={1} // تعداد اسلایدهای اضافی را کاهش دهید
         pagination={{
-          type: 'bullets', // نمایش دایره‌ها
           clickable: true, // امکان کلیک روی نقاط
         }}
         loop={true}
-        spaceBetween={20}
         autoplay={{
           delay: 3000,
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         }}
-        className="mySwiper"
+        className={styles.myCustomSwiper}
       >
         <SwiperSlide className="cover-slider cover-slider-1">
           <div>

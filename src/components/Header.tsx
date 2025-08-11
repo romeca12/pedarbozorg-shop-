@@ -22,7 +22,7 @@ function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 15) {
+      if (window.scrollY > 13) {
         setIsScrolled(true)
       } else {
         setIsScrolled(false)
@@ -38,7 +38,7 @@ function Header() {
     , [])
 
   return (
-    <header className={`header ${isScrolled ? "shadow-md bg-secondary" : ""}`}>
+    <header className={`header ${isScrolled ? "shadow" : ""}`}>
       <div className="header-main-desktop">
         <div className="header-cover-desktop limit-desktop">
           <Link href="/">
@@ -85,27 +85,27 @@ function Header() {
           <ul>
 
             <li className="group li-nav">
-              <Link href="/" onClick={()=>setStatusMenu(false)}>صفحه اصلی</Link>
+              <Link href="/" onClick={() => setStatusMenu(false)}>صفحه اصلی</Link>
               <img className={`pr-3.5 pt-1 show-img-menu ${pathname == "/" ? "block" : "opacity-0"} ${pathname !== "/" ? "hover-img-menu" : ""}`} src="./images/Frame.svg" alt="عکس زیر منو" />
             </li>
             <li className="group">
-              <Link href="/products" onClick={()=>setStatusMenu(false)}>محصولات</Link>
+              <Link href="/products" onClick={() => setStatusMenu(false)}>محصولات</Link>
               <img className={`pr-2.5 pt-1 show-img-menu ${pathname == "/products" ? "block" : "opacity-0"} ${pathname !== "/products" ? "hover-img-menu" : ""}`} src="./images/Frame.svg" alt="عکس زیر منو" />
             </li>
             <li className="group">
-              <Link href="blog" onClick={()=>setStatusMenu(false)}>مجله</Link>
+              <Link href="blog" onClick={() => setStatusMenu(false)}>مجله</Link>
               <img className={`pr-0.5 pt-1 show-img-menu ${pathname == "/blog" ? "block" : "opacity-0"} ${pathname !== "/blog" ? "hover-img-menu" : ""} `} src="./images/Frame.svg" alt="عکس زیر منو" />
             </li>
             <li className="group">
-              <Link href="/about" onClick={()=>setStatusMenu(false)}>درباره ما</Link>
+              <Link href="/about" onClick={() => setStatusMenu(false)}>درباره ما</Link>
               <img className={`pr-1.5 pt-1 show-img-menu ${pathname == "/about" ? "block" : "opacity-0"} ${pathname !== "/about" ? "hover-img-menu" : ""} `} src="./images/Frame.svg" alt="عکس زیر منو" />
             </li>
             <li className="group">
-              <Link href="contact-us" onClick={()=>setStatusMenu(false)}>تماس باما </Link>
+              <Link href="contact-us" onClick={() => setStatusMenu(false)}>تماس باما </Link>
               <img className={`pr-2.5 pt-1 show-img-menu ${pathname == "/contact-us" ? "block" : "opacity-0"} ${pathname !== "/contact-us" ? "hover-img-menu" : ""} `} src="./images/Frame.svg" alt="عکس زیر منو" />
             </li>
             <li className="group">
-              <Link href="/spin-luck-shop" onClick={()=>setStatusMenu(false)}>گردونه شانس</Link>
+              <Link href="/spin-luck-shop" onClick={() => setStatusMenu(false)}>گردونه شانس</Link>
               <img className={`pr-5 pt-1 show-img-menu ${pathname == "/spin-luck-shop" ? "block" : "opacity-0"} ${pathname !== "/spin-luck-shop" ? "hover-img-menu" : ""} `} src="./images/Frame.svg" alt="عکس زیر منو" />
             </li>
           </ul>

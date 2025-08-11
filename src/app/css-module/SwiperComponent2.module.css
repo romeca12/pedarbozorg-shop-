@@ -1,0 +1,16 @@
+.myCustomSwiper2{
+    background-color: var(--color-primary);
+    margin-top: 16px;
+    align-content: center;
+    border-radius: 16px;
+}
+.myCustomSwiper2 :global(.swiper){
+    margin-top: 8px;
+    margin-bottom: 16px;
+    width: 100%;
+}
+.myCustomSwiper2 :global(.swiper-slide){
+    width: 192px !important;
+    height: 338px;
+    border-radius: 16px;
+}

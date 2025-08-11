@@ -4,6 +4,7 @@ import SwiperSlider from "@/components/Swiper";
 import Background from "./components/Background";
 import IconBox from "./components/IconBox";
 import Baner from "./components/Baner";
+import PopularProductSlider from "./components/PopularProductSlider";
 
 
 export default function Home() {
@@ -13,7 +14,8 @@ export default function Home() {
       <SwiperSlider/>
       <IconBox/>
       <Baner/>
-      <div className="mb-16"></div>
+      <PopularProductSlider/>
+      <div className="mb-96"></div>
     </Container >
 
   );
