@@ -487,3 +487,9 @@ button {
     margin-top: 60px;
   }
 }
+
+/* arrow-up  */
+
+.tran-arrow-up{
+  transition: all 0.7s;
+}

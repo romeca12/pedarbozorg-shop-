@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation";
 function Header() {
   const [statusMenu, setStatusMenu] = useState<boolean>(false);
   const [openLogin, setOpenLogin] = useState<boolean>(false);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const pathname = usePathname();
 
   function openMenu() {
@@ -18,7 +19,6 @@ function Header() {
     setStatusMenu(false);
   }
 
-  const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,7 +28,6 @@ function Header() {
         setIsScrolled(false)
       }
     }
-
     window.addEventListener("scroll", handleScroll);
 
     return () => {
@@ -69,6 +68,23 @@ function Header() {
             <img className="image-cart-desktop" src="./images/cart.svg" alt="سبد خرید" />
           </div>
         </div>
+
+
+        {/* {statusMenu && (
+          <div
+            className=""
+            style={{
+              position: "fixed",
+              inset: 0,
+              zIndex: 40,
+              backdropFilter: "blur(6px)",
+              background: "rgba(0,0,0,0.1)",
+              transition: "backdrop-filter 0.3s"
+            }}
+            onClick={closeMenu}
+          />
+        )} */}
+        {/* cover of menu */}
 
         <div
           className={statusMenu ? "covermenu" : ""}

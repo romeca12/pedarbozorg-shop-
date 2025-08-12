@@ -35,6 +35,9 @@
 }
 
 @media (min-width: 768px) {
+  .myCustomSwiper2 :global(.swiper) {
+    margin-top: 24px;
+  }
   .myCustomSwiper2 :global(.button-slider) {
     background-color: var(--color-white);
     width: 40px;

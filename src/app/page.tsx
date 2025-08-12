@@ -10,11 +10,11 @@ import PopularProductSlider from "./components/PopularProductSlider";
 export default function Home() {
   return (
     <Container>
-      <Background/>
-      <SwiperSlider/>
-      <IconBox/>
-      <Baner/>
-      <PopularProductSlider/>
+      <Background />
+      <SwiperSlider />
+      <IconBox />
+      <Baner />
+      <PopularProductSlider />
       <div className="mb-96"></div>
     </Container >
 

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import NextTopLoader from "nextjs-toploader";
 import Header from "@/components/Header";
+import ArrowUp from "@/components/ArrowUp";
 
 
 export const metadata: Metadata = {
@@ -10,6 +11,9 @@ export const metadata: Metadata = {
     template: "پدر بزرگ | %s"
   },
   description: "فروشگاه طبیعی پدر بزرگ",
+  icons: {
+    icon: "./images/logo.svg",
+  },
 };
 
 export default function RootLayout({
@@ -25,8 +29,9 @@ export default function RootLayout({
           height={3}
           showSpinner={false}
         />
-        <Header/>
+        <Header />
         {children}
+        <ArrowUp/>
       </body>
     </html>
   );
