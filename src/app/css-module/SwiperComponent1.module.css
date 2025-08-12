@@ -58,8 +58,8 @@
   right: -70px;
   z-index: 10;
   cursor: pointer;
-  transform: translateY(-50%);
-  transform: translateX(50%);
+  /* transform: translateY(-50%);
+  transform: translateX(50%); */
   color: #ffffffea;
 }
 .myCustomSwiper :global(.prev-slider:after) {
@@ -85,7 +85,7 @@
   left: -13px;
   z-index: 10;
   cursor: pointer;
-  transform: translateY(-50%);
+  /* transform: translateY(-50%); */
   color: #ffffffea;
 }
 .myCustomSwiper :global(.next-slider::before) {

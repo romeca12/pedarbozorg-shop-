@@ -10,6 +10,7 @@ writing variable
 @theme {
   --color-primary: #3d8361;
   --color-secondary: #f4f6ff;
+  --color-background: #E0F1E9;
   --color-scrollbar-track: #bdd8a4be;
 }
 @layer utilities {

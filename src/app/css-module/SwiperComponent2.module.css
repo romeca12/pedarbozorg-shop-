@@ -1,16 +1,50 @@
-.myCustomSwiper2{
-    background-color: var(--color-primary);
-    margin-top: 16px;
-    align-content: center;
-    border-radius: 16px;
+.myCustomSwiper2 {
+  background-color: var(--color-primary);
+  align-content: center;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
 }
-.myCustomSwiper2 :global(.swiper){
-    margin-top: 8px;
-    margin-bottom: 16px;
-    width: 100%;
+.myCustomSwiper2 :global(.swiper) {
+  margin-top: 8px;
+  height: 338px;
 }
-.myCustomSwiper2 :global(.swiper-slide){
-    width: 192px !important;
-    height: 338px;
-    border-radius: 16px;
+.myCustomSwiper2 :global(.swiper-slide) {
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(255, 230, 0);
+  height: 100%;
+}
+.myCustomSwiper2 :global(.button-slider) {
+  position: absolute;
+  background-color: var(--color-background);
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  cursor: pointer;
+  z-index: 1;
+  top: 50%;
+}
+.myCustomSwiper2 :global(.prev-slider) {
+  right: 8px;
+}
+.myCustomSwiper2 :global(.next-slider) {
+  left: 8px;
+}
+
+@media (min-width: 768px) {
+  .myCustomSwiper2 :global(.button-slider) {
+    background-color: var(--color-white);
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+  }
+  .myCustomSwiper2 :global(.prev-slider) {
+    right: 24px;
+  }
+  .myCustomSwiper2 :global(.next-slider) {
+    left: 24px;
+  }
 }
