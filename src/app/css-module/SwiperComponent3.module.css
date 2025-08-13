@@ -6,6 +6,7 @@
 .myCustomSwiper3 :global(.swiper) {
 }
 .myCustomSwiper3 :global(.swiper-slide) {
+  /* background-color: red; */
   height: auto;
   padding: 0px 32px;
 }

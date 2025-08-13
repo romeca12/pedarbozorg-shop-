@@ -12,10 +12,10 @@ import { Navigation } from 'swiper/modules';
 
 export default function SpecialProduct() {
     return (
-        <div className={`styles.myCustomSwiper3 mt-16 md:mt-20 px-[23px] ${styles.myCustomSwiper3}`}>
-            <div className="h-[51px] font-extrabold flex items-center justify-center text-center mb-4">
+        <div className={`mt-16 md:mt-20 px-[23px] ${styles.myCustomSwiper3}`}>
+            <div className="h-[51px] font-extrabold flex items-center justify-center text-center mb-4 lg:mb-8">
                 <img src="./images/flower-slider-right.svg" alt="گل1" className="w-[46px] h-[32px] sm:w-[69px] sm:h-[65px]" />
-                <h3 className="mt-[32] text-primary pb-8 mx-2 text-xs sm:mx-4 sm:text-base md:text-2xl">محصولات ویژه</h3>
+                <h3 className="mt-[32] text-primary pb-8 mx-2 text-xs sm:mx-4 sm:text-base md:text-2xl font-black">محصولات ویژه</h3>
                 <img src="./images/flower-slider-left.svg" alt="گل2" className="w-[46px] h-[32px] sm:w-[69px] sm:h-[65px]" />
             </div>
             <Swiper
@@ -26,6 +26,46 @@ export default function SpecialProduct() {
                 loop={true}
                 modules={[Navigation]}
             >
+                <SwiperSlide>
+                    <div className="flex flex-col items-center md:flex-row-reverse md:justify-around md:items-center">
+                        <div>
+                            <img src="./images/Frame 1756.svg" alt="" className="w-[190px] h-[153px] md:w-[403px] md:h-[400px]" />
+                        </div>
+                        <div className="text-center text-sm w-full max-w-2xs lg:w-[368px]">
+                            <h4 className="text-base text-primary my-4 md:text-2xl lg:text-[32px] md:mb-8 font-black">کره بادام زمینی</h4>
+                            <div className="text-sm sm:text-base bg-background rounded-lg text-primary py-[7px] mb-2 md:py-[9.5px]">تهیه همه روزه با پرس سرد</div>
+                            <div className="text-sm sm:text-base bg-background rounded-lg text-primary py-[7px] mb-2 md:py-[9.5px]">کنترل قند خون</div>
+                            <div className="text-sm sm:text-base bg-background rounded-lg text-primary py-[7px] mb-2 md:py-[9.5px]">بهبود سلامت قلب</div>
+                            <div className="text-sm sm:text-base bg-background rounded-lg text-primary py-[7px] mb-4 md:mb-8 md:py-[9.5px]">تصفیه فیزیکی</div>
+                            <div className="flex justify-between mx-auto w-[171px] lg:w-[193px] items-center">
+                                <button className="text-sm text-white bg-primary rounded-lg px-[12px] py-[7px] lg:text-base lg:px-[16px] lg:py-[8px]">مشاهده محصول</button>
+                                <button>
+                                    <img src="./images/cart.svg" alt="" className="w-8 h-8 lg:w-10 lg:h-10"/>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </SwiperSlide>
+                {/* <SwiperSlide>
+                    <div className="flex flex-col items-center md:flex-row-reverse md:justify-around md:items-center">
+                        <div>
+                            <img src="./images/Frame 1756.svg" alt="" className="w-[190px] h-[153px] md:w-[403px] md:h-[400px]" />
+                        </div>
+                        <div className="text-center text-sm w-[190px] md:w-[368px]">
+                            <h4 className="text-base text-primary my-4 md:text-[32px] md:mb-8">کره بادام زمینی</h4>
+                            <div className="bg-background rounded-lg text-primary py-[7px] mb-2 w-full md:py-[9.5px]">تهیه همه روزه با پرس سرد</div>
+                            <div className="bg-background rounded-lg text-primary py-[7px] mb-2">مناسب پخت و پز و سرخ کردنی</div>
+                            <div className="bg-background rounded-lg text-primary py-[7px] mb-2">بهبود سلامت قلب</div>
+                            <div className="bg-background rounded-lg text-primary py-[7px] mb-4 md:mb-8">تصفیه فیزیکی</div>
+                            <div className="flex justify-between">
+                                <button className="text-sm text-white bg-primary rounded-lg px-[12px] py-[7px]">مشاهده محصول</button>
+                                <button>
+                                    <img src="./images/cart.svg" alt="" className="w-8 h-8"/>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </SwiperSlide>
                 <SwiperSlide>
                     <div className="flex flex-col items-center md:flex-row-reverse md:justify-around md:items-center">
                         <div>
@@ -47,149 +87,65 @@ export default function SpecialProduct() {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div>
-                        <img src="./images/Frame 1756.svg" alt="" className="w-[190px] h-[153px]" />
+                    <div className="flex flex-col items-center md:flex-row-reverse md:justify-around md:items-center">
                         <div>
-                            <h4></h4>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <div>
-                                <button></button>
+                            <img src="./images/Frame 1756.svg" alt="" className="w-[190px] h-[153px] md:w-[403px] md:h-[400px]" />
+                        </div>
+                        <div className="text-center text-sm w-[190px] md:w-[368px]">
+                            <h4 className="text-base text-primary my-4 md:text-[32px] md:mb-8">کره بادام زمینی</h4>
+                            <div className="bg-background rounded-lg text-primary py-[7px] mb-2 w-full md:py-[9.5px]">تهیه همه روزه با پرس سرد</div>
+                            <div className="bg-background rounded-lg text-primary py-[7px] mb-2">مناسب پخت و پز و سرخ کردنی</div>
+                            <div className="bg-background rounded-lg text-primary py-[7px] mb-2">بهبود سلامت قلب</div>
+                            <div className="bg-background rounded-lg text-primary py-[7px] mb-4 md:mb-8">تصفیه فیزیکی</div>
+                            <div className="flex justify-between">
+                                <button className="text-sm text-white bg-primary rounded-lg px-[12px] py-[7px]">مشاهده محصول</button>
                                 <button>
-                                    <img src="" alt="" />
+                                    <img src="./images/cart.svg" alt="" className="w-8 h-8"/>
                                 </button>
                             </div>
                         </div>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div>
-                        <img src="./images/Frame 1756.svg" alt="" className="w-[190px] h-[153px]" />
+                    <div className="flex flex-col items-center md:flex-row-reverse md:justify-around md:items-center">
                         <div>
-                            <h4></h4>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <div>
-                                <button></button>
+                            <img src="./images/Frame 1756.svg" alt="" className="w-[190px] h-[153px] md:w-[403px] md:h-[400px]" />
+                        </div>
+                        <div className="text-center text-sm w-[190px] md:w-[368px]">
+                            <h4 className="text-base text-primary my-4 md:text-[32px] md:mb-8">کره بادام زمینی</h4>
+                            <div className="bg-background rounded-lg text-primary py-[7px] mb-2 w-full md:py-[9.5px]">تهیه همه روزه با پرس سرد</div>
+                            <div className="bg-background rounded-lg text-primary py-[7px] mb-2">مناسب پخت و پز و سرخ کردنی</div>
+                            <div className="bg-background rounded-lg text-primary py-[7px] mb-2">بهبود سلامت قلب</div>
+                            <div className="bg-background rounded-lg text-primary py-[7px] mb-4 md:mb-8">تصفیه فیزیکی</div>
+                            <div className="flex justify-between">
+                                <button className="text-sm text-white bg-primary rounded-lg px-[12px] py-[7px]">مشاهده محصول</button>
                                 <button>
-                                    <img src="" alt="" />
+                                    <img src="./images/cart.svg" alt="" className="w-8 h-8"/>
                                 </button>
                             </div>
                         </div>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div>
-                        <img src="./images/Frame 1756.svg" alt="" className="w-[190px] h-[153px]" />
+                    <div className="flex flex-col items-center md:flex-row-reverse md:justify-around md:items-center">
                         <div>
-                            <h4></h4>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <div>
-                                <button></button>
+                            <img src="./images/Frame 1756.svg" alt="" className="w-[190px] h-[153px] md:w-[403px] md:h-[400px]" />
+                        </div>
+                        <div className="text-center text-sm w-[190px] md:w-[368px]">
+                            <h4 className="text-base text-primary my-4 md:text-[32px] md:mb-8">کره بادام زمینی</h4>
+                            <div className="bg-background rounded-lg text-primary py-[7px] mb-2 w-full md:py-[9.5px]">تهیه همه روزه با پرس سرد</div>
+                            <div className="bg-background rounded-lg text-primary py-[7px] mb-2">مناسب پخت و پز و سرخ کردنی</div>
+                            <div className="bg-background rounded-lg text-primary py-[7px] mb-2">بهبود سلامت قلب</div>
+                            <div className="bg-background rounded-lg text-primary py-[7px] mb-4 md:mb-8">تصفیه فیزیکی</div>
+                            <div className="flex justify-between">
+                                <button className="text-sm text-white bg-primary rounded-lg px-[12px] py-[7px]">مشاهده محصول</button>
                                 <button>
-                                    <img src="" alt="" />
+                                    <img src="./images/cart.svg" alt="" className="w-8 h-8"/>
                                 </button>
                             </div>
                         </div>
                     </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div>
-                        <img src="./images/Frame 1756.svg" alt="" className="w-[190px] h-[153px]" />
-                        <div>
-                            <h4></h4>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <div>
-                                <button></button>
-                                <button>
-                                    <img src="" alt="" />
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div>
-                        <img src="./images/Frame 1756.svg" alt="" className="w-[190px] h-[153px]" />
-                        <div>
-                            <h4></h4>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <div>
-                                <button></button>
-                                <button>
-                                    <img src="" alt="" />
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div>
-                        <img src="./images/Frame 1756.svg" alt="" className="w-[190px] h-[153px]" />
-                        <div>
-                            <h4></h4>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <div>
-                                <button></button>
-                                <button>
-                                    <img src="" alt="" />
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div>
-                        <img src="./images/Frame 1756.svg" alt="" className="w-[190px] h-[153px]" />
-                        <div>
-                            <h4></h4>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <div>
-                                <button></button>
-                                <button>
-                                    <img src="" alt="" />
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div>
-                        <img src="./images/Frame 1756.svg" alt="" className="w-[190px] h-[153px]" />
-                        <div>
-                            <h4></h4>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <div>
-                                <button></button>
-                                <button>
-                                    <img src="" alt="" />
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </SwiperSlide>
+                </SwiperSlide> */}
             </Swiper>
             <div className="button-slider prev-slider-special">
                 <img src="./images/arrow-right-slider.svg" alt="ناوبری راست" className="lg:w-[24px] lg:h-[24px]" />
