@@ -11,9 +11,9 @@ export const metadata: Metadata = {
     template: "پدر بزرگ | %s"
   },
   description: "فروشگاه طبیعی پدر بزرگ",
-  icons: {
-    icon: "./images/logo.svg",
-  },
+  // icons: {
+  //   icon: "./images/logo.svg",
+  // },
 };
 
 export default function RootLayout({
@@ -23,6 +23,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl">
+      <head>
+        <link rel="icon" href="./images/logo.svg" type="image/svg" />
+      </head>
       <body>
         <NextTopLoader
           color="orange"
@@ -31,7 +34,7 @@ export default function RootLayout({
         />
         <Header />
         {children}
-        <ArrowUp/>
+        <ArrowUp />
       </body>
     </html>
   );

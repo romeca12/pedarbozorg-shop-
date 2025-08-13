@@ -1,6 +1,5 @@
 .myCustomSwiper2 {
   background-color: var(--color-primary);
-  align-content: center;
   border-radius: 16px;
   position: relative;
   overflow: hidden;
@@ -34,7 +33,7 @@
   left: 8px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .myCustomSwiper2 :global(.swiper) {
     margin-top: 24px;
   }

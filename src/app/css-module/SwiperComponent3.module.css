@@ -1,0 +1,45 @@
+.myCustomSwiper3 {
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+.myCustomSwiper3 :global(.swiper) {
+}
+.myCustomSwiper3 :global(.swiper-slide) {
+  height: auto;
+  padding: 0px 32px;
+}
+.myCustomSwiper3 :global(.button-slider) {
+  position: absolute;
+  background-color: var(--color-background);
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  cursor: pointer;
+  z-index: 1;
+  top: 50%;
+}
+.myCustomSwiper3 :global(.prev-slider-special) {
+  right: 0px;
+}
+.myCustomSwiper3 :global(.next-slider-special) {
+  left: 0px;
+}
+
+@media (min-width: 1024px) {
+  .myCustomSwiper3 :global(.swiper) {
+    margin-top: 24px;
+  }
+  .myCustomSwiper3 :global(.button-slider) {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+  }
+  .myCustomSwiper3 :global(.prev-slider-special) {
+    right: 0px;
+  }
+  .myCustomSwiper3 :global(.next-slider-special) {
+    left: 0px;
+  }
+}

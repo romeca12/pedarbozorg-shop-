@@ -491,5 +491,6 @@ button {
 /* arrow-up  */
 
 .tran-arrow-up{
+  z-index: 1;
   transition: all 0.7s;
 }
