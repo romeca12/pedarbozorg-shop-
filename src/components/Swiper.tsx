@@ -1,7 +1,5 @@
 "use client";
 
-// import React, { useRef, useState } from 'react';
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
@@ -21,59 +19,44 @@ export default function SwiperSlider() {
   // const nextRef = useRef(null)
 
   return (
-    <div className="flex justify-center">
+    <div className={styles.myCustomSwiper}>
       <Swiper
         effect={'cards'}
         grabCursor={true}
         modules={[EffectCards, Navigation, Pagination, Autoplay]}
         navigation={{
-          // nextEl: prevRef.current,
-          // prevEl: nextRef.current,
-          // روش بعدی
           nextEl: ".next-slider",
           prevEl: ".prev-slider",
         }}
-        loopAdditionalSlides={1} // تعداد اسلایدهای اضافی را کاهش دهید
         pagination={{
           clickable: true, // امکان کلیک روی نقاط
         }}
-        loop={true}
+        loop
         autoplay={{
           delay: 3000,
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         }}
-        className={styles.myCustomSwiper}
+        slidesPerView={1}
+        slidesPerGroup={1}
+        speed={300}
+        followFinger={false} // برای navigation مهم است
+        threshold={15} // حداقل حرکت برای تغییر اسلاید
+        cardsEffect={{
+          slideShadows: false, // سایه‌ها را غیرفعال می‌کند
+          perSlideOffset: 10,  // فاصله بین اسلایدها
+          perSlideRotate: 2,   // مقدار چرخش کمتر
+        }}
       >
-        <SwiperSlide className="cover-slider cover-slider-1">
+        {Array(5).fill(1).map((_, i) => <SwiperSlide key={i} className="cover-slider cover-slider-1">
           <div>
-            <h1 className="text-center mt-8 text-gray-900 text-5xl">Slider1</h1>
+            <h1 className="text-center mt-8 text-gray-900 text-5xl">Slider {i}</h1>
           </div>
-        </SwiperSlide>
-        <SwiperSlide className="cover-slider cover-slider-2">
-          <div>
-            <h1 className="text-center mt-8 text-gray-900 text-5xl">Slider2</h1>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="cover-slider cover-slider-3">
-          <div>
-            <h1 className="text-center mt-8 text-gray-900 text-5xl">Slider3</h1>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="cover-slider cover-slider-4">
-          <div>
-            <h1 className="text-center mt-8 text-gray-900 text-5xl">Slider4</h1>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="cover-slider cover-slider-5">
-          <div>
-            <h1 className="text-center mt-8 text-gray-900 text-5xl">Slider5</h1>
-          </div>
-        </SwiperSlide>
-
-        <div className="prev-slider"></div>
-        <div className="next-slider"></div>
+        </SwiperSlide>)
+        }
       </Swiper>
+      <div className="prev-slider"></div>
+      <div className="next-slider"></div>
     </div>
   )
 }

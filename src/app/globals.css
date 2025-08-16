@@ -12,6 +12,7 @@ writing variable
   --color-secondary: #f4f6ff;
   --color-background: #E0F1E9;
   --color-scrollbar-track: #bdd8a4be;
+  --color-background-gallery: #FAEEED;
   --font-bolder: "800";
 }
 @layer utilities {
@@ -101,7 +102,6 @@ body {
   font-weight: 300;
   position: relative;
   direction: rtl;
-  overflow-x: hidden !important;
   background-color: #f4f6ff;
 }
 
@@ -494,4 +494,11 @@ button {
 .tran-arrow-up{
   z-index: 1;
   transition: all 0.7s;
+}
+
+/* garllery product home page */
+.gallary {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(120px ,272px));
+  place-content: center;
 }

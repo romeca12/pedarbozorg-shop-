@@ -6,6 +6,7 @@ import IconBox from "./components/IconBox";
 import Baner from "./components/Baner";
 import PopularProductSlider from "./components/PopularProductSlider";
 import SpecialProduct from "./components/SpecialProduct";
+import Gallery from "./components/Gallery";
 
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       <Baner />
       <PopularProductSlider />
       <SpecialProduct/>
+      <Gallery/>
       <div className="mb-96"></div>
     </Container >
 
