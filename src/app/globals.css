@@ -10,9 +10,10 @@ writing variable
 @theme {
   --color-primary: #3d8361;
   --color-secondary: #f4f6ff;
-  --color-background: #E0F1E9;
+  --color-background: #e0f1e9;
   --color-scrollbar-track: #bdd8a4be;
-  --color-background-gallery: #FAEEED;
+  --color-background-gallery: #faeeed;
+  --color-white: #ffffff;
   --font-bolder: "800";
 }
 @layer utilities {
@@ -346,14 +347,22 @@ button {
 /* home styles */
 /* swiper slider */
 
-
 @media screen and (max-width: 926px) {
   .header .header-cover-desktop .header-right-desktop h2 {
     display: none;
   }
 }
 
+.gallary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(clamp(140px, 20% , 272px), 272px));
+  justify-content: center;
+}
+
 @media screen and (max-width: 768px) {
+  .gallary {
+    grid-template-columns: repeat(2, minmax(140px, auto));
+  }
 }
 @media screen and (max-width: 592px) {
   .limit-desktop {
@@ -491,14 +500,9 @@ button {
 
 /* arrow-up  */
 
-.tran-arrow-up{
+.tran-arrow-up {
   z-index: 1;
   transition: all 0.7s;
 }
 
 /* garllery product home page */
-.gallary {
-  display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(120px ,272px));
-  place-content: center;
-}

@@ -4,15 +4,16 @@
   position: relative;
 }
 .myCustomSwiper2 :global(.swiper) {
-  margin-top: 8px;
   height: 338px;
 }
 .myCustomSwiper2 :global(.swiper-slide) {
   border-radius: 16px;
   display: flex;
   justify-content: center;
-  background-color: rgb(255, 230, 0);
   height: 100%;
+  background-color: var(--color-white);
+  background-color: red;
+  overflow: hidden;
 }
 .myCustomSwiper2 :global(.button-slider) {
   position: absolute;

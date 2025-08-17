@@ -7,6 +7,7 @@ import Baner from "./components/Baner";
 import PopularProductSlider from "./components/PopularProductSlider";
 import SpecialProduct from "./components/SpecialProduct";
 import Gallery from "./components/Gallery";
+import WhyPedarbozorg from "./components/WhyPedarbozorg";
 
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       <PopularProductSlider />
       <SpecialProduct/>
       <Gallery/>
+      <WhyPedarbozorg/>
       <div className="mb-96"></div>
     </Container >
 
