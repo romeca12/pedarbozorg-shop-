@@ -39,14 +39,6 @@ export default function SwiperSlider() {
         }}
         slidesPerView={1}
         slidesPerGroup={1}
-        speed={300}
-        followFinger={false} // برای navigation مهم است
-        threshold={15} // حداقل حرکت برای تغییر اسلاید
-        cardsEffect={{
-          slideShadows: false, // سایه‌ها را غیرفعال می‌کند
-          perSlideOffset: 10,  // فاصله بین اسلایدها
-          perSlideRotate: 2,   // مقدار چرخش کمتر
-        }}
       >
         {Array(5).fill(1).map((_, i) => <SwiperSlide key={i} className="cover-slider cover-slider-1">
           <div>

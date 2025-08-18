@@ -7,15 +7,6 @@ writing variable
   @apply 
 } */
 
-@theme {
-  --color-primary: #3d8361;
-  --color-secondary: #f4f6ff;
-  --color-background: #e0f1e9;
-  --color-scrollbar-track: #bdd8a4be;
-  --color-background-gallery: #faeeed;
-  --color-white: #ffffff;
-  --font-bolder: "800";
-}
 @layer utilities {
   .hover-img-menu {
     @apply group-hover:opacity-100 transition-opacity duration-200;
@@ -90,6 +81,16 @@ writing variable
   src: url("../../public/fonts/woff/IRANYekanX-Bold.woff") format("woff");
   font-weight: 900;
   font-style: normal;
+}
+
+@theme {
+  --color-primary: #3d8361;
+  --color-secondary: #f4f6ff;
+  --color-background: #e0f1e9;
+  --color-scrollbar-track: #bdd8a4be;
+  --color-background-gallery: #faeeed;
+  --color-white: #ffffff;
+  --font-weigh-800: "800";
 }
 
 * {
@@ -355,7 +356,7 @@ button {
 
 .gallary {
   display: grid;
-  grid-template-columns: repeat(4, minmax(clamp(140px, 20% , 272px), 272px));
+  grid-template-columns: repeat(4, minmax(clamp(140px, 20%, 272px), 272px));
   justify-content: center;
 }
 
