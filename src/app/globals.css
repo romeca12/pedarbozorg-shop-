@@ -105,6 +105,7 @@ body {
   position: relative;
   direction: rtl;
   background-color: #f4f6ff;
+  overflow-x: hidden;
 }
 
 button {
@@ -354,10 +355,23 @@ button {
   }
 }
 
+/* css gallery  */
 .gallary {
   display: grid;
   grid-template-columns: repeat(4, minmax(clamp(140px, 20%, 272px), 272px));
   justify-content: center;
+}
+
+/* why pedarbozorg */
+.why-pedarbozorg {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(140px, 160px));
+  justify-content: center;
+}
+@media screen and (min-width: 640px) {
+  .why-pedarbozorg {
+    grid-template-columns: repeat(4, minmax(auto, 271px));
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -505,5 +519,3 @@ button {
   z-index: 1;
   transition: all 0.7s;
 }
-
-/* garllery product home page */
