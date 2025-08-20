@@ -24,8 +24,8 @@ export default function PopularProductSlider() {
                 grabCursor={true}
                 modules={[Navigation]}
                 navigation={{
-                    nextEl: ".next-slider",
-                    prevEl: ".prev-slider",
+                    nextEl: ".next-slider-2",
+                    prevEl: ".prev-slider-2",
                 }}
                 loop={true}
                 pagination={{
@@ -36,7 +36,7 @@ export default function PopularProductSlider() {
                         slidesPerView: 2,
                         spaceBetween: 16,
                     },
-                    760: {
+                    770: {
                         slidesPerView: 3,
                         spaceBetween: 16,
                     },
@@ -65,8 +65,8 @@ export default function PopularProductSlider() {
                                     <span className=" text-white text-xs font-black">۶۸٪</span>
                                 </div>
                                 <div className='flex items-center'>
-                                    <span className="text-base sm:text-xl text-[#353535]">۹,۳۸۳,۰۰۰</span>
-                                    <img src="./icons/tooman.svg" alt="تومان" className='w-[23px] h-[16px] my-1.5 mr-1 sm:mr-2' />
+                                    <span className="text-base md:text-xl text-[#353535]">۹,۳۸۳,۰۰۰</span>
+                                    <img src="./icons/tooman.svg" alt="تومان" className='w-[23px] h-[16px] my-1.5 mr-1 md:mr-2' />
                                 </div>
                             </div>
                             <div className='flex justify-between py-[1px]'>
@@ -77,10 +77,10 @@ export default function PopularProductSlider() {
                     </div>
                 </SwiperSlide>)}
             </Swiper>
-            <div className="button-slider prev-slider">
+            <div className="button-slider prev-slider-2">
                 <img src="./images/arrow-right-slider.svg" alt="ناوبری راست" className="lg:w-[24px] lg:h-[24px]" />
             </div>
-            <div className="button-slider next-slider">
+            <div className="button-slider next-slider-2">
                 <img src="./images/arrow-left-slider.svg" alt="ناوبری چپ" className="lg:w-[24px] lg:h-[24px]" />
             </div>
         </div>

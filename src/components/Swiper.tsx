@@ -25,8 +25,8 @@ export default function SwiperSlider() {
         grabCursor={true}
         modules={[EffectCards, Navigation, Pagination, Autoplay]}
         navigation={{
-          nextEl: ".next-slider",
-          prevEl: ".prev-slider",
+          nextEl: ".next-slider-1",
+          prevEl: ".prev-slider-1",
         }}
         pagination={{
           clickable: true, // امکان کلیک روی نقاط
@@ -47,8 +47,8 @@ export default function SwiperSlider() {
         </SwiperSlide>)
         }
       </Swiper>
-      <div className="prev-slider"></div>
-      <div className="next-slider"></div>
+      <div className="prev-slider-1"></div>
+      <div className="next-slider-1"></div>
     </div>
   )
 }

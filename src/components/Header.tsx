@@ -12,13 +12,9 @@ function Header() {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const pathname = usePathname();
 
-  function openMenu() {
-    setStatusMenu(true);
-  }
   function closeMenu() {
     setStatusMenu(false);
   }
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,12 +36,20 @@ function Header() {
     <header className={`header ${isScrolled ? "shadow" : ""}`}>
       <div className="header-main-desktop">
         <div className="header-cover-desktop limit-desktop">
-          <Link href="/">
-            <div className="header-right-desktop">
-              <img src="./images/Layer_1.svg" alt="لوگو دایره" />
-              <h2>فروشگاه محصولات طبیعی پدربزرگ</h2>
-            </div>
-          </Link>
+          {pathname === "/" ?
+            <span>
+              <div className="header-right-desktop">
+                <img src="./images/Layer_1.svg" alt="لوگو دایره" />
+                <h2>فروشگاه محصولات طبیعی پدربزرگ</h2>
+              </div>
+            </span> :
+            <Link href="/">
+              <div className="header-right-desktop">
+                <img src="./images/Layer_1.svg" alt="لوگو دایره" />
+                <h2>فروشگاه محصولات طبیعی پدربزرگ</h2>
+              </div>
+            </Link>
+          }
           <div className="header-midle-desktop">
             <div className="input-header">
               <input type="text" placeholder="جست و جو..." />
@@ -101,28 +105,28 @@ function Header() {
           <ul>
 
             <li className="group li-nav">
-              <Link href="/" onClick={() => setStatusMenu(false)}>صفحه اصلی</Link>
-              <img className={`pr-3.5 pt-1 show-img-menu ${pathname == "/" ? "block" : "opacity-0"} ${pathname !== "/" ? "hover-img-menu" : ""}`} src="./images/Frame.svg" alt="عکس زیر منو" />
+              {pathname === "/" ? <span>صفحه اصلی</span> : <Link href="/" onClick={() => setStatusMenu(false)}>صفحه اصلی</Link>}
+              <img className={`-translate-x-3.5 pt-0.5 ${pathname == "/" ? "block" : "show-img-menu"} ${pathname !== "/" ? "hover-img-menu rotate-y-90" : ""}`} src="./images/Frame.svg" alt="عکس زیر منو" />
             </li>
             <li className="group">
-              <Link href="/products" onClick={() => setStatusMenu(false)}>محصولات</Link>
-              <img className={`pr-2.5 pt-1 show-img-menu ${pathname == "/products" ? "block" : "opacity-0"} ${pathname !== "/products" ? "hover-img-menu" : ""}`} src="./images/Frame.svg" alt="عکس زیر منو" />
+              {pathname === "/products" ? <span>محصولات</span> : <Link href="/products" onClick={() => setStatusMenu(false)}>محصولات</Link>}
+              <img className={`-translate-x-2.5 pt-0.5 ${pathname == "/products" ? "block" : "show-img-menu"} ${pathname !== "/products" ? "hover-img-menu rotate-y-90" : ""}`} src="./images/Frame.svg" alt="عکس زیر منو" />
             </li>
             <li className="group">
-              <Link href="blog" onClick={() => setStatusMenu(false)}>مجله</Link>
-              <img className={`pr-0.5 pt-1 show-img-menu ${pathname == "/blog" ? "block" : "opacity-0"} ${pathname !== "/blog" ? "hover-img-menu" : ""} `} src="./images/Frame.svg" alt="عکس زیر منو" />
+              {pathname === "/blog" ? <span>مجله</span> : <Link href="/blog" onClick={() => setStatusMenu(false)}>مجله</Link>}
+              <img className={`-translate-x-0.5 pt-0.5 ${pathname == "/blog" ? "block" : "show-img-menu"} ${pathname !== "/blog" ? "hover-img-menu rotate-y-90" : ""} `} src="./images/Frame.svg" alt="عکس زیر منو" />
             </li>
             <li className="group">
-              <Link href="/about" onClick={() => setStatusMenu(false)}>درباره ما</Link>
-              <img className={`pr-1.5 pt-1 show-img-menu ${pathname == "/about" ? "block" : "opacity-0"} ${pathname !== "/about" ? "hover-img-menu" : ""} `} src="./images/Frame.svg" alt="عکس زیر منو" />
+              {pathname === "/about" ? <span>درباره ما</span> : <Link href="/about" onClick={() => setStatusMenu(false)}>درباره ما</Link>}
+              <img className={`-translate-x-1.5 pt-0.5 ${pathname == "/about" ? "block" : "show-img-menu"} ${pathname !== "/about" ? "hover-img-menu rotate-y-90" : ""} `} src="./images/Frame.svg" alt="عکس زیر منو" />
             </li>
             <li className="group">
-              <Link href="contact-us" onClick={() => setStatusMenu(false)}>تماس باما </Link>
-              <img className={`pr-2.5 pt-1 show-img-menu ${pathname == "/contact-us" ? "block" : "opacity-0"} ${pathname !== "/contact-us" ? "hover-img-menu" : ""} `} src="./images/Frame.svg" alt="عکس زیر منو" />
+              {pathname === "/contact-us" ? <span>تماس باما</span> : <Link href="/contact-us" onClick={() => setStatusMenu(false)}>تماس باما</Link>}
+              <img className={`-translate-x-2.5 pt-0.5 ${pathname == "/contact-us" ? "block" : "show-img-menu"} ${pathname !== "/contact-us" ? "hover-img-menu rotate-y-90" : ""} `} src="./images/Frame.svg" alt="عکس زیر منو" />
             </li>
             <li className="group">
-              <Link href="/spin-luck-shop" onClick={() => setStatusMenu(false)}>گردونه شانس</Link>
-              <img className={`pr-5 pt-1 show-img-menu ${pathname == "/spin-luck-shop" ? "block" : "opacity-0"} ${pathname !== "/spin-luck-shop" ? "hover-img-menu" : ""} `} src="./images/Frame.svg" alt="عکس زیر منو" />
+              {pathname === "/spin-luck-shop" ? <span>گردونه شانس</span> : <Link href="/spin-luck-shop" onClick={() => setStatusMenu(false)}>گردونه شانس</Link>}
+              <img className={`-translate-x-5 pt-0.5 ${pathname === "/spin-luck-shop" ? "block" : "show-img-menu"} ${pathname !== "/spin-luck-shop" ? "hover-img-menu rotate-y-90" : ""}`} src="./images/Frame.svg" alt="عکس زیر منو" />
             </li>
           </ul>
           {/* <img className="imgage-cover-menu" src="./images/Frame.svg" alt="عکس زیر منو" /> */}
@@ -133,7 +137,7 @@ function Header() {
 
       <div className="header-cover-mobile limit">
         <div className="header-right">
-          <button onClick={openMenu}>
+          <button onClick={() => setStatusMenu(true)}>
             <img className="icon-image" src="./images/menu.svg" alt="منو" />
           </button>
           {/* /////////////// */}

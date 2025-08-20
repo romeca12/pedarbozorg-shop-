@@ -3,6 +3,7 @@ import "./globals.css";
 import NextTopLoader from "nextjs-toploader";
 import Header from "@/components/Header";
 import ArrowUp from "@/components/ArrowUp";
+import Layout from "@/components/layout/Layout";
 
 
 export const metadata: Metadata = {
@@ -30,7 +31,9 @@ export default function RootLayout({
           showSpinner={false}
         />
         <Header />
-        {children}
+        <Layout>
+          {children}
+        </Layout>
         <ArrowUp />
       </body>
     </html>

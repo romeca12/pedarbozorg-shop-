@@ -24,15 +24,15 @@
   z-index: 1;
   top: 50%;
 }
-.myCustomSwiper2 :global(.prev-slider) {
+.myCustomSwiper2 :global(.prev-slider-2) {
   right: 8px;
 }
-.myCustomSwiper2 :global(.next-slider) {
+.myCustomSwiper2 :global(.next-slider-2) {
   left: 8px;
 }
 
 @media (min-width: 1024px) {
-  .myCustomSwiper2 :global(.swiper) {
+  .myCustomSwiper2 :global(.swiper) { 
     margin-top: 24px;
   }
   .myCustomSwiper2 :global(.button-slider) {
@@ -41,10 +41,10 @@
     height: 40px;
     padding: 8px;
   }
-  .myCustomSwiper2 :global(.prev-slider) {
+  .myCustomSwiper2 :global(.prev-slider-2) {
     right: 24px;
   }
-  .myCustomSwiper2 :global(.next-slider) {
+  .myCustomSwiper2 :global(.next-slider-2) {
     left: 24px;
   }
 }

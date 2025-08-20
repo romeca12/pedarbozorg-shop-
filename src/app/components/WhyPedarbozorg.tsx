@@ -6,8 +6,6 @@ export default function WhyPedarbozorg() {
         <h3 className="text-primary mx-4 text-base md:text-2xl font-black">چرا پدر بزرگ؟</h3>
         <img src="./images/flower-slider-left.svg" alt="گل2" className="w-[46px] h-[32px] sm:w-[69px] sm:h-[65px]" />
       </div>
-
-
       <div className="why-pedarbozorg gap-2 md:gap-4">
         <div className="relative p-1 lg:p-2 cursor-pointer h-fit group">
           <img src="./images/bg-why-pedarbozorg.svg" alt="پس زمینه" className="w-full transition-all duration-500 ease-in-out group-hover:scale-[1.1]" />

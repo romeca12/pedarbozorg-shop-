@@ -1,15 +1,21 @@
-import Container from "@/components/Container"
-import { Metadata } from "next"
+"use client"
 
-export const metadata : Metadata = {
-  title: "درباره ما",
-}
+import Container from "@/components/Container"
+import { AppContext } from "@/context/AppContext"
+// import { Metadata } from "next"
+import { useContext } from "react"
+
+
+// export const metadata : Metadata = {
+//   title: "درباره ما",
+// }
 
 function aboutUs() {
+  const { value } = useContext(AppContext);
 
-  return(
+  return (
     <Container>
-      <h1>درباره ما</h1>
+      <h1>{value}</h1>
     </Container>
   )
 }

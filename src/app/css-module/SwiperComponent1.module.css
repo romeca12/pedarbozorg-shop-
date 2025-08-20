@@ -56,7 +56,7 @@
   background-size: cover;
   background-position: center;
 }
-.myCustomSwiper :global(.prev-slider) {
+.myCustomSwiper :global(.prev-slider-1) {
   position: absolute;
   font-size: 25px;
   top: 50%;
@@ -65,7 +65,7 @@
   cursor: pointer;
   color: #ffffffea;
 }
-.myCustomSwiper :global(.prev-slider:after) {
+.myCustomSwiper :global(.prev-slider-1:after) {
   content: "▶";
   padding-top: 11.5px;
   padding-bottom: 0px;
@@ -81,7 +81,7 @@
   backdrop-filter: blur(20px);
 }
 
-.myCustomSwiper :global(.next-slider) {
+.myCustomSwiper :global(.next-slider-1) {
   position: absolute;
   font-size: 25px;
   top: 50%;
@@ -91,7 +91,7 @@
   /* transform: translateY(-50%); */
   color: #ffffffea;
 }
-.myCustomSwiper :global(.next-slider::before) {
+.myCustomSwiper :global(.next-slider-1::before) {
   content: "◀";
   padding-top: 11.5px;
   padding-right: 17px;
@@ -129,12 +129,12 @@
   .myCustomSwiper {
     height: 300px;
   }
-  .myCustomSwiper :global(.next-slider) {
+  .myCustomSwiper :global(.next-slider-1) {
     top: auto;
     right: 120px;
     bottom: 65px;
   }
-  .myCustomSwiper :global(.prev-slider) {
+  .myCustomSwiper :global(.prev-slider-1) {
     bottom: 65px;
     top: auto;
     right: 50px;
@@ -152,23 +152,23 @@
   .myCustomSwiper :global(.swiper) {
     width: 100%;
   }
-  .myCustomSwiper :global(.prev-slider) {
+  .myCustomSwiper :global(.prev-slider-1) {
     font-size: 20px;
     bottom: 57px;
     right: 15px;
   }
-  .myCustomSwiper :global(.prev-slider:after) {
+  .myCustomSwiper :global(.prev-slider-1:after) {
     height: 40px;
     width: 40px;
     padding-right: 9.5px;
     padding-top: 9px;
   }
-  .myCustomSwiper :global(.next-slider) {
+  .myCustomSwiper :global(.next-slider-1) {
     font-size: 20px;
     bottom: 57px;
     right: 65px;
   }
-  .myCustomSwiper :global(.next-slider::before) {
+  .myCustomSwiper :global(.next-slider-1::before) {
     height: 40px;
     width: 40px;
     padding-right: 12.5px;
