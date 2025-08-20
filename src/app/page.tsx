@@ -9,6 +9,8 @@ import SpecialProduct from "./components/SpecialProduct";
 import Gallery from "./components/Gallery";
 import WhyPedarbozorg from "./components/WhyPedarbozorg";
 import ChooseCorrect from "./components/ChooseCorrect";
+import OnlyABuy from "./components/OnlyABuy";
+import PopularProductCart from "./components/PopularProductCart";
 
 
 export default function Home() {
@@ -24,6 +26,8 @@ export default function Home() {
       <Gallery />
       <WhyPedarbozorg />
       <ChooseCorrect />
+      <OnlyABuy />
+      <PopularProductCart/>
       <div className="mb-96"></div>
     </Container >
 

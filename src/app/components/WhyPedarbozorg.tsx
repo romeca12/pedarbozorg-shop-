@@ -8,7 +8,7 @@ export default function WhyPedarbozorg() {
       </div>
       <div className="why-pedarbozorg gap-2 md:gap-4">
         <div className="relative p-1 lg:p-2 cursor-pointer h-fit group">
-          <img src="./images/bg-why-pedarbozorg.svg" alt="پس زمینه" className="w-full transition-all duration-500 ease-in-out group-hover:scale-[1.1]" />
+          <img src="./images/bg-why-pedarbozorg.svg" alt="پس زمینه" className="w-full transition-all duration-400 ease-in-out group-hover:scale-[1.09] group-hover:-rotate-[9deg]" />
           <div className="text-center absolute right-0 flex flex-col items-center justify-center gap-1 lg:gap-2 h-[70%] px-6 lg:px-11 top-[10%]">
             <img src="./icons/moneys.svg" alt="آیکون" className="w-[32px] h-[32px] lg:h-[100px] lg:w-[100px]" />
             <h4 className="text-xs lg:text-xl text-white">قیمت مناسب</h4>
@@ -16,7 +16,7 @@ export default function WhyPedarbozorg() {
           </div>
         </div>
         <div className="relative p-1 lg:p-2 cursor-pointer h-fit group">
-          <img src="./images/bg-why-pedarbozorg.svg" alt="پس زمینه" className="w-full transition-all duration-500 ease-in-out group-hover:scale-[1.1]" />
+          <img src="./images/bg-why-pedarbozorg.svg" alt="پس زمینه" className="w-full transition-all duration-400 ease-in-out group-hover:scale-[1.09] group-hover:-rotate-[9deg]" />
           <div className="text-center absolute right-0 flex flex-col items-center justify-center gap-1 lg:gap-2 h-[70%] px-6 lg:px-11 top-[10%]">
             <img src="./icons/tick-square.svg" alt="آیکون" className="w-[32px] h-[32px] lg:h-[100px] lg:w-[100px]" />
             <h4 className="text-xs lg:text-xl text-white">تضمین سلامت</h4>
@@ -24,7 +24,7 @@ export default function WhyPedarbozorg() {
           </div>
         </div>
         <div className="relative p-1 lg:p-2 cursor-pointer h-fit group">
-          <img src="./images/bg-why-pedarbozorg.svg" alt="پس زمینه" className="w-full transition-all duration-500 ease-in-out group-hover:scale-[1.1]" />
+          <img src="./images/bg-why-pedarbozorg.svg" alt="پس زمینه" className="w-full transition-all duration-400 ease-in-out group-hover:scale-[1.09] group-hover:-rotate-[9deg]" />
           <div className="text-center absolute right-0 flex flex-col items-center justify-center gap-1 lg:gap-2 h-[70%] px-6 lg:px-11 top-[10%]">
             <img src="./icons/tree.svg" alt="آیکون" className="w-[32px] h-[32px] lg:h-[100px] lg:w-[100px]" />
             <h4 className="text-xs lg:text-xl text-white">۱۰۰ ٪ طبیعی</h4>
@@ -32,7 +32,7 @@ export default function WhyPedarbozorg() {
           </div>
         </div>
         <div className="relative p-1 lg:p-2 cursor-pointer h-fit group">
-          <img src="./images/bg-why-pedarbozorg.svg" alt="پس زمینه" className="w-full transition-all duration-500 ease-in-out group-hover:scale-[1.1]" />
+          <img src="./images/bg-why-pedarbozorg.svg" alt="پس زمینه" className="w-full transition-all duration-400 ease-in-out group-hover:scale-[1.09] group-hover:-rotate-[9deg]" />
           <div className="text-center absolute right-0 flex flex-col items-center justify-center gap-1 lg:gap-2 h-[70%] px-6 lg:px-11 top-[10%]">
             <img src="./icons/truck-tick.svg" alt="آیکون" className="w-[32px] h-[32px] lg:h-[100px] lg:w-[100px]" />
             <h4 className="text-xs lg:text-xl text-white">ارسال رایگان</h4>
