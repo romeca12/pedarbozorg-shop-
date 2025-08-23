@@ -4,6 +4,7 @@ import NextTopLoader from "nextjs-toploader";
 import Header from "@/components/Header";
 import ArrowUp from "@/components/ArrowUp";
 import Layout from "@/components/layout/Layout";
+import Footer from "@/components/Footer";
 
 
 export const metadata: Metadata = {
@@ -34,6 +35,7 @@ export default function RootLayout({
         <Layout>
           {children}
         </Layout>
+        <Footer />
         <ArrowUp />
       </body>
     </html>

@@ -6,6 +6,34 @@ writing variable
 @layer components{
   @apply 
 } */
+@theme {
+  --color-primary: #3d8361;
+  --color-secondary: #f4f6ff;
+  --color-secondarytwo: #e7f5ef;
+  --color-background: #e0f1e9;
+  --color-scrollbar-track: #bdd8a4be;
+  --color-background-gallery: #faeeed;
+  --color-white: #ffffff;
+  --font-weigh-800: "800";
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+* {
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+}
+body {
+  font-family: "iranyekan", sans-serif;
+  font-weight: 300;
+  position: relative;
+  direction: rtl;
+  background-color: #f4f6ff;
+  overflow-x: hidden;
+}
 
 @layer utilities {
   .hover-img-menu {
@@ -82,36 +110,9 @@ writing variable
   font-weight: 900;
   font-style: normal;
 }
-
-@theme {
-  --color-primary: #3d8361;
-  --color-secondary: #f4f6ff;
-  --color-background: #e0f1e9;
-  --color-scrollbar-track: #bdd8a4be;
-  --color-background-gallery: #faeeed;
-  --color-white: #ffffff;
-  --font-weigh-800: "800";
-}
-
-* {
-  outline: none;
-  border: none;
-  box-sizing: border-box;
-  user-select: none;
-}
-body {
-  font-family: "iranyekan", sans-serif;
-  font-weight: 300;
-  position: relative;
-  direction: rtl;
-  background-color: #f4f6ff;
-  overflow-x: hidden;
-}
-
 button {
   cursor: pointer;
 }
-
 .header {
   position: fixed;
   top: 0;
@@ -387,6 +388,9 @@ button {
 }
 
 @media screen and (max-width: 452px) {
+  .responsive-footer {
+    display: none;
+  }
   #login {
     width: 90px;
   }
@@ -518,4 +522,20 @@ button {
 .tran-arrow-up {
   z-index: 1;
   transition: all 0.7s;
+}
+
+.popular-product-cart {
+  border: 1px solid #e3e3e3;
+}
+
+/* footer  */
+
+@media (min-width: 768px) {
+  /* footer */
+
+  .bg-footer-one {
+    background: url("../../public/images/bg-footer1.svg") right center / cover no-repeat;
+    width: 100%;
+    height: 690px;
+  }
 }

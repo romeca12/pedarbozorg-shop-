@@ -44,6 +44,10 @@ export default function PopularProductSlider() {
                         slidesPerView: 4,
                         spaceBetween: 16,
                     },
+                    1300: {
+                        slidesPerView: 4,
+                        spaceBetween: 35,
+                    }
                 }}
             // className="mySwiper"
             >

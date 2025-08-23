@@ -11,12 +11,12 @@ import WhyPedarbozorg from "./components/WhyPedarbozorg";
 import ChooseCorrect from "./components/ChooseCorrect";
 import OnlyABuy from "./components/OnlyABuy";
 import PopularProductCart from "./components/PopularProductCart";
+import Cooperation from "./components/cooperation";
 
 
 export default function Home() {
   return (
-
-    <Container>
+    <>
       <Background />
       <SwiperSlider />
       <IconBox />
@@ -27,9 +27,8 @@ export default function Home() {
       <WhyPedarbozorg />
       <ChooseCorrect />
       <OnlyABuy />
-      <PopularProductCart/>
-      <div className="mb-96"></div>
-    </Container >
-
+      <PopularProductCart />
+      <Cooperation />
+    </>
   );
 }
