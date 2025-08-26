@@ -2,7 +2,7 @@ export default function Footer() {
     return (
         <div className="bg-footer-one mt-48 md:mt-36 bg-secondarytwo md:bg-transparent relative">
             <img src="./images/footer-flower.svg" alt="" className="hidden lg:block absolute left-0 top-20 rotate-6"/>
-            <div className="flex flex-col md:flex-row md:items-end md:justify-evenly md:translate-y-20">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-evenly md:translate-y-20">
                 <div className="relative">
                     <img src="./images/bg-footer2.svg" alt="" className="-mt-36 md:mt-0 w-full md:max-w-[437px] md:max-h-[441px]" />
                     <div className="absolute top-[50%] -translate-y-[95%] md:-translate-y-[30%] md:top-24 flex flex-col items-center justify-center w-full gap-2 md:gap-4">
@@ -65,7 +65,7 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
-            <div className="px-4 pb-11  md:translate-y-36 text-[#83C5A5]">
+            <div className="px-4 pb-11 md:translate-y-32 text-[#83C5A5]">
                 <p className="text-center text-sm leading-7 md:text-lg">تمامی حقوق مادی و معنوی این سامانه متعلق به فروشگاه <span className="font-semibold text-primary">پدربزرگ</span> می‌باشد</p>
                 <p className="hidden md:block text-center text-lg mt-4">طراحی شده توسط گروه فنی و مهندسی <span className="font-semibold text-[#3F3681] underline">کدینتو</span></p>
             </div>

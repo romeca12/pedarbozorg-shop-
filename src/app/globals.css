@@ -119,7 +119,7 @@ button {
   right: 0;
   z-index: 10;
   width: 100%;
-  background-color: var(--color-secondary);
+  /* background-color: var(--color-secondary); */
 }
 .limit {
   padding-right: 15px;
@@ -534,8 +534,24 @@ button {
   /* footer */
 
   .bg-footer-one {
-    background: url("../../public/images/bg-footer1.svg") right center / cover no-repeat;
+    background: url("../../public/images/bg-footer1.svg") right center / cover
+      no-repeat;
     width: 100%;
     height: 690px;
   }
+}
+
+/* spin in project  */
+.input-spin {
+  border: 2px solid #cbcbcb;
+}
+.input-spin::placeholder {
+  color: var(--color-primary);
+}
+.input-spin:focus {
+  border-color: var(--color-primary);
+}
+.spin-center {
+  left: calc(50% - 38px);
+  top: calc(50% - 44px);
 }

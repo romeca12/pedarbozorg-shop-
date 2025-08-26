@@ -1,14 +1,18 @@
 "use client"
-
 import { Dispatch, SetStateAction, useState } from "react";
 import "../app/globals.css";
 
-export default function Login({ openLogin, setOpenLogin }: { openLogin: boolean, setOpenLogin: Dispatch<SetStateAction<boolean>> }) {
+type IPropsLogin = {
+    openLogin: boolean,
+    setOpenLogin: Dispatch<SetStateAction<boolean>>
+}
+
+export default function Login({ openLogin, setOpenLogin }: IPropsLogin) {
 
     const [value, setValue] = useState<string>("");
     const [loginTwo, setLoginTwo] = useState<boolean>(false);
 
-    const inputValue = (value : string) => {
+    const inputValue = (value: string) => {
         const newValue = value;
         const zero = String(newValue).split("").map(Number);
         // console.log(zero[0]);
@@ -72,7 +76,7 @@ export default function Login({ openLogin, setOpenLogin }: { openLogin: boolean,
                             <input
                                 type="text"
                                 placeholder="شماره همراه"
-                                onChange={(e)=>inputValue(e.target.value)}
+                                onChange={(e) => inputValue(e.target.value)}
                                 value={value}
                             />
                             <button className="btn-login" onClick={() => openLoginTwo(value)}>

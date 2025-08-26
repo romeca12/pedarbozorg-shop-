@@ -18,7 +18,7 @@ function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 13) {
+      if (window.scrollY > 14) {
         setIsScrolled(true)
       } else {
         setIsScrolled(false)
@@ -33,7 +33,7 @@ function Header() {
     , [])
 
   return (
-    <header className={`header ${isScrolled ? "shadow" : ""}`}>
+    <header className={`header ${isScrolled && "shadow bg-secondary"}`}>
       <div className="header-main-desktop">
         <div className="header-cover-desktop limit-desktop">
           {pathname === "/" ?
