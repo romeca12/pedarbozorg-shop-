@@ -1,0 +1,52 @@
+{
+  "spin": [
+    {
+      "id": "1",
+      "title": "one"
+    },
+    {
+      "id": "2",
+      "title": "two"
+    },
+    {
+      "id": "3",
+      "title": "three"
+    },
+    {
+      "id": "4",
+      "title": "four"
+    },
+    {
+      "id": "5",
+      "title": "five"
+    },
+    {
+      "id": "6",
+      "title": "six"
+    },
+    {
+      "id": "7",
+      "title": "seven"
+    },
+    {
+      "id": "8",
+      "title": "eight"
+    },
+    {
+      "id": "9",
+      "title": "nine"
+    },
+    {
+      "id": "10",
+      "title": "ten"
+    },
+    {
+      "id": "11",
+      "title": "eleven"
+    },
+    {
+      "id": "12",
+      "title": "twoelve"
+    }
+  ]
+}
