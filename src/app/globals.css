@@ -31,7 +31,7 @@ body {
   font-weight: 300;
   position: relative;
   direction: rtl;
-  background-color: #f4f6ff;
+  background-color: var(--color-secondary);
   overflow-x: hidden;
 }
 
@@ -545,13 +545,17 @@ button {
 .input-spin {
   border: 2px solid #cbcbcb;
 }
-.input-spin::placeholder {
-  color: var(--color-primary);
-}
 .input-spin:focus {
   border-color: var(--color-primary);
 }
 .spin-center {
   left: calc(50% - 38px);
   top: calc(50% - 44px);
+}
+.input-spin:focus + .spin-phone,
+.input-spin:not(:placeholder-shown) + .spin-phone {
+  transform: translateY(-19px);
+  font-size: 13px;
+  margin-right: 10px;
+  color: #757575;
 }
