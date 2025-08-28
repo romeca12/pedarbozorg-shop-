@@ -12,13 +12,12 @@ export default function Login({ openLogin, setOpenLogin }: IPropsLogin) {
     const [value, setValue] = useState<string>("");
     const [loginTwo, setLoginTwo] = useState<boolean>(false);
 
-    const inputValue = (value: string) => {
-        const newValue = value;
-        const zero = String(newValue).split("").map(Number);
+    const inputValue = (amount: string) => {
+        const regexValue = /^[۰-۹0-9]*$/
         // console.log(zero[0]);
-        if (/^\d*$/.test(newValue) && newValue.length <= 11 && !zero[0]) {
+        if (regexValue.test(amount) && amount.length <= 11) {
 
-            setValue(newValue);
+            setValue(amount);
             // console.log(typeof newValue);
             // const zero = newValue.splice("");
             // console.log(newValue.splice(","));
@@ -28,9 +27,9 @@ export default function Login({ openLogin, setOpenLogin }: IPropsLogin) {
         }
     };
 
-    function openLoginTwo(value: string) {
+    function openLoginTwo(amount: string) {
         console.log(value);
-        if (value.length === 11) {
+        if (amount.length === 11) {
             setLoginTwo(true);
         }
     }

@@ -27,7 +27,7 @@ export default function Home() {
       <WhyPedarbozorg />
       <ChooseCorrect />
       <OnlyABuy />
-      <PopularProductCart />
+      <PopularProductCart /> 
       <Cooperation />
     </>
   );

@@ -1,8 +1,8 @@
 "use client"
 
-import { Dispatch, SetStateAction, useEffect, useState } from "react"
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import Background from "./BgSpinLuckShop";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 export default function Spin() {
     const [value, setVavlue] = useState<string>("");
@@ -12,68 +12,14 @@ export default function Spin() {
 
 
     const inputChange = (amount: string) => {
-        if (/^\d*$/.test(amount) && amount.length <= 11) {
+        const regexValue = /^[۰-۹0-9]*$/
+        if (regexValue.test(amount) && amount.length <= 11) {
             setVavlue(amount);
         }
     }
     const verify = () => {
-        const result = value.split("").map(Number);
-        if (result[0] === 0 && result[1] === 9 && result.length === 11) {
-            setVavlue("");
-            const randomSpin = Math.floor((Math.random() * 360)) + 721;
-            setSpin(randomSpin);
-            switch (true) {
-                case (randomSpin >= 721 && randomSpin <= 750):
-                    setResultSpin(1);
-                    break;
-                case (randomSpin >= 751 && randomSpin <= 780):
-                    setResultSpin(2);
-                    break;
-                case (randomSpin >= 781 && randomSpin <= 810):
-                    setResultSpin(3);
-                    break;
-                case (randomSpin >= 811 && randomSpin <= 840):
-                    setResultSpin(4);
-                    break;
-                case (randomSpin >= 841 && randomSpin <= 870):
-                    setResultSpin(5);
-                    break;
-                case (randomSpin >= 871 && randomSpin <= 900):
-                    setResultSpin(6);
-                    break;
-                case (randomSpin >= 901 && randomSpin <= 930):
-                    setResultSpin(7);
-                    break;
-                case (randomSpin >= 731 && randomSpin <= 960):
-                    setResultSpin(8);
-                    break;
-                case (randomSpin >= 961 && randomSpin <= 990):
-                    setResultSpin(9);
-                    break;
-                case (randomSpin >= 991 && randomSpin <= 1020):
-                    setResultSpin(10);
-                    break;
-                case (randomSpin >= 1021 && randomSpin <= 1050):
-                    setResultSpin(11);
-                    break;
-                case (randomSpin >= 1051 && randomSpin <= 1080):
-                    setResultSpin(12);
-                    break;
-                // default:
-                //     console.log("مگه میشه")
-            }
-            setTimeout(() => {
-                setIsPopUp(true);
-            }, 1200);
-        } else if (result.length === 0) {
-            toast.error("شماره تلفن نباید خالی باشد");
-        }
-        else if (result[0] !== 0 || result[1] !== 9 || result.length !== 11) {
-            toast.error("شماره همراه وارد شده معتبر نیست");
-        }
-        /////////////////////////////
-        
-        // if (value!=='09123456789') return toast.error('شماره موبایل صحیح را وارد کنید');
+        // const result = value.split("").map(Number);
+        // if (result[0] === 0 && result[1] === 9 && result.length === 11) {
         //     setVavlue("");
         //     const randomSpin = Math.floor((Math.random() * 360)) + 721;
         //     setSpin(randomSpin);
@@ -120,8 +66,62 @@ export default function Spin() {
         //     setTimeout(() => {
         //         setIsPopUp(true);
         //     }, 1200);
-        
-
+        // } else if (result.length === 0) {
+        //     toast.error("شماره تلفن نباید خالی باشد");
+        // }
+        // else if (result[0] !== 0 || result[1] !== 9 || result.length !== 11) {
+        //     toast.error("شماره همراه وارد شده معتبر نیست");
+        // }
+        /////////////////////////////
+        const regexInvalid = /^[۰0][۹9][۰-۹0-9]{9}$/;
+        if (value === '') return toast.error('شماره موبایل نمیتواند خالی باشد');
+        if (!(regexInvalid.test(value))) return toast.error('شماره موبایل معتبر نیست'); 
+        setVavlue("");
+        const randomSpin = Math.floor((Math.random() * 360)) + 721;
+        setSpin(randomSpin);
+        switch (true) {
+            case (randomSpin >= 721 && randomSpin <= 750):
+                setResultSpin(1);
+                break;
+            case (randomSpin >= 751 && randomSpin <= 780):
+                setResultSpin(2);
+                break;
+            case (randomSpin >= 781 && randomSpin <= 810):
+                setResultSpin(3);
+                break;
+            case (randomSpin >= 811 && randomSpin <= 840):
+                setResultSpin(4);
+                break;
+            case (randomSpin >= 841 && randomSpin <= 870):
+                setResultSpin(5);
+                break;
+            case (randomSpin >= 871 && randomSpin <= 900):
+                setResultSpin(6);
+                break;
+            case (randomSpin >= 901 && randomSpin <= 930):
+                setResultSpin(7);
+                break;
+            case (randomSpin >= 731 && randomSpin <= 960):
+                setResultSpin(8);
+                break;
+            case (randomSpin >= 961 && randomSpin <= 990):
+                setResultSpin(9);
+                break;
+            case (randomSpin >= 991 && randomSpin <= 1020):
+                setResultSpin(10);
+                break;
+            case (randomSpin >= 1021 && randomSpin <= 1050):
+                setResultSpin(11);
+                break;
+            case (randomSpin >= 1051 && randomSpin <= 1080):
+                setResultSpin(12);
+                break;
+            // default:
+            //     console.log("مگه میشه")
+        }
+        setTimeout(() => {
+            setIsPopUp(true);
+        }, 1200);
     }
 
     return (
@@ -144,7 +144,6 @@ export default function Spin() {
                     <img src="./images/spin-center.svg" alt="" className="absolute spin-center w-[76px] h-[88px] -rotate-[0deg]" />
                 </div>
             </div>
-            <Toaster position="top-left" />
             {isPopUp && <PopUp setIsPopUp={setIsPopUp} setSpin={setSpin} resultSpin={resultSpin} />}
         </>
     )
