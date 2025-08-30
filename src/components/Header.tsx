@@ -106,27 +106,27 @@ function Header() {
 
             <li className="group li-nav">
               {pathname === "/" ? <span>صفحه اصلی</span> : <Link href="/" onClick={() => setStatusMenu(false)}>صفحه اصلی</Link>}
-              <img className={`-translate-x-3.5 pt-0.5 responsive-footer ${pathname == "/" ? "block" : "show-img-menu"} ${pathname !== "/" ? "hover-img-menu rotate-y-90" : ""}`} src="./images/Frame.svg" alt="عکس زیر منو" />
+              <img className={`-translate-x-3.5 pt-0.5 responsive-img-nav-link ${pathname == "/" ? "block" : "show-img-menu"} ${pathname !== "/" ? "hover-img-menu rotate-y-90" : ""}`} src="./images/Frame.svg" alt="عکس زیر منو" />
             </li>
             <li className="group">
               {pathname === "/products" ? <span>محصولات</span> : <Link href="/products" onClick={() => setStatusMenu(false)}>محصولات</Link>}
-              <img className={`-translate-x-2.5 pt-0.5 responsive-footer ${pathname == "/products" ? "block" : "show-img-menu"} ${pathname !== "/products" ? "hover-img-menu rotate-y-90" : ""}`} src="./images/Frame.svg" alt="عکس زیر منو" />
+              <img className={`-translate-x-2.5 pt-0.5 responsive-img-nav-link ${pathname == "/products" ? "block" : "show-img-menu"} ${pathname !== "/products" ? "hover-img-menu rotate-y-90" : ""}`} src="./images/Frame.svg" alt="عکس زیر منو" />
             </li>
             <li className="group">
               {pathname === "/blog" ? <span>مجله</span> : <Link href="/blog" onClick={() => setStatusMenu(false)}>مجله</Link>}
-              <img className={`-translate-x-0.5 pt-0.5 responsive-footer ${pathname == "/blog" ? "block" : "show-img-menu"} ${pathname !== "/blog" ? "hover-img-menu rotate-y-90" : ""} `} src="./images/Frame.svg" alt="عکس زیر منو" />
+              <img className={`-translate-x-0.5 pt-0.5 responsive-img-nav-link ${pathname == "/blog" ? "block" : "show-img-menu"} ${pathname !== "/blog" ? "hover-img-menu rotate-y-90" : ""} `} src="./images/Frame.svg" alt="عکس زیر منو" />
             </li>
             <li className="group">
               {pathname === "/about" ? <span>درباره ما</span> : <Link href="/about" onClick={() => setStatusMenu(false)}>درباره ما</Link>}
-              <img className={`-translate-x-1.5 pt-0.5 responsive-footer ${pathname == "/about" ? "block" : "show-img-menu"} ${pathname !== "/about" ? "hover-img-menu rotate-y-90" : ""} `} src="./images/Frame.svg" alt="عکس زیر منو" />
+              <img className={`-translate-x-1.5 pt-0.5 responsive-img-nav-link ${pathname == "/about" ? "block" : "show-img-menu"} ${pathname !== "/about" ? "hover-img-menu rotate-y-90" : ""} `} src="./images/Frame.svg" alt="عکس زیر منو" />
             </li>
             <li className="group">
               {pathname === "/contact-us" ? <span>تماس باما</span> : <Link href="/contact-us" onClick={() => setStatusMenu(false)}>تماس باما</Link>}
-              <img className={`-translate-x-2.5 pt-0.5 responsive-footer ${pathname == "/contact-us" ? "block" : "show-img-menu"} ${pathname !== "/contact-us" ? "hover-img-menu rotate-y-90" : ""} `} src="./images/Frame.svg" alt="عکس زیر منو" />
+              <img className={`-translate-x-2.5 pt-0.5 responsive-img-nav-link ${pathname == "/contact-us" ? "block" : "show-img-menu"} ${pathname !== "/contact-us" ? "hover-img-menu rotate-y-90" : ""} `} src="./images/Frame.svg" alt="عکس زیر منو" />
             </li>
             <li className="group">
               {pathname === "/spin-luck-shop" ? <span>گردونه شانس</span> : <Link href="/spin-luck-shop" onClick={() => setStatusMenu(false)}>گردونه شانس</Link>}
-              <img className={`-translate-x-5 pt-0.5 responsive-footer ${pathname === "/spin-luck-shop" ? "block" : "show-img-menu"} ${pathname !== "/spin-luck-shop" ? "hover-img-menu rotate-y-90" : ""}`} src="./images/Frame.svg" alt="عکس زیر منو" />
+              <img className={`-translate-x-5 pt-0.5 responsive-img-nav-link ${pathname === "/spin-luck-shop" ? "block" : "show-img-menu"} ${pathname !== "/spin-luck-shop" ? "hover-img-menu rotate-y-90" : ""}`} src="./images/Frame.svg" alt="عکس زیر منو" />
             </li>
           </ul>
           {/* <img className="imgage-cover-menu" src="./images/Frame.svg" alt="عکس زیر منو" /> */}

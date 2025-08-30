@@ -388,9 +388,6 @@ button {
 }
 
 @media screen and (max-width: 452px) {
-  .responsive-footer {
-    display: none;
-  }
   #login {
     width: 90px;
   }
@@ -515,8 +512,10 @@ button {
   .down-420 {
     margin-top: 64px;
   }
+  .responsive-img-nav-link {
+    display: none;
+  }
 }
-
 /* arrow-up  */
 
 .tran-arrow-up {
@@ -554,8 +553,11 @@ button {
 }
 .input-spin:focus + .spin-phone,
 .input-spin:not(:placeholder-shown) + .spin-phone {
-  transform: translateY(-19px);
+  transform: translateY(-18px);
   font-size: 13px;
   margin-right: 10px;
   color: #757575;
+}
+.p-about {
+  text-align-last: center;
 }

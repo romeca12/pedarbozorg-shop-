@@ -1,10 +1,10 @@
 export default function Footer() {
     return (
-        <div className="bg-footer-one mt-48 md:mt-36 bg-secondarytwo md:bg-transparent relative">
+        <div className="bg-footer-one mt-36 md:mt-0 bg-secondarytwo md:bg-transparent relative">
             <img src="./images/footer-flower.svg" alt="" className="hidden lg:block absolute left-0 top-20 rotate-6"/>
             <div className="flex flex-col md:flex-row md:items-center md:justify-evenly md:translate-y-20">
                 <div className="relative">
-                    <img src="./images/bg-footer2.svg" alt="" className="-mt-36 md:mt-0 w-full md:max-w-[437px] md:max-h-[441px]" />
+                    <img src="./images/bg-back.svg" alt="" className="-mt-36 md:mt-0 w-full md:max-w-[437px] md:max-h-[441px]" />
                     <div className="absolute top-[50%] -translate-y-[95%] md:-translate-y-[30%] md:top-24 flex flex-col items-center justify-center w-full gap-2 md:gap-4">
                         <img src="./images/Layer_1.svg" alt="" className="w-[76px] h-[76px] md:h-[138px] md:w-[138px]" />
                         <p className="w-[80%] sm:w-1/2 text-xs md:text-base text-primary text-center leading-6 md:w-[284px] md:h-[207px]">بزرگترین لذت ما این است که بتوانیم سهمی ولو اندک در سلامت و بهداشت روحی و جسمی و روش تغذیه خانواده ها داشته باشیم. دوست داریم همانند پدربزرگ ها ، هر آنچه که می دانیم ، بی منت در اختیار جامعه قرار دهیم. به همین جهت نام پدربزرگ را برای استارت اپ خود انتخاب کردیم.</p>

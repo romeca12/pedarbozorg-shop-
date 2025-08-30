@@ -1,6 +1,6 @@
 export default function Cooperation() { 
     return (
-        <div className="mt-10 md:mt-20">
+        <div className="mt-10 md:mt-20 mb-56 md:mb-40">
             <div className="font-extrabold flex items-center justify-center mb-4 md:mb-8 relative bg-blue">
                 <img src="./images/flower-slider-right.svg" alt="گل1" className="w-[46px] h-[32px] sm:w-[69px] sm:h-[65px]" />
                 <h3 className="text-primary mx-4 text-base md:text-2xl font-black">همکاری های داخلی و خارجی پدربزرگ</h3>
