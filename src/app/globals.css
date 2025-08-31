@@ -15,6 +15,7 @@ writing variable
   --color-background-gallery: #faeeed;
   --color-white: #ffffff;
   --font-weigh-800: "800";
+  --border-custome-color: #e3e3e3;
 }
 
 ::selection {
@@ -39,6 +40,10 @@ body {
   .hover-img-menu {
     @apply transition duration-300 ease-in-out group-hover:rotate-y-0 group-hover:block;
   }
+}
+
+.border-custom {
+  border: 1px solid var(--border-custome-color);
 }
 
 ::-webkit-scrollbar {
@@ -560,4 +565,9 @@ button {
 }
 .p-about {
   text-align-last: center;
+}
+
+/* صفحه محصولات */
+.product-layout{
+  
 }
