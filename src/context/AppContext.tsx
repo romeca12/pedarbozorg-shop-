@@ -1,7 +1,7 @@
-import { createContext } from "react";
+import { createContext, Dispatch, SetStateAction } from "react";
 
 type ICreateContext = {
-    value: string;
+    cart: { isAdded: boolean, id: number }[],
+    setCart: Dispatch<SetStateAction<{ isAdded: boolean, id: number }[]>>
 }
-
 export const AppContext = createContext({} as ICreateContext);

@@ -1,16 +1,18 @@
 "use client"
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "../app/globals.css";
 import Login from "./Login";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { AppContext } from "@/context/AppContext";
 
 function Header() {
   const [statusMenu, setStatusMenu] = useState<boolean>(false);
   const [openLogin, setOpenLogin] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const pathname = usePathname();
+  const { cart } = useContext(AppContext);
 
   function closeMenu() {
     setStatusMenu(false);
@@ -37,17 +39,14 @@ function Header() {
       <div className="header-main-desktop">
         <div className="header-cover-desktop limit-desktop">
           {pathname === "/" ?
-            <span>
-              <div className="header-right-desktop">
-                <img src="./images/Layer_1.svg" alt="لوگو دایره" />
-                <h2>فروشگاه محصولات طبیعی پدربزرگ</h2>
-              </div>
-            </span> :
-            <Link href="/">
-              <div className="header-right-desktop">
-                <img src="./images/Layer_1.svg" alt="لوگو دایره" />
-                <h2>فروشگاه محصولات طبیعی پدربزرگ</h2>
-              </div>
+            <div className="header-right-desktop">
+              <img src="./images/Layer_1.svg" alt="لوگو دایره" />
+              <h2>فروشگاه محصولات طبیعی پدربزرگ</h2>
+            </div>
+            :
+            <Link href="/" className="header-right-desktop">
+              <img src="./images/Layer_1.svg" alt="لوگو دایره" />
+              <h2>فروشگاه محصولات طبیعی پدربزرگ</h2>
             </Link>
           }
           <div className="header-midle-desktop">
@@ -69,7 +68,10 @@ function Header() {
               <img src="./images/Login 2.svg" alt="ورود" />
               ورود/ثبت نام
             </button>
-            <img className="image-cart-desktop" src="./images/cart.svg" alt="سبد خرید" />
+            <span className="relative">
+              <img className="hover-icon-header image-cart-desktop" src="./images/cart.svg" alt="سبد خرید" />
+              <span className="bg-[#C62020] absolute top-1 right-1 text-white text-xs px-1 leading-[150%] rounded-sm ">2</span>
+            </span>
           </div>
         </div>
 

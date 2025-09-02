@@ -2,7 +2,7 @@ import CardGlobal from "@/components/CardGlobal"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
-  // title: "محصولات",
+  title: "محصولات",
 }
 
 function prodcuts() {
@@ -26,9 +26,9 @@ function prodcuts() {
             </span>
           </div>
         </div>
-        <div className="products grid gap-2 product-layout">
+        <div className="flex flex-wrap justify-center gap-2 product-layout">
           {Array(20).fill(1).map((_, index) =>
-            <CardGlobal key={index} />
+            <CardGlobal key={index} id={index + 1} />
           )}
         </div>
       </main>
