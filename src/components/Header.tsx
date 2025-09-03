@@ -8,11 +8,11 @@ import { usePathname } from "next/navigation";
 import { AppContext } from "@/context/AppContext";
 
 function Header() {
+  const {cart} = useContext(AppContext);
   const [statusMenu, setStatusMenu] = useState<boolean>(false);
   const [openLogin, setOpenLogin] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const pathname = usePathname();
-  const { cart } = useContext(AppContext);
 
   function closeMenu() {
     setStatusMenu(false);
@@ -70,12 +70,11 @@ function Header() {
             </button>
             <span className="relative">
               <img className="hover-icon-header image-cart-desktop" src="./images/cart.svg" alt="سبد خرید" />
-              <span className="bg-[#C62020] absolute top-1 right-1 text-white text-xs px-1 leading-[150%] rounded-sm ">2</span>
+              <span className={`bg-[#C62020] absolute top-1 right-1 text-white text-xs px-1 leading-[150%] rounded-sm ${cart.length >= 1 && "h-4"}`}>{cart.length || null}</span>
             </span>
           </div>
         </div>
-
-
+        
         {/* {statusMenu && (
           <div
             className=""

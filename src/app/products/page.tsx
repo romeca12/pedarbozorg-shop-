@@ -26,10 +26,19 @@ function prodcuts() {
             </span>
           </div>
         </div>
-        <div className="flex flex-wrap justify-center gap-2 product-layout">
+        <div className="flex flex-wrap justify-center gap-2 product-layout mb-4 lg:mb-8">
           {Array(20).fill(1).map((_, index) =>
             <CardGlobal key={index} id={index + 1} />
           )}
+        </div>
+        <div className="flex justify-center items-center gap-2 h-10 text-primary text-sm md:text-base cursor-pointer">
+          <img src="./images/arrow-right-slider.svg" alt="جهت راست" className="w-5 h-5 mx-1.5"/>
+          <span className="active-text bg-primary text-white px-3 h-full flex justify-center items-center rounded-lg hover:bg-[#336D51] md:px-4">۱</span>
+          <span className="px-3 h-full flex justify-center items-center md:px-4">۲</span>
+          <span className="px-3 h-full flex justify-center items-center md:px-4">۳</span>
+          <span className="text-base">...</span>
+          <span className="px-3 h-full flex justify-center items-center md:px-4">۷۸</span>
+          <img src="./images/arrow-left-slider.svg" alt="جهت چپ" className="w-5 h-5 mx-1.5"/>
         </div>
       </main>
     </div>

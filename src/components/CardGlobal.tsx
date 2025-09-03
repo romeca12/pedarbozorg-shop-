@@ -2,28 +2,27 @@
 
 import { AppContext } from "@/context/AppContext";
 import { useContext, useState } from "react"
+import toast from "react-hot-toast";
 
 
 const CardGlobal = ({ id }: { id: number }) => {
     const [like, setLike] = useState<boolean>(false);
     const { cart, setCart } = useContext(AppContext);
 
-    const addToCart = (productId: number) => {
+    const toggleCart = (productId: number) => {
         setCart((prevCart) => {
             const existingProductIndex = prevCart.findIndex(item => item.id === productId);
-
             if (existingProductIndex !== -1) {
-                const updateCart = prevCart.map((item, index) =>
-                    index === existingProductIndex ? { ...item, isAdded: !item.isAdded } : item
-                );
-                return updateCart;
-            } else {
-                const newItem = { id: productId, isAdded: true }
-                return [...prevCart, newItem];
+                return prevCart.filter((_, index) => index !== existingProductIndex)
             }
+            return [...prevCart, { id: productId }];
         });
+
+        // toast view
+        cart.find(item => item.id === id)
+            ? toast.success("این کالا از سبد خریدتان حذف شد") :
+            toast.success("این کالا به سبد خریدتان اضافه شد");
     };
-    console.log(cart.length)
 
     return (
         <div className="group p-2 relative cursor-pointer rounded-2xl overflow-hidden flex flex-col gap-2 border-custom product-layout bg-white">
@@ -50,12 +49,18 @@ const CardGlobal = ({ id }: { id: number }) => {
             </div>
             <div className='actions flex justify-between'>
                 <span className="p-1.5" onClick={() => setLike(!like)}>
-                    <img src="./icons/shoping-heart-fill.svg" alt="لایک" className={`w-5 h-5 ${like ? "block" : "hidden"}`} />
-                    <img src="./icons/shoping-heart-outline.svg" alt="لایک" className={`${like && "hidden"}`} />
+                    {
+                        like ?
+                            <img src="./icons/shoping-heart-fill.svg" alt="لایک" className="w-5 h-5" /> :
+                            <img src="./icons/shoping-heart-outline.svg" alt="لایک" />
+                    }
                 </span>
-                <span className="p-1.5" onClick={() => addToCart(id)}>
-                    <img src="./icons/shoping-cart-fill.svg" alt="سفارش" className={`w-5 h-5 ${cart.find(item => item.id === id)?.isAdded ? "block" : "hidden"}`} />
-                    <img src="./icons/shopping-cart-outline.svg" alt="سفارش" className={`${cart.find(item => item.id === id)?.isAdded && "hidden"}`} />
+                <span className="p-1.5" onClick={() => toggleCart(id)}>
+                    {
+                        cart.find(item => item.id === id) ?
+                            <img src="./icons/shoping-cart-fill.svg" alt="سفارش" className="w-5 h-5" />
+                            : <img src="./icons/shopping-cart-outline.svg" alt="سفارش" />
+                    }
                 </span>
             </div>
         </div>

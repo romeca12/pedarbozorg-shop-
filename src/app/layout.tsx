@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import NextTopLoader from "nextjs-toploader";
-import Header from "@/components/Header";
 import ArrowUp from "@/components/ArrowUp";
 import Layout from "@/components/layout/Layout";
 import { Toaster } from "react-hot-toast";
@@ -32,7 +31,6 @@ export default function RootLayout({
           showSpinner={false}
         />
         <Toaster position="top-center" />
-        <Header />
         <Layout>
           {children}
         </Layout>
