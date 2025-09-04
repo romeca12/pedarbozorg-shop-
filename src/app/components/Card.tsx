@@ -5,7 +5,7 @@ const Card = ({ index }: { index: number }) => {
                 <img src="./icons/shoping-heart-fill.svg" alt="لایک" className='absolute hidden' />
                 <img src="./icons/shoping-heart-outline.svg" alt="لایک" className='absolute w-5 h-5 right-4 md:-right-8 md:group-hover:right-4 transition-all duration-300 ease-in-out' />
                 <img src="./icons/shoping-cart-fill.svg" alt="سفارش" className='absolute hidden' />
-                <img src="./icons/shopping-cart-outline.svg" alt="سفارش" className='absolute w-5 h-5 left-4 md:-left-8 md:group-hover:left-4 transition-all duration-300 ease-in-out' />
+                <img src="./icons/shopping-cart-outline.svg" alt="سفارش" className='absolute w-5 h-5 left-4 md:-left-8 md:group-hover:left-4 transition-all duration-300 ease-in-out' />       
             </div>
             <div className='flex justify-center mb-2'>
                 <img src="./images/image-popular-product.svg" alt={`پرفروش ترین محصول ${index}`} className='w-[208px] h-[208px]' />

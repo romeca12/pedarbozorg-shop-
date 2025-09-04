@@ -20,6 +20,12 @@ writing variable
 @utility hover-icon-header {
   @apply transition-all duration-200 ease-in hover:bg-secondarytwo cursor-pointer rounded-[10px];
 }
+.shadow-action-product{
+  transition: filter 0.5s ease;
+}
+.cover-shadow-action-product:hover .shadow-action-product {
+  filter: drop-shadow(rgba(61, 131, 97, 0.60) 0px 0px 10px);
+}
 
 ::selection {
   background-color: var(--color-primary);
