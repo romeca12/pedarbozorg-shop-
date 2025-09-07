@@ -17,10 +17,10 @@ const Sort = () => {
                 <div className={`z-10 fixed md:static bg-white md:bg-transparent w-full right-0 left-0 p-4 pb-[35px] md:p-0 transition-[bottom] duration-300 ease ${handleOpneSort ? "bottom-0" : "-bottom-[327px]"}`}>
                     <img src="./icons/remove-gray.svg" alt="برداشتن" className="mb-4 md:hidden" onClick={() => setHandleOpneSort(false)} />
                     <div className="flex flex-col md:flex-row md:items-center gap-y-4 md:gap-x-2">
-                        <div className="flex gap-x-2 items-center">
-                            <img src="./icons/sort.svg" alt="مرتب" className="w-6 h-6 cursor-pointer" />
+                        <span className="flex gap-x-2 items-center">
+                            <img src="./icons/sort.svg" alt="مرتب" className="w-6 h-6 md:cursor-pointer" />
                             <span className="text-primary text-xl font-black">مرتب سازی</span>
-                        </div>
+                        </span>
                         <div className="flex flex-col md:flex-row items-center gap-2">
                             <button className="button-sort-product button-sort-product-active">پربازدیدترین</button>
                             <button className="button-sort-product">پرفروش‌ترین</button>

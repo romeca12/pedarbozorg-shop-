@@ -21,7 +21,7 @@ const CardGlobal = ({ id }: { id: number }) => {
         cart.find(item => item.id === id)
             ? toast.success("این کالا از سبد خریدتان حذف شد") :
             toast.success("این کالا به سبد خریدتان اضافه شد");
-    }; 
+    };
 
     return (
         <div className="bg-white group p-2 md:p-4 md:pb-2 relative cursor-pointer rounded-2xl overflow-hidden flex flex-col gap-2 border-custom">
@@ -45,7 +45,7 @@ const CardGlobal = ({ id }: { id: number }) => {
                 </div>
             </div>
             <div className='actions flex justify-between p-1.5 md:p-0'>
-                <span onClick={() => setLike(!like)}>
+                <span onClick={() => setLike((prevLike) => !prevLike)}>
                     {
                         like ?
                             <img src="./icons/shoping-heart-fill.svg" alt="لایک" className="w-5 h-5 active:scale-50 md:absolute md:-right-8 md:top-4 md:group-hover:right-4 transition-all duration-300 ease-in-out" /> :

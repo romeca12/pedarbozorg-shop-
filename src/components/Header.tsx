@@ -8,17 +8,22 @@ import { usePathname } from "next/navigation";
 import { AppContext } from "@/context/AppContext";
 
 function Header() {
-  const {cart} = useContext(AppContext);
-  const [statusMenu, setStatusMenu] = useState<boolean>(false);
-  const [openLogin, setOpenLogin] = useState<boolean>(false);
-  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const { cart } = useContext(AppContext);
+  const [statusMenu, setStatusMenu] = useState(false);
+  const [openLogin, setOpenLogin] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
+
+  // hideInput
+  const hideInput = ["/products"].includes(pathname);
 
   function closeMenu() {
     setStatusMenu(false);
   }
 
   useEffect(() => {
+    window?.scrollTo(0, 0);
+
     const handleScroll = () => {
       if (window.scrollY > 14) {
         setIsScrolled(true)
@@ -50,10 +55,11 @@ function Header() {
             </Link>
           }
           <div className="header-midle-desktop">
-            <div className="input-header">
-              <input type="text" placeholder="جست و جو..." />
-              <img src="./images/search-normal.svg" alt="جست و جو.." />
-            </div>
+            {!hideInput &&
+              <div className="input-header">
+                <input type="text" placeholder="جست و جو..." />
+                <img src="./images/search-normal.svg" alt="جست و جو.." />
+              </div>}
           </div>
           <div className="header-left-desktop" id="login">
             {/* <button> */}
@@ -74,7 +80,7 @@ function Header() {
             </span>
           </div>
         </div>
-        
+
         {/* {statusMenu && (
           <div
             className=""
