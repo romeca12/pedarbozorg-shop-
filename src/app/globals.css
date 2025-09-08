@@ -29,10 +29,7 @@ writing variable
 .shadow-action-product {
   transition: filter 0.5s ease;
 }
-.cover-label-checkbox{
-  /* transition: max-height 0.3s ease, padding 0.3s ease; */
-  transition: all 0.3s ease;
-  /* margin-top: 16px; */
+.cover-label-checkbox {
 }
 .cover-label-checkbox span {
   gap: 8px;
@@ -40,7 +37,7 @@ writing variable
   align-items: center;
   color: #626262;
 }
-.active{}
+
 /* .cover-label-checkbox span input[type="checkbox"] {
   width: 16px;
   height: 16px;
@@ -48,10 +45,27 @@ writing variable
   border-radius: 2px;
   cursor: pointer;
 } */
+
 .cover-shadow-action-product:hover .shadow-action-product {
   filter: drop-shadow(rgba(61, 131, 97, 0.6) 0px 0px 10px);
 }
-
+.cover-roller::after {
+  content: "";
+  width: 18px;
+  position: absolute;
+  height: 18px;
+  top: 2;
+  left: 2;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  transition: left 0.3s ease;
+}
+.product-toggle-checkbox:checked + .cover-roller {
+  background-color: var(--color-primary);
+}
+.product-toggle-checkbox:checked + .cover-roller::after {
+  left: 24px;
+}
 ::selection {
   background-color: var(--color-primary);
   color: var(--color-white);
