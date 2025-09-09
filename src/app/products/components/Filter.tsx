@@ -1,5 +1,6 @@
 "use client"
 
+import PriceFilter from "@/components/Test";
 import { useState } from "react"
 
 const Filter = () => {
@@ -11,7 +12,7 @@ const Filter = () => {
         <>
             <span className="py-1.5 px-3 flex gap-2 cover-shadow-action-product cursor-pointer items-center md:hidden" onClick={() => setHandleOpneFilter(true)}>
                 <img src="./icons/filter.svg" alt="فیلتر" className="shadow-action-product w-5 h-5 md:h-6 md:w-6" />
-                <span className="text-primary text-sm shadow-action-product md:text-xl md:font-black">فیلترها</span>
+                <span className="text-primary shadow-action-product md:text-xl md:font-black">فیلترها</span>
             </span>
             <div className={`cover-filter z-10 fixed top-0 right-0 left-0 bottom-0 bg-[#00000048] ${handleOpneFilter ? "block" : "hidden"}`} onClick={() => setHandleOpneFilter(false)}></div>
 
@@ -47,13 +48,20 @@ const Filter = () => {
                         </span>
                         <img src="./images/arrow-left-slider.svg" alt="جهت" className={`w-6 h-6 transition-transform duration-300 ${togglePrice && "-rotate-[90deg]"}`} />
                     </div>
-                    <div className="bg-blue-400 mt-4 pr-4 gap-2 flex flex-col max-h-40 overflow-y-auto">
-                        {Array(3).fill(1).map((_, index) =>
-                            <label className="gap-x-2 flex items-center text-sm text-[#626262]" key={index}>
-                                <input type="checkbox" className="w-4 h-4 checked:accent-primary" />
-                                ادویه جات
-                            </label>
-                        )}
+                    <div className="mt-4 px-4 gap-2 flex flex-col">
+                        <div className="flex justify-center gap-x-2 h-9 text-sm text-[#383838]">
+                            <div className="relative">
+                                <input type="text" placeholder=" " className="w-full h-full pr-2 pl-8 rounded-[9px] input-spin" />
+                                <label className="absolute right-2 top-[9px] spin-phone bg-white px-1 rounded-lg transition-all duration-300 pointer-events-none">از</label>
+                                <img src="./icons/تومان.svg" alt="تومان" className="absolute left-2 bottom-[11px]" />
+                            </div>
+                            <div className="relative">
+                                <input type="text" placeholder=" " className="w-full h-full pr-2 pl-8 rounded-[9px] input-spin" />
+                                <label className="absolute right-2 top-[9px] spin-phone px-1 bg-white rounded-lg transition-all duration-300 pointer-events-none">تا</label>
+                                <img src="./icons/تومان.svg" alt="تومان" className="absolute left-2 bottom-[11px]" />
+                            </div>
+                        </div>
+                        <div></div>
                     </div>
                 </div>
 

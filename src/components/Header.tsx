@@ -17,6 +17,12 @@ function Header() {
   // hideInput
   const hideInput = ["/products"].includes(pathname);
 
+  // EnglishNumber to farsiNumber
+  const toFarsiNumber = (number: number) => {
+    if (cart.length === 0) return
+    return number.toString().replace(/\d/g, d => "۰۱۲۳۴۵۶۷۸۹"[+d]);
+  }
+
   function closeMenu() {
     setStatusMenu(false);
   }
@@ -76,7 +82,7 @@ function Header() {
             </button>
             <span className="relative">
               <img className="hover-icon-header image-cart-desktop" src="./images/cart.svg" alt="سبد خرید" />
-              <span className={`bg-[#C62020] absolute top-1 right-1 text-white text-xs px-1 leading-[150%] rounded-sm ${cart.length >= 1 && "h-4"}`}>{cart.length || null}</span>
+              <span className={`bg-[#C62020] absolute top-1 right-1 text-white text-xs px-1 leading-[150%] rounded-sm ${cart.length >= 1 && "h-4"}`}>{toFarsiNumber(cart.length) || null}</span>
             </span>
           </div>
         </div>

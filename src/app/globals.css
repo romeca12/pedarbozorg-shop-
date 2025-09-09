@@ -594,7 +594,7 @@ button {
   border: 2px solid #cbcbcb;
 }
 .input-spin:focus {
-  border-color: var(--color-primary);
+  /* border-color: var(--color-primary); */
 }
 .spin-center {
   left: calc(50% - 38px);
@@ -602,10 +602,10 @@ button {
 }
 .input-spin:focus + .spin-phone,
 .input-spin:not(:placeholder-shown) + .spin-phone {
-  transform: translateY(-18px);
-  font-size: 13px;
-  margin-right: 10px;
-  color: #757575;
+  transform: translate(-6px,-14px);
+  font-size: 10px;
+  /* margin-right: 10px; */
+  /* color: #757575;   */
 }
 .p-about {
   text-align-last: center;
