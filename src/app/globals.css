@@ -602,7 +602,7 @@ button {
 }
 .input-spin:focus + .spin-phone,
 .input-spin:not(:placeholder-shown) + .spin-phone {
-  transform: translate(-6px,-14px);
+  transform: translate(-6px, -14px);
   font-size: 10px;
   /* margin-right: 10px; */
   /* color: #757575;   */
@@ -616,4 +616,18 @@ button {
   /* grid-template-columns: repeat(auto-fill, minmax(1fr,1fr)); */
 }
 .card-global {
+}
+.range-product{
+  pointer-events: none;
+}
+.range-product[type="range"]::-webkit-slider-thumb,
+input[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: green;
+  height: 22px;
+  width: 22px;
+  border: none;
+  border-radius: 50%;
+  pointer-events: auto;
 }

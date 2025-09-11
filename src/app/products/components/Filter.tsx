@@ -1,12 +1,26 @@
 "use client"
 
+import Test from "@/components/Test";
 import PriceFilter from "@/components/Test";
+import { rename } from "fs";
 import { useState } from "react"
 
 const Filter = () => {
     const [handleOpneFilter, setHandleOpneFilter] = useState(false);
     const [toggleCategory, setToggleCategory] = useState(false);
     const [togglePrice, setTogglePrice] = useState(false);
+
+    const [minPrice, setMinPrice] = useState(0);
+    const [maxPrice, setMaxPrice] = useState(1000000);
+
+    const handleMaXChange = (e: string) => {
+        const rangeValue = Number(e)
+        if (rangeValue >= minPrice) setMaxPrice(rangeValue)
+    }
+    const handleMinChange = (e: string) => {
+        const rangeValue = Number(e)
+        if (rangeValue <= maxPrice) setMinPrice(rangeValue)
+    }
 
     return (
         <>
@@ -25,7 +39,7 @@ const Filter = () => {
                     </span>
                     <span className="py-1.5 px-3 text-[#C62020] text-sm cursor-pointer font-extrabold hover:text-shadow-[0_0_24px_#c6202099] transition-all duration-200 ease" onClick={() => setHandleOpneFilter(false)}>حذف فیلترها</span>
                 </div>
-                <div className={`bg-white overflow-hidden cursor-pointer rounded-2xl border-custom transition-all duration-300 ${toggleCategory ? "h-[226px]" : "h-[48px] hover:bg-[#F9F9F9]"}`}>
+                <div className={`bg-white overflow-hidden cursor-pointer rounded-2xl border-custom transition-all duration-300 ${toggleCategory ? "h-[222px]" : "h-[48px] hover:bg-[#F9F9F9]"}`}>
                     <div className="flex items-center justify-between pt-3 pr-4 pl-3" onClick={() => setToggleCategory((prev) => !prev)}>
                         <span className="text-primary">دسته بندی</span>
                         <img src="./images/arrow-left-slider.svg" alt="جهت" className={`w-6 h-6 transition-transform duration-300 ${toggleCategory && "-rotate-[90deg]"}`} />
@@ -40,7 +54,7 @@ const Filter = () => {
                     </div>
                 </div>
 
-                <div className={`bg-white overflow-hidden cursor-pointer rounded-2xl border-custom transition-all duration-300 ${togglePrice ? "h-[159px]" : "h-[48px] hover:bg-[#F9F9F9]"}`}>
+                <div className={`overflow-hidden cursor-pointer rounded-2xl border-custom transition-all duration-300 ${togglePrice ? "h-[163px]" : "h-[48px] hover:bg-[#F9F9F9]"}`}>
                     <div className="flex items-center justify-between pt-3 pr-4 pl-3" onClick={() => setTogglePrice((prev) => !prev)}>
                         <span className="flex gap-x-[5px] items-center">
                             <span className="text-primary">قیمت</span>
@@ -48,20 +62,41 @@ const Filter = () => {
                         </span>
                         <img src="./images/arrow-left-slider.svg" alt="جهت" className={`w-6 h-6 transition-transform duration-300 ${togglePrice && "-rotate-[90deg]"}`} />
                     </div>
-                    <div className="mt-4 px-4 gap-2 flex flex-col">
-                        <div className="flex justify-center gap-x-2 h-9 text-sm text-[#383838]">
-                            <div className="relative">
-                                <input type="text" placeholder=" " className="w-full h-full pr-2 pl-8 rounded-[9px] input-spin" />
-                                <label className="absolute right-2 top-[9px] spin-phone bg-white px-1 rounded-lg transition-all duration-300 pointer-events-none">از</label>
+                    <div className="mt-4 px-4 flex flex-col items-center">
+                        <div className="mb-6 flex gap-x-2 h-9 text-sm text-[#383838] w-full">
+                            <div className="relative flex-1">
+                                <input type="text" value={minPrice} readOnly className="w-full h-full pr-2 pl-8 rounded-[9px] input-spin" />
+                                <label className="absolute text-[10px] right-3.5 -top-2 bg-white px-1 rounded-lg transition-all duration-300 pointer-events-none">از</label>
                                 <img src="./icons/تومان.svg" alt="تومان" className="absolute left-2 bottom-[11px]" />
                             </div>
-                            <div className="relative">
-                                <input type="text" placeholder=" " className="w-full h-full pr-2 pl-8 rounded-[9px] input-spin" />
-                                <label className="absolute right-2 top-[9px] spin-phone px-1 bg-white rounded-lg transition-all duration-300 pointer-events-none">تا</label>
+                            <div className="relative flex-1">
+                                <input type="text" value={maxPrice} readOnly className="w-full h-full pr-2 pl-8 rounded-[9px] input-spin" />
+                                <label className="absolute text-[10px] right-3.5 -top-2 px-1 bg-white rounded-lg transition-all duration-300">تا</label>
                                 <img src="./icons/تومان.svg" alt="تومان" className="absolute left-2 bottom-[11px]" />
                             </div>
                         </div>
-                        <div></div>
+                        <div className="bg-primary relative w-full bg-pri h-1 mb-4 flex justify-center rounded-full">
+                            <input
+                                type="range"
+                                min={0}
+                                max={1000000}
+                                value={maxPrice}
+                                onChange={(e) => handleMaXChange(e.target.value)}
+                                className="bg-primary cursor-pointer absolute top-1/2 -translate-y-1/2 h-0 w-full appearance-none range-product"
+                            />
+                            <input
+                                type="range"
+                                min={0}
+                                max={1000000}
+                                value={minPrice}
+                                onChange={(e) => handleMinChange(e.target.value)}
+                                className="bg-primary w-full absolute cursor-pointer top-1/2 -translate-y-1/2 h-0 appearance-none range-product"
+                            />
+                        </div>
+                        <div className="relative w-full flex justify-between text-sm text-gray-600">
+                            <span>ارزانترین</span>
+                            <span>گرانترین</span>
+                        </div>
                     </div>
                 </div>
 
