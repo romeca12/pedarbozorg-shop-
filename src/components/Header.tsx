@@ -15,7 +15,7 @@ function Header() {
   const pathname = usePathname();
 
   // hideInput
-  const hideInput = ["/products"].includes(pathname);
+  const hideInput = "/products".includes(pathname);
 
   // EnglishNumber to farsiNumber
   const toFarsiNumber = (number: number) => {

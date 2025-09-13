@@ -1,4 +1,4 @@
-function Background() {
+function TopPageBackground() {
     return (
         <div className="inline-block">
             <img src="./images/spin-luck-shop-bg-left-flower.svg" alt="" className="absolute w-[60px] h-16 top-0 right-0 lg:w-[182px] lg:h-[192px] lg:-right-3" />
@@ -9,4 +9,4 @@ function Background() {
     )
 }
 
-export default Background
+export default TopPageBackground

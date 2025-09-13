@@ -1,6 +1,6 @@
 
 import AboutContent from "./components/AboutContent";
-import Background from "./components/Background";
+import Background from "../../components/TopPageBackground";
 
 export default function about() {
   return (
