@@ -16,7 +16,7 @@ const FilterMobile = () => {
 
             <div className={`bg-white w-full z-10 flex flex-col fixed right-0 left-0 p-4 h-[576px] gap-y-4 transition-[bottom] duration-300 ease ${handleOpneFilter ? "bottom-0" : "-bottom-[576px]"}`}>
                 <img src="./icons/remove-gray.svg" alt="برداشتن" className="w-6 h-6" onClick={() => setHandleOpneFilter(false)} />
-                <Filters setHandleOpneFilter={setHandleOpneFilter}/>
+                <Filters setHandleOpneFilter={setHandleOpneFilter} />
             </div>
         </>
     )

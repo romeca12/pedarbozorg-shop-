@@ -30,7 +30,7 @@ const Filters = ({ setHandleOpneFilter }: IPropsFilters) => {
         if (rangeValue <= maxPrice) setMinPrice(rangeValue)
     }
     return (
-        <>
+        <div className="flex flex-col gap-y-4 static">
             <div className="flex gap-x-2 items-center justify-between">
                 <span className="flex gap-x-2 items-center">
                     <img src="./icons/filter.svg" alt="مرتب" className="w-6 h-6" />
@@ -41,6 +41,7 @@ const Filters = ({ setHandleOpneFilter }: IPropsFilters) => {
                     setHandleOpneFilter && setHandleOpneFilter(false)
                 }}>حذف فیلترها</span>}
             </div>
+            
             <div className={`bg-white overflow-hidden cursor-pointer rounded-2xl border-custom transition-all duration-300 ${toggleCategory ? "h-[218px]" : "h-[48px] hover:bg-[#F9F9F9]"}`}>
                 <div className="flex items-center justify-between pt-3 pr-4 pl-3" onClick={() => setToggleCategory((prev) => !prev)}>
                     <span className="text-primary">دسته بندی</span>
@@ -112,7 +113,7 @@ const Filters = ({ setHandleOpneFilter }: IPropsFilters) => {
                     <span className="absolute transition-all duration-300 cover-roller rounded-2xl w-full h-full top-0 left-0 bg-[#BFBFBF]"></span>
                 </label>
             </div>
-        </>
+        </div>
     )
 }
 

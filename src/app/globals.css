@@ -12,6 +12,7 @@ writing variable
   --color-secondarytwo: #e7f5ef;
   --color-background: #e0f1e9;
   --color-text-gray: #757575;
+  --color-input: #383838;
   --color-scrollbar-track: #bdd8a4be;
   --color-background-gallery: #faeeed;
   --color-white: #ffffff;
@@ -75,6 +76,8 @@ writing variable
   outline: none;
   border: none;
   box-sizing: border-box;
+  font-family: "iranyekan", sans-serif;
+  font-weight: 300;
 }
 body {
   font-family: "iranyekan", sans-serif;
@@ -595,7 +598,7 @@ button {
   border: 2px solid #cbcbcb;
 }
 .input-spin:focus {
-  /* border-color: var(--color-primary); */
+  border-color: var(--color-primary);
 }
 .spin-center {
   left: calc(50% - 38px);
@@ -604,7 +607,8 @@ button {
 .input-spin:focus + .spin-phone,
 .input-spin:not(:placeholder-shown) + .spin-phone {
   transform: translate(-6px, -14px);
-  font-size: 10px;
+  font-size: 12px;
+  color: var(--color-input);
   /* margin-right: 10px; */
   /* color: #757575;   */
 }
@@ -618,7 +622,7 @@ button {
 }
 .card-global {
 }
-.range-product{
+.range-product {
   pointer-events: none;
 }
 .range-product[type="range"]::-webkit-slider-thumb,
@@ -630,5 +634,17 @@ input[type="range"]::-moz-range-thumb {
   width: 22px;
   border: none;
   border-radius: 50%;
-  pointer-events: auto;
+  pointer-events: all;
+}
+
+/* page content */
+
+.select-content {
+  border: 2px solid var(--border-custom-color);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('../../public/icons/arrow-down.svg');
+  background-repeat: no-repeat;
+  background-position: left 10px center; 
 }

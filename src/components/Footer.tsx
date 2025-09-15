@@ -25,7 +25,7 @@ export default function Footer() {
                             <div className="px-4 py-2 bg-background rounded-2xl flex justify-center items-center">
                                 <h5 className="text-xs whitespace-nowrap">فروشگاه مرکزی</h5>
                                 <p className="text-sm  px-2 text-center">تهران،جنت آباد مرکزی، خیابان کبیری طامه(شاهین شمالی) ۲۰ متری گلستان غربی،پلاک ۱۵</p>
-                                <img src="./icons/location.svg" alt="" />
+                                <img src="./icons/location2.svg" alt="" />
                             </div>
                             <div className="py-2 px-4 flex justify-between items-center bg-background rounded-2xl">
                                 <h5 className="text-xs">تلفن فروشگاه</h5>
