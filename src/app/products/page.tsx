@@ -3,6 +3,7 @@ import { Metadata } from "next"
 import Sort from "./components/Sort"
 import Filters from "./components/Filters"
 import FilterMobile from "./components/FilterMobile"
+import Pagination from "@/components/Pagination"
 
 export const metadata: Metadata = {
   title: "محصولات",
@@ -13,7 +14,7 @@ function prodcuts() {
     <div className="mt-20 md:mt-[131px] mb-56 md:mb-16 lg:flex lg:gap-x-4">
       <aside className="hidden lg:block lg:w-[200px] xl:w-[272px] sticky top-0 right-0">
         <Filters />
-        <img src="./images/Products Banner 1.svg" alt="بنر محصولات" className="mt-4"/>
+        <img src="./images/Products Banner 1.svg" alt="بنر محصولات" className="mt-4" />
       </aside>
       <main className="flex-1">
         <div className="top mb-2 md:mb-4 gap-4 flex flex-col lg:flex-row lg:justify-center">
@@ -34,15 +35,7 @@ function prodcuts() {
             <CardGlobal key={index} id={index + 1} />
           )}
         </div>
-        <div className="flex justify-center items-center gap-2 h-10 text-primary text-sm md:text-base cursor-pointer">
-          <img src="./images/arrow-right-slider.svg" alt="جهت راست" className="w-5 h-5 mx-1.5" />
-          <span className="active-text bg-primary text-white px-3 h-full flex justify-center items-center rounded-lg hover:bg-[#336D51] md:px-4">۱</span>
-          <span className="px-3 h-full flex justify-center items-center md:px-4">۲</span>
-          <span className="px-3 h-full flex justify-center items-center md:px-4">۳</span>
-          <span className="text-base">...</span>
-          <span className="px-3 h-full flex justify-center items-center md:px-4">۷۸</span>
-          <img src="./images/arrow-left-slider.svg" alt="جهت چپ" className="w-5 h-5 mx-1.5" />
-        </div>
+        <Pagination />
       </main>
     </div>
   )

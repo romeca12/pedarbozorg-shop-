@@ -12,7 +12,7 @@ const Filters = ({ setHandleOpneFilter }: IPropsFilters) => {
     const [minPrice, setMinPrice] = useState(0);
     const [maxPrice, setMaxPrice] = useState(1000000)
 
-    const ViewRemoveFilter = () => {
+    const viewRemoveFilter = () => {
         if (minPrice !== 0 || maxPrice !== 1000000) return true
     }
 
@@ -36,7 +36,7 @@ const Filters = ({ setHandleOpneFilter }: IPropsFilters) => {
                     <img src="./icons/filter.svg" alt="مرتب" className="w-6 h-6" />
                     <span className="text-primary text-xl font-black">فیلترها</span>
                 </span>
-                {ViewRemoveFilter() && <span className="py-1 px-3 text-[#C62020] text-sm cursor-pointer font-extrabold hover:text-shadow-[0_0_24px_#c6202099] transition-all duration-200 ease" onClick={() => {
+                {viewRemoveFilter() && <span className="py-1 px-3 text-[#C62020] text-sm cursor-pointer font-extrabold hover:text-shadow-[0_0_24px_#c6202099] transition-all duration-200 ease" onClick={() => {
                     removeFilter()
                     setHandleOpneFilter && setHandleOpneFilter(false)
                 }}>حذف فیلترها</span>}

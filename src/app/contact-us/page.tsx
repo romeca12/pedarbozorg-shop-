@@ -10,12 +10,7 @@ export const metadata: Metadata = {
 const countactUs = () => {
     return (
         <>
-            <TopPageBackground />
-            <div className="font-extrabold flex items-center justify-center mt-2 mb-14 md:mt-[73px]">
-                <img src="./images/flower-slider-right.svg" alt="گل1" className="hidden md:block w-[81px] h-[76px]" />
-                <h1 className="text-primary md:mx-4 text-base md:text-2xl font-black">تماس باما</h1>
-                <img src="./images/flower-slider-left.svg" alt="گل2" className="hidden md:block w-[81px] h-[76px]" />
-            </div>
+            <TopPageBackground name="تماس باما" />
             <main className="mb-56 md:mb-32">
                 <div className="bg-white rounded-2xl p-4 lg:p-8 mb-2 md:mb-[26px]">
                     <h2 className="text-center mb-6 lg:mb-10 text-primary text-xl font-medium">ارسال پیام به پدربزرگ</h2>
