@@ -17,8 +17,8 @@ const countactUs = () => {
                 <img src="./images/flower-slider-left.svg" alt="گل2" className="hidden md:block w-[81px] h-[76px]" />
             </div>
             <main className="mb-56 md:mb-32">
-                <div className="bg-white rounded-2xl p-4 mb-2 md:mb-[26px]">
-                    <h2 className="text-center mb-6 text-primary text-xl font-extrabold">ارسال پیام به پدربزرگ</h2>
+                <div className="bg-white rounded-2xl p-4 lg:p-8 mb-2 md:mb-[26px]">
+                    <h2 className="text-center mb-6 lg:mb-10 text-primary text-xl font-medium">ارسال پیام به پدربزرگ</h2>
                     <FormContact />
                 </div>
 

@@ -18,6 +18,7 @@ writing variable
   --color-white: #ffffff;
   --font-weigh-800: "800";
   --border-custom-color: #e3e3e3;
+  --border-custom-color-two: #cbcbcb;
 }
 @utility hover-icon-header {
   @apply transition-all duration-200 ease-in hover:bg-secondarytwo cursor-pointer rounded-[10px];
@@ -27,6 +28,9 @@ writing variable
 }
 @utility button-sort-product-active {
   @apply bg-primary text-white hover:bg-[#336D51];
+}
+.border-type-two {
+  border: 1px solid var(--border-custom-color-two);
 }
 .shadow-action-product {
   transition: filter 0.5s ease;
@@ -595,7 +599,7 @@ button {
 
 /* spin in project  */
 .input-spin {
-  border: 2px solid #cbcbcb;
+  border: 1px solid var(--border-custom-color-two);
 }
 .input-spin:focus {
   border-color: var(--color-primary);
@@ -640,11 +644,18 @@ input[type="range"]::-moz-range-thumb {
 /* page content */
 
 .select-content {
-  border: 2px solid var(--border-custom-color);
+  border: 1px solid var(--border-custom-color-two);
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  background-image: url('../../public/icons/arrow-down.svg');
+  background-image: url("../../public/icons/arrow-down.svg");
   background-repeat: no-repeat;
-  background-position: left 10px center; 
+  background-position: left 10px center;
+}
+.select-content option {
+  font-family: "iranyekan";
+  font-weight: 400;
+}
+.border-upload{
+  border: 1px solid var(--color-primary);
 }
