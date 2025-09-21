@@ -25,8 +25,8 @@ const CardGlobal = ({ id }: { id: number }) => {
 
     return (
         <div className="bg-white group p-2 md:p-4 md:pb-2 relative cursor-pointer rounded-2xl overflow-hidden flex flex-col gap-2 border-custom">
-            <div className="flex justify-between gap-2 items-center md:flex-col">
-                <img src="./images/image-popular-product.svg" alt={`پرفروش ترین محصول`} className='w-[85px] h-[85px] md:w-[216px] md:h-[208px]' />
+            <div className="flex justify-between gap-2 items-center overal-product-item">
+                <img src="./images/image-popular-product.svg" alt="پرفروش ترین محصول" className='w-[85px] h-[85px] img-cart-product' />
                 <div className="min-w-[179px] md:w-full">
                     <h3 className="text-base md:text-xl text-primary mb-2 font-black">آرد نخودچی</h3>
                     <div className='mb-2 flex justify-between items-center'>

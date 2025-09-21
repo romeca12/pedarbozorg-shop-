@@ -4,6 +4,7 @@ import Sort from "./components/Sort"
 import Filters from "./components/Filters"
 import FilterMobile from "./components/FilterMobile"
 import Pagination from "@/components/Pagination"
+import "@/app/globals.css"
 
 export const metadata: Metadata = {
   title: "محصولات",
@@ -30,7 +31,7 @@ function prodcuts() {
             <Sort />
           </div>
         </div>
-        <div className="flex flex-wrap justify-center gap-2 md:gap-4 product-layout mb-4 lg:mb-8">
+        <div className="overal-products gap-2 md:gap-4 mb-4 lg:mb-8">
           {Array(20).fill(1).map((_, index) =>
             <CardGlobal key={index} id={index + 1} />
           )}
