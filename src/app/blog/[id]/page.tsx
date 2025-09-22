@@ -1,7 +1,7 @@
-const page = () => {
+const article = () => {
   return (
-    <div>article1</div>
+    <div>article</div>
   )
 }
 
-export default page
+export default article

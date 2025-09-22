@@ -13,7 +13,7 @@ function blog() {
     return (
         <>
             <TopPageBackground name="مجله" />
-            <main className="flex flex-col mb-60 md:mb-32">
+            <main className="mb-60 md:mb-32">
                 <CategoryAndSearch />
                 <div className="overal-blogs gap-2 md:gap-4 mb-2 md:mb-4">
                     {Array(16).fill(1).map((_, index) =>

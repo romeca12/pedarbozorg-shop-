@@ -1,6 +1,6 @@
 const BlogCart = () => {
     return (
-        <div className="bg-white flex justify-between gap-x-2 p-2 md:p-4 w-full overal-product-item rounded-lg border-custom">
+        <div className="bg-white transition-shadow duration-300 hover:shadow-[0_0_18px_#3d836138] cursor-pointer flex justify-between gap-x-2 p-2 md:p-4 w-full overal-product-item rounded-lg border-custom">
             <img src="./images/image 15.svg" alt="عکس مقاله" className="w-[75px] rounded-xl img-item-blog" />
             <div className="flex flex-col justify-around box-text-blog">
                 <div className="title-and-desk-blog">
