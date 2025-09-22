@@ -6,7 +6,7 @@ const Category = () => {
     const [toggleCategory, setToggleCategory] = useState(false);
 
     return (
-        <div className="flex flex-col gap-y-2 sm:flex-row-reverse sm:gap-x-4 mb-14 md:mb-4">
+        <div className="flex flex-col gap-y-2 sm:flex-row-reverse sm:gap-x-4 mb-14 sm:mb-4">
             <div className="search relative h-10 sm:h-12 border-custom rounded-2xl bg-white sm:flex-1">
                 <input type="text" placeholder="جستجو.." className="h-full pr-[11px] w-full pl-10 text-[#353535] placeholder:text-[#ADADAD]" />
                 <img src="./images/search-normal.svg" alt="جست و جو.." className="absolute top-2.5 left-2" />

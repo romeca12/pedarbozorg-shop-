@@ -24,7 +24,7 @@ const CardGlobal = ({ id }: { id: number }) => {
     };
 
     return (
-        <div className="bg-white group p-2 md:p-4 md:pb-2 relative cursor-pointer rounded-2xl overflow-hidden flex flex-col gap-2 border-custom">
+        <div className="bg-white group transition-shadow duration-300 hover:shadow-[0_0_18px_#3d836138] p-2 md:p-4 md:pb-2 relative cursor-pointer rounded-2xl overflow-hidden flex flex-col gap-2 border-custom">
             <div className="flex justify-between gap-2 items-center overal-product-item">
                 <img src="./images/image-popular-product.svg" alt="پرفروش ترین محصول" className='w-[85px] h-[85px] img-cart-product' />
                 <div className="min-w-[179px] md:w-full">

@@ -409,20 +409,60 @@ button {
 }
 
 /* products  صفحه محصولات بخش 2 */
-.overal-products {
+/* صفحه بلاگ  */
+
+.overal-products,
+.overal-blogs {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
 }
+.para-item-blog {
+  display: none;
+}
 @media screen and (min-width: 420px) {
-  .overal-products {
+  .overal-blogs {
+    width: 100%;
+    max-width: fit-content;
+    align-self: center;
+  }
+  .overal-products,
+  .overal-blogs {
     grid-template-columns: repeat(2, 1fr);
   }
-  .img-cart-product{
+  .img-cart-product {
     width: 216px;
     height: 208px;
   }
-  .overal-product-item{
+  .overal-product-item {
     flex-direction: column;
+    max-width: 240px;
+    row-gap: 16px;
+  }
+  .img-item-blog {
+    width: fit-content;
+  }
+  .box-text-blog {
+    flex-direction: column-reverse;
+    row-gap: 8px;
+  }
+  .title-and-desk-blog {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px
+  }
+  .para-item-blog {
+    display: block;
+    text-align: justify;
+  }
+}
+@media screen and (min-width: 560px) {
+  .overal-blogs {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .overal-blogs {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 /* home styles */
@@ -443,6 +483,12 @@ button {
   }
   .overal-products {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .bg-footer-one {
+    background: url("../../public/images/bg-footer1.svg") right center / cover
+      no-repeat;
+    width: 100%;
+    height: 690px;
   }
 }
 
@@ -617,19 +663,6 @@ button {
 .tran-arrow-up {
   z-index: 1;
   transition: all 0.7s;
-}
-
-/* footer  */
-
-@media (min-width: 768px) {
-  /* footer */
-
-  .bg-footer-one {
-    background: url("../../public/images/bg-footer1.svg") right center / cover
-      no-repeat;
-    width: 100%;
-    height: 690px;
-  }
 }
 
 /* spin in project  */
