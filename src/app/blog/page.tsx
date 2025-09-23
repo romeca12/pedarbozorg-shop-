@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import Pagination from "@/components/Pagination";
 import CategoryAndSearch from "./components/CategoryAndSearch";
 import BlogCart from "./components/BlogCart";
+import Link from "next/link";
 
 
 export const metadata: Metadata = {
@@ -17,7 +18,9 @@ function blog() {
                 <CategoryAndSearch />
                 <div className="overal-blogs gap-2 md:gap-4 mb-2 md:mb-4">
                     {Array(16).fill(1).map((_, index) =>
-                        <BlogCart key={index} />
+                        <Link href="/blog/3" key={index}>
+                            <BlogCart key={index} />
+                        </Link>
                     )}
                 </div>
                 <Pagination />

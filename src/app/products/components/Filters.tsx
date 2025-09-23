@@ -63,7 +63,7 @@ const Filters = ({ setHandleOpneFilter }: IPropsFilters) => {
                         <span className="text-primary">قیمت</span>
                         {
                             minPrice !== 0 || maxPrice !== 1000000 ?
-                                <span className="w-2 h-2 bg-[#FFC436] rounded-xl"></span> : null
+                                <span className="w-2 h-2 bg-circle rounded-xl"></span> : null
                         }
                     </span>
                     <img src="./images/arrow-left-slider.svg" alt="جهت" className={`w-6 h-6 transition-transform duration-300 ${togglePrice && "-rotate-[90deg]"}`} />

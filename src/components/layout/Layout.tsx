@@ -9,10 +9,10 @@ import Header from "../Header"
 
 
 type ILayoutProps = {
-    children: React.ReactNode
+    children: React.ReactNode;
 }
-interface ICart {
-    id: number,
+type ICart = {
+    id: number;
 }
 
 export default function Layout({ children }: ILayoutProps) {
