@@ -13,11 +13,11 @@ writing variable
   --color-background: #e0f1e9;
   --color-text-gray: #757575;
   --color-input: #383838;
-  --color-article: #1F4231;
+  --color-article: #1f4231;
   --color-scrollbar-track: #bdd8a4be;
   --color-background-gallery: #faeeed;
   --color-white: #ffffff;
-  --color-circle: #FFC436;
+  --color-circle: #ffc436;
   --font-weigh-800: "800";
   --border-custom-color: #e3e3e3;
   --border-custom-color-two: #cbcbcb;
@@ -414,7 +414,8 @@ button {
 /* صفحه بلاگ  */
 
 .overal-products,
-.overal-blogs {
+.overal-blogs,
+.overal-blogs-suggest {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
 }
@@ -423,7 +424,8 @@ button {
 }
 @media screen and (min-width: 420px) {
   .overal-products,
-  .overal-blogs {
+  .overal-blogs,
+  .overal-blogs-suggest {
     grid-template-columns: repeat(2, 1fr);
   }
   .img-cart-product {
@@ -452,15 +454,27 @@ button {
     text-align: justify;
   }
 }
-@media screen and (min-width: 560px) {
-  .overal-blogs {
+@media screen and (min-width: 768px) {
+  .popular-product-card,
+  .overal-products,
+  .overal-blogs,
+  .overal-blogs-suggest {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .bg-footer-one {
+    background: url("../../public/images/bg-footer1.svg") right center / cover
+      no-repeat;
+    width: 100%;
+    height: 690px;
   }
 }
 @media screen and (min-width: 1024px) {
+  .overal-products,
   .overal-blogs {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+@media screen and (min-width: 1280px) {
 }
 /* home styles */
 /* swiper slider */
@@ -474,21 +488,6 @@ button {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media screen and (min-width: 768px) {
-  .popular-product-card {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .overal-products {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .bg-footer-one {
-    background: url("../../public/images/bg-footer1.svg") right center / cover
-      no-repeat;
-    width: 100%;
-    height: 690px;
-  }
-}
-
 @media screen and (max-width: 926px) {
   .header .header-cover-desktop .header-right-desktop h2 {
     display: none;
