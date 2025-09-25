@@ -37,7 +37,7 @@ const Filters = ({ setHandleOpneFilter }: IPropsFilters) => {
                     <span className="text-primary text-xl font-black">فیلترها</span>
                 </span>
                 {viewRemoveFilter() && <span className="py-1 px-3 text-[#C62020] text-sm cursor-pointer font-extrabold hover:text-shadow-[0_0_24px_#c6202099] transition-all duration-200 ease" onClick={() => {
-                    removeFilter()
+                    removeFilter();
                     setHandleOpneFilter && setHandleOpneFilter(false)
                 }}>حذف فیلترها</span>}
             </div>

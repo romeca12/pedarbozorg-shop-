@@ -1,7 +1,6 @@
 "use client"
 
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import Background from "./BgSpinLuckShop";
+import { Dispatch, SetStateAction, useState } from "react";
 import toast from "react-hot-toast";
 
 export default function Spin() {

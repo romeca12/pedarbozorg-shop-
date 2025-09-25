@@ -18,8 +18,12 @@ const article = async (Props: IPropsArticle) => {
   return (
     <>
       <div className="text-primary text-sm flex justify-center translate-y-4 md:translate-y-24">
-        <span className="px-3 cursor-pointer">پدر بزرگ</span>/
-        <span className="px-3 cursor-pointer">بلاگ</span>/
+        <Link href="/">
+          <span className="px-3 cursor-pointer">پدر بزرگ</span>
+        </Link>/
+        <Link href="/blog">
+          <span className="px-3 cursor-pointer">بلاگ</span>
+        </Link>/
         <span className="px-3 cursor-pointer">سبک زندگی</span>
       </div>
       <TopPageBackground name="از روغن ماساژ در پخت و پز استفاده نکنید" />
@@ -99,6 +103,9 @@ const article = async (Props: IPropsArticle) => {
                 <CardGlobal key={index} id={index + 1} />
               )}
             </div>
+            <Link href="/products" className="flex justify-center">
+              <button className="text-white bg-primary transition-colors duration-300 hover:bg-hover-btn rounded-lg px-4 py-2">مشاهده همه محصولات</button>
+            </Link>
           </div>
 
           <div>
@@ -110,12 +117,12 @@ const article = async (Props: IPropsArticle) => {
                 </Link>
               )}
             </div>
-            <div className="flex justify-center">
-              <button className="text-white bg-primary rounded-lg px-4 py-2">مشاهده همه مقالات</button>
-            </div>
+            <Link href="/blog" className="flex justify-center">
+              <button className="text-white transition-colors duration-300 hover:bg-hover-btn bg-primary rounded-lg px-4 py-2">مشاهده همه مقالات</button>
+            </Link>
           </div>
         </main>
-        <Sidebar/>
+        <Sidebar />
       </div>
     </>
   )
