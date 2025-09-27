@@ -38,10 +38,10 @@ const Filters = ({ setHandleOpneFilter }: IPropsFilters) => {
                 </span>
                 {viewRemoveFilter() && <span className="py-1 px-3 text-[#C62020] text-sm cursor-pointer font-extrabold hover:text-shadow-[0_0_24px_#c6202099] transition-all duration-200 ease" onClick={() => {
                     removeFilter();
-                    setHandleOpneFilter && setHandleOpneFilter(false)
+                    setHandleOpneFilter?.(false);
                 }}>حذف فیلترها</span>}
             </div>
-            
+
             <div className={`bg-white overflow-hidden cursor-pointer rounded-2xl border-custom transition-all duration-300 ${toggleCategory ? "h-[218px]" : "h-[48px] hover:bg-[#F9F9F9]"}`}>
                 <div className="flex items-center justify-between pt-3 pr-4 pl-3" onClick={() => setToggleCategory((prev) => !prev)}>
                     <span className="text-primary">دسته بندی</span>

@@ -17,7 +17,7 @@ writing variable
   --color-scrollbar-track: #bdd8a4be;
   --color-background-gallery: #faeeed;
   --color-white: #ffffff;
-  --color-hover-btn: #336D51;
+  --color-hover-btn: #336d51;
   --color-circle: #ffc436;
   --font-weigh-800: "800";
   --border-custom-color: #e3e3e3;
@@ -25,6 +25,9 @@ writing variable
 }
 @utility hover-icon-header {
   @apply transition-all duration-200 ease-in hover:bg-secondarytwo cursor-pointer rounded-[10px];
+}
+@utility ec-hover-btn {
+  @apply transition-colors duration-300 hover:bg-hover-btn;
 }
 @utility button-sort-product {
   @apply flex h-8 py-1.5 px-3 items-center justify-center text-primary text-sm rounded-lg w-fit transition-colors duration-300;
@@ -175,9 +178,9 @@ body {
   font-style: normal;
 }
 
-.ress{
+.ress {
   font-family: "iranyekan";
- }
+}
 button {
   cursor: pointer;
 }
@@ -278,6 +281,10 @@ button {
   font-weight: normal;
   color: #ffffff;
   padding-bottom: 2px;
+  transition: background-color 0.3s ease;
+}
+.header .header-cover-desktop .header-left-desktop button:hover {
+  background-color: var(--color-hover-btn);
 }
 .header .header-cover-desktop .header-left-desktop button img {
   width: 24px;
@@ -414,7 +421,15 @@ button {
 .bottom_login .bottom_login_variable .number {
   color: #3d8361;
 }
-
+.true-img-down-menu {
+  display: block;
+}
+.false-img-down-menu {
+  transform: rotateY(90deg);
+}
+.header-link-menu:hover + .false-img-down-menu {
+  transform: rotateY(0deg);
+}
 /* products  صفحه محصولات بخش 2 */
 /* صفحه بلاگ  */
 

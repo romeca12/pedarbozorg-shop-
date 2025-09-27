@@ -16,14 +16,7 @@ export default function Login({ openLogin, setOpenLogin }: IPropsLogin) {
         const regexValue = /^[۰-۹0-9]*$/
         // console.log(zero[0]);
         if (regexValue.test(amount) && amount.length <= 11) {
-
             setValue(amount);
-            // console.log(typeof newValue);
-            // const zero = newValue.splice("");
-            // console.log(newValue.splice(","));
-            // if (newValue.length === 11) {
-            //   setLoginTwo(true);
-            // }
         }
     };
 
@@ -37,13 +30,12 @@ export default function Login({ openLogin, setOpenLogin }: IPropsLogin) {
     return (
         <>
             <div
-                className={`const-cover-login ${openLogin ? "cover-login" : ""}`}
+                className={`const-cover-login z-20 ${openLogin ? "cover-login" : ""}`}
                 onClick={() => {
                     setOpenLogin(false);
-                    // setLoginTwo(false);
                 }}
             ></div>
-            <div className={`login ${openLogin ? "open-login" : ""}`}>
+            <div className={`login z-30 ${openLogin ? "open-login" : ""}`}>
                 <div className="top-login-stop">
                     <div className="top_right">
                         {loginTwo && (

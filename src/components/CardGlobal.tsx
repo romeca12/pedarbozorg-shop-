@@ -17,10 +17,12 @@ const CardGlobal = ({ id }: { id: number }) => {
             return [...prevCart, { id: productId }];
         });
 
-        // toast view
-        cart.find(item => item.id === id)
-            ? toast.success("این کالا از سبد خریدتان حذف شد") :
+        const result = cart.find(item => item.id === id);
+        if (result) {
+            toast.success("این کالا از سبد خریدتان حذف شد");
+        } else {
             toast.success("این کالا به سبد خریدتان اضافه شد");
+        }
     };
 
     return (

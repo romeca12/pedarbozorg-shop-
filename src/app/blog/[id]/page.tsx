@@ -8,12 +8,13 @@ import Sidebar from "../components/Sidebar";
 
 type IPropsArticle = {
   params: Promise<{ id: string }>;
-  searchParams: Promise<{}>;
 }
 
 const article = async (Props: IPropsArticle) => {
 
   const { id } = await Props.params;
+
+  console.log(id)
 
   return (
     <>
@@ -36,7 +37,7 @@ const article = async (Props: IPropsArticle) => {
 
             <div className="flex md:items-center justify-end">
               <span className="flex ml-1 md:ml-2">
-                <span className="text-[10px] md:text-xs text-text-gray ml-[1px] md:ml-1">'۳</span>
+                <span className="text-[10px] md:text-xs text-text-gray ml-[1px] md:ml-1">&apos;۳</span>
                 <img src="/icons/clock.svg" alt="" className="w-3 h-3 md:w-[18px] md:h-[18px]" />
               </span>
               <span className="flex md:items-center">
@@ -97,7 +98,7 @@ const article = async (Props: IPropsArticle) => {
           <Share />
 
           <div className="mb-16">
-            <TitleSection title="محصولات پیشنهادی پدربزرگ" />
+            <TitleSection title="محصولات پیشنهادی پدربزرگ"/>
             <div className="overal-products gap-2 md:gap-4 my-4 lg:my-8">
               {Array(4).fill(1).map((_, index) =>
                 <CardGlobal key={index} id={index + 1} />

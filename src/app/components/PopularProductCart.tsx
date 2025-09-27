@@ -1,11 +1,9 @@
+import TitleSection from "@/components/TitleSection"
+
 export default function PopularProductCart() {
     return (
         <div>
-            <div className="font-extrabold flex items-center justify-center mb-4 lg:mb-8">
-                <img src="./images/flower-slider-right.svg" alt="گل1" className="w-[46px] h-[32px] sm:w-[69px] sm:h-[65px]" />
-                <h3 className="text-primary mx-4 text-base lg:text-2xl font-black">پرفروش ترین محصولات</h3>
-                <img src="./images/flower-slider-left.svg" alt="گل2" className="w-[46px] h-[32px] sm:w-[69px] sm:h-[65px]" />
-            </div>
+            <TitleSection title="پرفروش ترین محصولات" />
             <div className="gap-2 lg:gap-4 popular-product-card">
                 {Array(11).fill(1).map((_, item) =>
                     <div key={item} className="flex items-center rounded-2xl p-2 gap-2 lg:p-4 lg:gap-4 bg-white hover:shadow-lg transition-all duration-400 border-custom">
@@ -16,7 +14,7 @@ export default function PopularProductCart() {
                 )}
             </div>
             <div className="grid place-content-center">
-                <button className="bg-primary text-white py-2 px-3 lg:px-4 lg:py-2.5 text-sm lg:text-base rounded-lg font-black mt-4 lg:mt-8">مشاهده همه</button>
+                <button className="bg-primary text-white py-2 px-3 lg:px-4 lg:py-2.5 text-sm lg:text-base rounded-lg font-black mt-4 lg:mt-8 transition-colors duration-300 hover:bg-hover-btn">مشاهده همه</button>
             </div>
         </div>
     )

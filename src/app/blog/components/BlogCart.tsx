@@ -11,7 +11,7 @@ const BlogCart = () => {
                     <span className="text-[#83C5A5] text-[10px] md:text-sm">سبک زندگی</span>
                     <div className="flex md:items-center">
                         <span className="flex ml-1 md:ml-2">
-                            <span className="text-[10px] md:text-xs text-text-gray ml-[1px] md:ml-1">'۳</span>
+                            <span className="text-[10px] md:text-xs text-text-gray ml-[1px] md:ml-1">&apos;۳</span>
                             <img src="/icons/clock.svg" alt="" className="w-3 h-3 md:w-[18px] md:h-[18px]" />
                         </span>
                         <span className="flex md:items-center">

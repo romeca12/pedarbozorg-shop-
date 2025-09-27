@@ -35,10 +35,10 @@ const Share = () => {
 
             <div className="flex items-center gap-x-2">
                 <span className="text-text-gray whitespace-nowrap">لینک مطلب:</span>
-                <div className="overflow-x-hidden flex justify-end">
+                <div className="overflow-x-hidden flex justify-end max-w-fit flex-1">
                     <h3 ref={textRef} className="text-primary py-1 px-2 rounded-lg bg-secondarytwo whitespace-nowrap">{`http://localhost:3000${pathname}`}</h3>
                 </div>
-                <span className="transition-colors duration-300 hover:bg-[#C1E2D2] w-8 h-8 bg-secondarytwo rounded-lg">
+                <span className="cursor-not-allowed transition-colors duration-300 hover:bg-[#C1E2D2] w-8 h-8 bg-secondarytwo rounded-lg">
                     {!copy ? <Image src="/icons/copy.svg"
                         width={32}
                         height={32}

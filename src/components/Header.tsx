@@ -9,7 +9,7 @@ import { AppContext } from "@/context/AppContext";
 
 function Header() {
   const { cart } = useContext(AppContext);
-  const [statusMenu, setStatusMenu] = useState(false);
+  const [handleMenu, setHandleMenu] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
@@ -23,9 +23,9 @@ function Header() {
     return number.toString().replace(/\d/g, d => "۰۱۲۳۴۵۶۷۸۹"[+d]);
   }
 
-  function closeMenu() {
-    setStatusMenu(false);
-  }
+  // function closeMenu() {
+  //   setStatusMenu(false);
+  // }
 
   useEffect(() => {
     window?.scrollTo(0, 0);
@@ -46,130 +46,81 @@ function Header() {
     , [])
 
   return (
-    <header className={`header ${isScrolled && "shadow bg-secondary"}`}>
-      <div className="header-main-desktop">
-        <div className="header-cover-desktop limit-desktop">
-          {pathname === "/" ?
-            <div className="header-right-desktop">
-              <img src="./images/Layer_1.svg" alt="لوگو دایره" />
-              <h2>فروشگاه محصولات طبیعی پدربزرگ</h2>
-            </div>
-            :
-            <Link href="/" className="header-right-desktop">
-              <img src="./images/Layer_1.svg" alt="لوگو دایره" />
-              <h2>فروشگاه محصولات طبیعی پدربزرگ</h2>
-            </Link>
-          }
-          <div className="header-midle-desktop">
-            {!hideInput &&
-              <div className="input-header">
-                <input type="text" placeholder="جست و جو..." />
-                <img src="./images/search-normal.svg" alt="جست و جو.." />
-              </div>}
-          </div>
-          <div className="header-left-desktop" id="login">
-            {/* <button> */}
+    <>
+      <header className={`px-4 fixed top-0 right-0 h-16 lg:h-[117px] z-10 w-full ${isScrolled && "shadow bg-secondary"}`}>
+        <div className="lg:hidden flex justify-between items-center h-full">
+          <div className="flex gap-2">
             <img
-              onClick={() => setOpenLogin(!openLogin)}
-              className="image-cart-desktop var"
-              src="./images/login.svg"
-              alt=""
-            />
-            {/* </button> */}
-            <button className="btn" onClick={() => setOpenLogin(!openLogin)}>
-              <img src="./images/Login 2.svg" alt="ورود" />
+              src="/images/menu.svg"
+              onClick={() => setHandleMenu(true)}
+              alt="منو" className="cursor-pointer" />
+            <img src="/images/instagram.svg" alt="ُسرچ" className="cursor-pointer" />
+            <img src="/images/know.svg" alt="گردونه شانس" className="cursor-pointer" />
+          </div>
+          <img src="/images/logo.svg" alt="لوگو" className="cursor-pointer" />
+          <div className="flex gap-2">
+            <img src="/images/login.svg" alt="ورود" className="cursor-pointer" />
+            <img src="/images/cart.svg" alt="سبد خرید" className="cursor-pointer" />
+          </div>
+        </div>
+
+
+
+        <div className="hidden lg:flex items-center justify-between gap-4 h-20">
+
+          <div className="flex gap-4 items-center">
+            <img src="/images/Layer_1.svg" alt="لوگو" />
+            <h1 className="text-primary">فروشگاه محصولات طبیعی پدربزرگ</h1>
+          </div>
+
+          <div className="max-w-[497px] flex-1 mt-[52px] gap-[15px] flex flex-col">
+            <div className="search relative border-type-two rounded-lg h-10 bg-secondary">
+              <input type="text" placeholder="جستجو.." className="h-full pr-[11px] pl-10 text-[#353535] placeholder:text-[#ADADAD]" />
+              <img src="/images/search-normal.svg" alt="جست و جو.." className="absolute top-2 left-2" />
+            </div>
+            <div>
+              <ul className="text-primary lg:flex gap-8 justify-center">
+                <li className="lg:flex flex-col gap-1 items-center">
+                  <Link href="/" className="header-link-menu" onClick={() => setHandleMenu(false)}>صفحه اصلی</Link>
+                  <img className={`hidden lg:block transition-transform duration-300 ${pathname == "/" ? "true-img-down-menu" : "false-img-down-menu"}`} src="/images/Frame.svg" alt="عکس زیر منو" />
+                </li>
+                <li className="lg:flex flex-col gap-1 items-center">
+                  <Link href="/products" className="header-link-menu" onClick={() => setHandleMenu(false)}>محصولات</Link>
+                  <img className={`hidden lg:block transition-transform duration-300 ${pathname == "/products" ? "true-img-down-menu" : "false-img-down-menu"}`} src="/images/Frame.svg" alt="عکس زیر منو" />
+                </li>
+                <li className="lg:flex flex-col gap-1 items-center">
+                  <Link href="/blog" className="header-link-menu" onClick={() => setHandleMenu(false)}>مجله</Link>
+                  <img className={`hidden lg:block transition-transform duration-300 ${pathname == "/blog" ? "true-img-down-menu" : "false-img-down-menu"}`} src="/images/Frame.svg" alt="عکس زیر منو" />
+                </li>
+                <li className="lg:flex flex-col gap-1 items-center">
+                  <Link href="/about-us" className="header-link-menu" onClick={() => setHandleMenu(false)}>درباره ما</Link>
+                  <img className={`hidden lg:block transition-transform duration-300 ${pathname == "/about-us" ? "true-img-down-menu" : "false-img-down-menu"}`} src="/images/Frame.svg" alt="عکس زیر منو" />
+                </li>
+                <li className="lg:flex flex-col gap-1 items-center">
+                  <Link href="/contact-us" className="header-link-menu" onClick={() => setHandleMenu(false)}>تماس باما</Link>
+                  <img className={`hidden lg:block transition-transform duration-300 ${pathname == "/contact-us" ? "true-img-down-menu" : "false-img-down-menu"}`} src="/images/Frame.svg" alt="عکس زیر منو" />
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="flex gap-4">
+            <button className="bg-primary px-4 py-2 rounded-lg text-white flex gap-2 items-center" onClick={() => setOpenLogin(!openLogin)}>
+              <img src="/images/Login 2.svg" alt="ورود" />
               ورود/ثبت نام
             </button>
-            <span className="relative">
-              <img className="hover-icon-header image-cart-desktop" src="./images/cart.svg" alt="سبد خرید" />
-              <span className={`bg-[#C62020] absolute top-1 right-1 text-white text-xs px-1 leading-[150%] rounded-sm ${cart.length >= 1 && "h-4"}`}>{toFarsiNumber(cart.length) || null}</span>
-            </span>
+            <img
+              onClick={() => setOpenLogin(!openLogin)}
+              className="w-10 h-10"
+              src="/images/login.svg"
+              alt="ورود"
+            />
           </div>
+
         </div>
-
-        {/* {statusMenu && (
-          <div
-            className=""
-            style={{
-              position: "fixed",
-              inset: 0,
-              zIndex: 40,
-              backdropFilter: "blur(6px)",
-              background: "rgba(0,0,0,0.1)",
-              transition: "backdrop-filter 0.3s"
-            }}
-            onClick={closeMenu}
-          />
-        )} */}
-        {/* cover of menu */}
-
-        <div
-          className={statusMenu ? "covermenu" : ""}
-          onClick={closeMenu}
-        ></div>
-
-        <div className={`cover-ul mt-4 ${statusMenu ? "active" : ""}`}>
-          <div className="tap-menu">
-            <button onClick={closeMenu}>
-              <img className="" src="./images/Buttons.svg" alt="" />
-            </button>
-            <img className="logo-tap-menu" src="./images/logo.svg" alt="" />
-          </div>
-          <ul>
-
-            <li className="group li-nav">
-              {pathname === "/" ? <span>صفحه اصلی</span> : <Link href="/" onClick={() => setStatusMenu(false)}>صفحه اصلی</Link>}
-              <img className={`-translate-x-3.5 pt-0.5 responsive-img-nav-link ${pathname == "/" ? "block" : "show-img-menu"} ${pathname !== "/" ? "hover-img-menu rotate-y-90" : ""}`} src="./images/Frame.svg" alt="عکس زیر منو" />
-            </li>
-            <li className="group">
-              {pathname === "/products" ? <span>محصولات</span> : <Link href="/products" onClick={() => setStatusMenu(false)}>محصولات</Link>}
-              <img className={`-translate-x-2.5 pt-0.5 responsive-img-nav-link ${pathname == "/products" ? "block" : "show-img-menu"} ${pathname !== "/products" ? "hover-img-menu rotate-y-90" : ""}`} src="./images/Frame.svg" alt="عکس زیر منو" />
-            </li>
-            <li className="group">
-              {pathname === "/blog" ? <span>مجله</span> : <Link href="/blog" onClick={() => setStatusMenu(false)}>مجله</Link>}
-              <img className={`-translate-x-0.5 pt-0.5 responsive-img-nav-link ${pathname == "/blog" ? "block" : "show-img-menu"} ${pathname !== "/blog" ? "hover-img-menu rotate-y-90" : ""} `} src="./images/Frame.svg" alt="عکس زیر منو" />
-            </li>
-            <li className="group">
-              {pathname === "/about" ? <span>درباره ما</span> : <Link href="/about" onClick={() => setStatusMenu(false)}>درباره ما</Link>}
-              <img className={`-translate-x-1.5 pt-0.5 responsive-img-nav-link ${pathname == "/about" ? "block" : "show-img-menu"} ${pathname !== "/about" ? "hover-img-menu rotate-y-90" : ""} `} src="./images/Frame.svg" alt="عکس زیر منو" />
-            </li>
-            <li className="group">
-              {pathname === "/contact-us" ? <span>تماس باما</span> : <Link href="/contact-us" onClick={() => setStatusMenu(false)}>تماس باما</Link>}
-              <img className={`-translate-x-2.5 pt-0.5 responsive-img-nav-link ${pathname == "/contact-us" ? "block" : "show-img-menu"} ${pathname !== "/contact-us" ? "hover-img-menu rotate-y-90" : ""} `} src="./images/Frame.svg" alt="عکس زیر منو" />
-            </li>
-            <li className="group">
-              {pathname === "/spin-luck-shop" ? <span>گردونه شانس</span> : <Link href="/spin-luck-shop" onClick={() => setStatusMenu(false)}>گردونه شانس</Link>}
-              <img className={`-translate-x-5 pt-0.5 responsive-img-nav-link ${pathname === "/spin-luck-shop" ? "block" : "show-img-menu"} ${pathname !== "/spin-luck-shop" ? "hover-img-menu rotate-y-90" : ""}`} src="./images/Frame.svg" alt="عکس زیر منو" />
-            </li>
-          </ul>
-          {/* <img className="imgage-cover-menu" src="./images/Frame.svg" alt="عکس زیر منو" /> */}
-        </div>
-      </div>
-
-      {/* {openLogin && <Login openLogin={openLogin}/>} */}
-
-      <div className="header-cover-mobile limit">
-        <div className="header-right">
-          <button onClick={() => setStatusMenu(true)}>
-            <img className="icon-image" src="./images/menu.svg" alt="منو" />
-          </button>
-          {/* /////////////// */}
-          <img className="icon-image" src="./images/instagram.svg" alt="اینستاگرام" />
-          <img className="icon-image" src="./images/know.svg" alt="know" />
-        </div>
-        <div className="header-middle">
-          <img className="" src="./images/logo.svg" alt="logo" />
-        </div>
-        <div className="header-left">
-          <button onClick={() => setOpenLogin(!openLogin)}>
-            <img className="icon-image" src="./images/login.svg" alt="ورود" />
-          </button>
-          <img className="icon-image" src="./images/cart.svg" alt="سبد خرید" />
-        </div>
-      </div>
-
+      </header>
       <Login openLogin={openLogin} setOpenLogin={setOpenLogin} />
-    </header>
+    </>
   );
 }
 

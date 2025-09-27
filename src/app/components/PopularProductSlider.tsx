@@ -53,7 +53,7 @@ export default function PopularProductSlider() {
             // className="mySwiper"
             >
                 {Array(9).fill(1).map((_, index) =>
-                    <SwiperSlide>
+                    <SwiperSlide key={index}>
                         <Card index={index} />
                     </SwiperSlide>)}
             </Swiper>

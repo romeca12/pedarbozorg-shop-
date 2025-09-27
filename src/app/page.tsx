@@ -1,5 +1,4 @@
 
-import Container from "@/components/Container";
 import SwiperSlider from "@/components/Swiper";
 import Background from "./components/Background";
 import IconBox from "./components/IconBox";
