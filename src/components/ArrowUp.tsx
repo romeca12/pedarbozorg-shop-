@@ -31,7 +31,7 @@ export default function ArrowUp() {
                     behavior: "smooth"
                 })
             }}>
-                <img src="./images/arrow-up.svg" alt="" className="w-6 h-6" />
+                <img src="/images/arrow-up.svg" alt="" className="w-6 h-6" />
             </div>
         </>
     )

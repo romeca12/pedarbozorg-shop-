@@ -12,6 +12,7 @@ writing variable
   --color-secondarytwo: #e7f5ef;
   --color-background: #e0f1e9;
   --color-text-gray: #757575;
+  --color-menu-mobile: #eff2fb;
   --color-input: #383838;
   --color-article: #1f4231;
   --color-scrollbar-track: #bdd8a4be;
@@ -34,6 +35,9 @@ writing variable
 }
 @utility button-sort-product-active {
   @apply bg-primary text-white hover:bg-[#336D51];
+}
+.border-b-menu-mobile{
+  border-bottom: 1px solid var(--border-custom-color);
 }
 .border-type-two {
   border: 1px solid var(--border-custom-color-two);
@@ -97,7 +101,6 @@ body {
   background-color: var(--color-secondary);
   overflow-x: hidden;
 }
-
 @layer utilities {
   .hover-img-menu {
     @apply transition duration-300 ease-in-out group-hover:rotate-y-0 group-hover:block;
@@ -421,9 +424,6 @@ button {
 .bottom_login .bottom_login_variable .number {
   color: #3d8361;
 }
-.true-img-down-menu {
-  display: block;
-}
 .false-img-down-menu {
   transform: rotateY(90deg);
 }
@@ -432,7 +432,7 @@ button {
 }
 /* products  صفحه محصولات بخش 2 */
 /* صفحه بلاگ  */
-
+.popular-product-card,
 .overal-products,
 .overal-blogs,
 .overal-blogs-suggest {
@@ -443,6 +443,7 @@ button {
   display: none;
 }
 @media screen and (min-width: 420px) {
+  .popular-product-card,
   .overal-products,
   .overal-blogs,
   .overal-blogs-suggest {
@@ -499,15 +500,6 @@ button {
 /* home styles */
 /* swiper slider */
 
-.popular-product-card {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-}
-@media screen and (min-width: 400px) {
-  .popular-product-card {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 @media screen and (max-width: 926px) {
   .header .header-cover-desktop .header-right-desktop h2 {
     display: none;
