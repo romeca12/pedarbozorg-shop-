@@ -98,7 +98,7 @@ const article = async (Props: IPropsArticle) => {
           <Share />
 
           <div className="mb-16">
-            <TitleSection title="محصولات پیشنهادی پدربزرگ"/>
+            <TitleSection title="محصولات پیشنهادی پدربزرگ" />
             <div className="overal-products gap-2 md:gap-4 my-4 lg:my-8">
               {Array(4).fill(1).map((_, index) =>
                 <CardGlobal key={index} id={index + 1} />
@@ -113,9 +113,7 @@ const article = async (Props: IPropsArticle) => {
             <TitleSection title="مقالات مرتبط" />
             <div className="overal-blogs-suggest gap-2 md:gap-4 my-4 lg:my-8">
               {Array(9).fill(1).map((_, index) =>
-                <Link href="/blog/3" key={index}>
-                  <BlogCart key={index} />
-                </Link>
+                <BlogCart key={index} />
               )}
             </div>
             <Link href="/blog" className="flex justify-center">

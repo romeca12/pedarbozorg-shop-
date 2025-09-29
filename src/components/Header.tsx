@@ -6,12 +6,11 @@ import Login from "./Login";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AppContext } from "@/context/AppContext";
-import Container from "./Container";
 
 function Header() {
   const { cart } = useContext(AppContext);
   const [handleMenu, setHandleMenu] = useState(false);
-  const [openLogin, setOpenLogin] = useState(false);
+  const [handleLogin, setHandleLogin] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
@@ -83,16 +82,19 @@ function Header() {
           </div>
           <img src="/images/logo.svg" alt="لوگو" className="cursor-pointer" />
           <div className="flex gap-2">
-            <img src="/images/login.svg" alt="ورود" className="cursor-pointer" />
-            <img src="/images/cart.svg" alt="سبد خرید" className="cursor-pointer" />
+            <img src="/images/login.svg" alt="ورود" className="cursor-pointer" onClick={() => setHandleLogin(true)} />
+            <span className="relative">
+              <img src="/images/cart.svg" alt="سبد خرید" className="cursor-pointer" />
+              <span className="bg-[#C62020] absolute top-0.5 right-0.5 text-white text-[10px] px-1 rounded-sm">{toFarsiNumber(cart.length) || null}</span>
+            </span>
           </div>
         </div>
 
         <div className="hidden lg:flex items-center justify-between gap-4 h-20">
-          <div className="flex gap-4 items-center">
+          <Link href="/" className="flex gap-4 items-center">
             <img src="/images/Layer_1.svg" alt="لوگو" />
             <h1 className="text-primary">فروشگاه محصولات طبیعی پدربزرگ</h1>
-          </div>
+          </Link>
 
           <div
             className={`flex-1 gap-[15px] lg:flex transition-all duration-200
@@ -113,21 +115,20 @@ function Header() {
           </div>
 
           <div className="flex gap-4">
-            <button className="bg-primary px-4 py-2 rounded-lg text-white flex gap-2 items-center" onClick={() => setOpenLogin(!openLogin)}>
+            <button className="bg-primary px-4 py-2 rounded-lg text-white flex gap-2 items-center" onClick={() => setHandleLogin(!handleLogin)}>
               <img src="/images/Login 2.svg" alt="ورود" />
               ورود/ثبت نام
             </button>
-            <img
-              className="w-10 h-10"
-              src="/images/cart.svg"
-              alt="ورود"
-            />
+            <span className="relative">
+              <img className="w-10 h-10" src="/images/cart.svg" alt="ورود" />
+              <span className="bg-[#C62020] absolute top-1 right-1 text-white text-xs px-1 rounded-sm">{toFarsiNumber(cart.length) || null}</span>
+            </span>
           </div>
 
         </div>
 
-      </header >
-      <Login openLogin={openLogin} setOpenLogin={setOpenLogin} />
+      </header>
+      <Login handleLogin={handleLogin} setHandleLogin={setHandleLogin} />
     </>
   );
 }

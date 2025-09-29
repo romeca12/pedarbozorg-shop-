@@ -1,6 +1,7 @@
 "use client"
 
 import { AppContext } from "@/context/AppContext";
+import Link from "next/link";
 import { useContext, useState } from "react"
 import toast from "react-hot-toast";
 
@@ -27,25 +28,27 @@ const CardGlobal = ({ id }: { id: number }) => {
 
     return (
         <div className="bg-white group transition-shadow duration-300 hover:shadow-[0_0_18px_#3d836138] p-2 md:p-4 md:pb-2 relative cursor-pointer rounded-2xl overflow-hidden flex flex-col gap-2 border-custom">
-            <div className="flex justify-between gap-2 items-center overal-product-item">
-                <img src="/images/image-popular-product.svg" alt="پرفروش ترین محصول" className='w-[85px] h-[85px] img-cart-product' />
-                <div className="min-w-[179px] md:w-full">
-                    <h3 className="text-base md:text-xl text-primary mb-2 font-black">آرد نخودچی</h3>
-                    <div className='mb-2 flex justify-between items-center'>
-                        <div className='bg-[#C62020] rounded-2xl flex items-center px-2 py-0.5'>
-                            <span className=" text-white text-[10px] md:text-xs font-black">۶۸٪</span>
+            <Link href="/products/5">
+                <div className="flex justify-between gap-2 items-center overal-product-item">
+                    <img src="/images/image-popular-product.svg" alt="پرفروش ترین محصول" className='w-[85px] h-[85px] img-cart-product' />
+                    <div className="min-w-[179px] md:w-full">
+                        <h3 className="text-base md:text-xl text-primary mb-2 font-black">آرد نخودچی</h3>
+                        <div className='mb-2 flex justify-between items-center'>
+                            <div className='bg-[#C62020] rounded-2xl flex items-center px-2 py-0.5'>
+                                <span className=" text-white text-[10px] md:text-xs font-black">۶۸٪</span>
+                            </div>
+                            <div className='flex items-center'>
+                                <span className="text-base  md:text-xl text-[#353535]">۹,۳۸۳,۰۰۰</span>
+                                <img src="/icons/tooman.svg" alt="تومان" className='w-[23px] h-[16px] my-1.5 mr-1 md:mr-2' />
+                            </div>
                         </div>
-                        <div className='flex items-center'>
-                            <span className="text-base  md:text-xl text-[#353535]">۹,۳۸۳,۰۰۰</span>
-                            <img src="/icons/tooman.svg" alt="تومان" className='w-[23px] h-[16px] my-1.5 mr-1 md:mr-2' />
+                        <div className='flex justify-between py-[1px]'>
+                            <span><img src="/icons/star.svg" alt="ستاره" className='inline -mt-0.5 ml-1 w-[13px] h-[13px] md:h-[17px] md:w-[17px]' /><span className='text-xs md:text-sm'>۴.۳</span></span>
+                            <span className="text-gray-400 line-through text-sm">۹,۳۸۳,۰۰۰</span>
                         </div>
-                    </div>
-                    <div className='flex justify-between py-[1px]'>
-                        <span><img src="/icons/star.svg" alt="ستاره" className='inline -mt-0.5 ml-1 w-[13px] h-[13px] md:h-[17px] md:w-[17px]' /><span className='text-xs md:text-sm'>۴.۳</span></span>
-                        <span className="text-gray-400 line-through text-sm">۹,۳۸۳,۰۰۰</span>
                     </div>
                 </div>
-            </div>
+            </Link>
             <div className='actions flex justify-between p-1.5 md:p-0'>
                 <span onClick={() => setLike((prevLike) => !prevLike)}>
                     {

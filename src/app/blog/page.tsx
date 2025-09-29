@@ -19,7 +19,7 @@ function blog() {
                 <div className="overal-blogs gap-2 md:gap-4 mb-2 md:mb-4">
                     {Array(16).fill(1).map((_, index) =>
                         <Link href="/blog/3" key={index}>
-                            <BlogCart key={index} />
+                            <BlogCart />
                         </Link>
                     )}
                 </div>
