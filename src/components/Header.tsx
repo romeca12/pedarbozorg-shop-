@@ -57,7 +57,7 @@ function Header() {
 
           <div className={`fixed w-[255px] h-screen bg-menu-mobile top-0 -right-[255px] z-20
             ${handleMenu && "right-0"} transition-all duration-300`}>
-            <div className="mb-8 px-[19px] h-16 border-b-menu-mobile flex justify-between items-center">
+            <div className="mb-8 px-[19px] h-16 border-b flex justify-between items-center">
               <img src="/images/Buttons.svg"
                 alt="برگشت"
                 className="cursor-pointer"

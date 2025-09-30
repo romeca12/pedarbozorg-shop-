@@ -12,6 +12,8 @@ writing variable
   --color-secondarytwo: #e7f5ef;
   --color-background: #e0f1e9;
   --color-text-gray: #757575;
+  --color-text-gray-two: #adadad;
+  --color-gray-three: #626262;
   --color-menu-mobile: #eff2fb;
   --color-input: #383838;
   --color-article: #1f4231;
@@ -36,7 +38,7 @@ writing variable
 @utility button-sort-product-active {
   @apply bg-primary text-white hover:bg-[#336D51];
 }
-.border-b-menu-mobile{
+.border-b {
   border-bottom: 1px solid var(--border-custom-color);
 }
 .border-type-two {

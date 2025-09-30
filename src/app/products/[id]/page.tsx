@@ -1,9 +1,21 @@
 import CardGlobal from "@/components/CardGlobal"
 import TitleSection from "@/components/TitleSection"
+import { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
+import StarProduct from "../components/StarProduct"
 
-function page() {
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+
+    const { id } = await params;
+    return {
+        title: `محصول ${id}`,
+        description: 'محصول آرد نخودچی از دسته ادویه جات در فروشگاه اینترنتی پدربزرگ',
+        keywords: ['آرد نخودچی', 'ادویه جات', 'پدربزرگ', 'فروشگاه اینترنتی پدربزرگ'],
+    }
+}
+
+async function page() {
     return (
         <>
             <div className="text-primary text-sm flex justify-start items-center">
@@ -17,32 +29,75 @@ function page() {
             </div>
 
 
-            <div className="flex flex-col gap-4 items-center">
-                <div className="flex gap-2 justify-end w-full">
-                    <Image src="/icons/notification.svg" alt="اعلان" width="40" height="40" className="cursor-pointer p-2" />
-                    <Image src="/icons/share.svg" alt="اشتراک گذاری" width="40" height="40" className="cursor-pointer p-2" />
-                    <Image src="/icons/shoping-heart-outline.svg" alt="لایک" width="40" height="40" className="cursor-pointer p-2" />
-                </div>
-
-                <div className="bg-green-400 flex flex-col gap-2 w-[312px] max-w-full">
-                    <img src="/images/image-popular-product.svg" alt="عکس محصول" className="rounded-2xl border-custom w-full bg-white" />
-                    <div className="flex gap-2 justify-center">
-                        {Array(4).fill(1).map((_, index) =>
-                            <img
-                                src="/images/image-popular-product.svg"
-                                alt="عکس محصول"
-                                key={index}
-                                className="w-full rounded-2xl border-custom"
-                            />
-                        )}
+            <div>
+                <div className="flex flex-col gap-4 items-center">
+                    <div className="flex gap-2 justify-end w-full">
+                        <Image src="/icons/notification.svg" alt="اعلان" width="40" height="40" className="cursor-pointer p-2" />
+                        <Image src="/icons/share.svg" alt="اشتراک گذاری" width="40" height="40" className="cursor-pointer p-2" />
+                        <Image src="/icons/shoping-heart-outline.svg" alt="لایک" width="40" height="40" className="cursor-pointer p-2" />
+                    </div>
+                    <div className="flex flex-col gap-2 w-[312px] max-w-full">
+                        <img src="/images/image-popular-product.svg" alt="عکس محصول" className="rounded-2xl border-custom w-full bg-white" />
+                        <div className="flex gap-2 justify-center">
+                            {Array(4).fill(1).map((_, index) =>
+                                <img
+                                    src="/images/image-popular-product.svg"
+                                    alt="عکس محصول"
+                                    key={index}
+                                    className="w-full rounded-2xl border-custom"
+                                />
+                            )}
+                        </div>
+                    </div>
+                    <div>
+                        <div className="pb-4 border-b flex items-center justify-between">
+                            <h1 className="text-primary text-2xl">آرد نخودچی</h1>
+                            <div className="flex items-center gap-4">
+                                <span className="text-primary text-sm">۱۴ نظر</span>
+                                <StarProduct />
+                            </div>
+                        </div>
+                        <div className="mt-4">
+                            <h2 className="mb-4 text-primary">توضیحات</h2>
+                            <p className="text-[#626262]">از ابزارهای کاربردی برای به پایان متخصصان شناخت ایجاد زیادی شناخت رااز ابزارهای کاربردی برای متخصصان شناخت ایجاد زیادی شناخت را</p>
+                        </div>
+                        <div className="mt-4 text-primary">
+                            <h2 className="text-primary mb-4">مشخصات</h2>
+                            <dl>
+                                <div className="flex gap-4 mb-2">
+                                    <dt className="text-text-gray-two">حالت فیزیکی:</dt>
+                                    <dd className="text-gray-three">جامد</dd>
+                                </div>
+                                <div className="flex gap-4">
+                                    <dt className="text-text-gray-two">حالت فیزیکی:</dt>
+                                    <dd className="text-gray-three">جامد</dd>
+                                </div>
+                            </dl>
+                        </div>
+                        <div className="text-sm text-text-gray mt-4 grid grid-cols-2 md:grid-cols-4 gap-y-2">
+                            <div className="flex gap-2 items-center flex-col">
+                                <img src="/icons/moneys2.svg" alt="قیمت مناسب" />
+                                <span>قیمت مناسب</span>
+                            </div>
+                            <div className="flex gap-2 items-center flex-col">
+                                <img src="/icons/tick-square2.svg" alt="تضمین سلامت" />
+                                <span>تضمین اصالت</span>
+                            </div>
+                            <div className="flex gap-2 items-center flex-col">
+                                <img src="/icons/tree2.svg" alt="طبیعی" />
+                                <span>۱۰۰ ٪ طبیعی</span>
+                            </div>
+                            <div className="flex gap-2 items-center flex-col">
+                                <img src="/icons/truck-time2.svg" alt="ارسال سریع و رایگان" />
+                                <span>ارسال سریع و رایگان</span>
+                                <p className="text-center">سفارش بالای ۷۰۰ هزار تومان تهران
+                                    سفارش بالای ۸۵۰ تومان شهرستان‌ها</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div>
-                </div>
-
+                <div className="pack"></div>
             </div>
-            <div></div>
 
 
             <div className="mt-16">
