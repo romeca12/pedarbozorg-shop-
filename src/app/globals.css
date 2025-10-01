@@ -41,6 +41,9 @@ writing variable
 .border-b {
   border-bottom: 1px solid var(--border-custom-color);
 }
+.border-b-w-2 {
+  border-bottom: 2px solid var(--border-custom-color);
+}
 .border-type-two {
   border: 1px solid var(--border-custom-color-two);
 }
@@ -94,6 +97,7 @@ writing variable
   box-sizing: border-box;
   font-family: "iranyekan", sans-serif;
   font-weight: 300;
+  scroll-behavior: smooth;
 }
 body {
   font-family: "iranyekan", sans-serif;
@@ -102,6 +106,7 @@ body {
   direction: rtl;
   background-color: var(--color-secondary);
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 @layer utilities {
   .hover-img-menu {
@@ -491,10 +496,23 @@ button {
     height: 690px;
   }
 }
+/* single product */
+.product-detail-section-1,
+.product-detail-section-2,
+.product-detail-section-3,
+.product-detail-section-4 {
+  scroll-margin-top: 106px;
+}
 @media screen and (min-width: 1024px) {
   .overal-products,
   .overal-blogs {
     grid-template-columns: repeat(4, 1fr);
+  }
+  .product-detail-section-1,
+  .product-detail-section-2,
+  .product-detail-section-3,
+  .product-detail-section-4 {
+    scroll-margin-top: 159px;
   }
 }
 @media screen and (min-width: 1280px) {

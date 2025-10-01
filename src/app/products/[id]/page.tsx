@@ -4,6 +4,7 @@ import { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import StarProduct from "../components/StarProduct"
+import Tabs from "../components/Tabs"
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
 
@@ -99,6 +100,7 @@ async function page() {
                 <div className="pack"></div>
             </div>
 
+            <Tabs />
 
             <div className="mt-16">
                 <TitleSection title="محصولات مرتبط" />
