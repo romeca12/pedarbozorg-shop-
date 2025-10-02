@@ -38,14 +38,20 @@ writing variable
 @utility button-sort-product-active {
   @apply bg-primary text-white hover:bg-[#336D51];
 }
+.border-custom {
+  border: 1px solid var(--border-custom-color);
+}
+.border-type-two {
+  border: 1px solid var(--border-custom-color-two);
+}
+.border-type-three {
+  border: 1px solid var(--color-primary);
+}
 .border-b {
   border-bottom: 1px solid var(--border-custom-color);
 }
 .border-b-w-2 {
   border-bottom: 2px solid var(--border-custom-color);
-}
-.border-type-two {
-  border: 1px solid var(--border-custom-color-two);
 }
 .shadow-action-product {
   transition: filter 0.5s ease;
@@ -112,10 +118,6 @@ body {
   .hover-img-menu {
     @apply transition duration-300 ease-in-out group-hover:rotate-y-0 group-hover:block;
   }
-}
-
-.border-custom {
-  border: 1px solid var(--border-custom-color);
 }
 
 ::-webkit-scrollbar {
@@ -497,10 +499,7 @@ button {
   }
 }
 /* single product */
-.product-detail-section-1,
-.product-detail-section-2,
-.product-detail-section-3,
-.product-detail-section-4 {
+.product-detail-section {
   scroll-margin-top: 106px;
 }
 @media screen and (min-width: 1024px) {
@@ -508,10 +507,7 @@ button {
   .overal-blogs {
     grid-template-columns: repeat(4, 1fr);
   }
-  .product-detail-section-1,
-  .product-detail-section-2,
-  .product-detail-section-3,
-  .product-detail-section-4 {
+  .product-detail-section {
     scroll-margin-top: 159px;
   }
 }

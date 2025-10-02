@@ -29,7 +29,6 @@ async function page() {
                 <span className="p-3 cursor-pointer">آرد نخودچی</span>
             </div>
 
-
             <div>
                 <div className="flex flex-col gap-4 items-center">
                     <div className="flex gap-2 justify-end w-full">
@@ -60,7 +59,7 @@ async function page() {
                         </div>
                         <div className="mt-4">
                             <h2 className="mb-4 text-primary">توضیحات</h2>
-                            <p className="text-[#626262]">از ابزارهای کاربردی برای به پایان متخصصان شناخت ایجاد زیادی شناخت رااز ابزارهای کاربردی برای متخصصان شناخت ایجاد زیادی شناخت را</p>
+                            <p className="text-[#626262] text-justify">از ابزارهای کاربردی برای به پایان متخصصان شناخت ایجاد زیادی شناخت رااز ابزارهای کاربردی برای متخصصان شناخت ایجاد زیادی شناخت را</p>
                         </div>
                         <div className="mt-4 text-primary">
                             <h2 className="text-primary mb-4">مشخصات</h2>
