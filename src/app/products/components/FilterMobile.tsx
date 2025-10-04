@@ -1,7 +1,7 @@
 "use client"
 
-import { useState } from "react";
-import Filters from "./Filters";
+import { useState } from "react"
+import Filters from "./Filters"
 
 const FilterMobile = () => {
     const [handleOpneFilter, setHandleOpneFilter] = useState(false);

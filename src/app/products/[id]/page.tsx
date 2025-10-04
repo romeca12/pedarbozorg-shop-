@@ -101,7 +101,7 @@ async function page() {
 
             <Tabs />
 
-            <div className="mt-16">
+            <div className="mb-56 md:mb-48">
                 <TitleSection title="محصولات مرتبط" />
                 <div className="overal-products gap-2 md:gap-4 mb-4 lg:mb-8">
                     {Array(8).fill(1).map((_, index) =>

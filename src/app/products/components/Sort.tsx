@@ -2,7 +2,12 @@
 
 import { useState } from "react"
 
-const Sort = () => {
+type IPropsSort = {
+    sortItems: string[],
+    activeItem?: number
+}
+
+const Sort = ({ sortItems, activeItem }: IPropsSort) => {
     const [handleOpneSort, setHandleOpneSort] = useState<boolean>(false);
 
     return (
@@ -21,12 +26,20 @@ const Sort = () => {
                             <img src="/icons/sort.svg" alt="مرتب" className="w-6 h-6 md:cursor-pointer" />
                             <span className="text-primary text-xl font-black">مرتب سازی</span>
                         </span>
-                        <div className="flex flex-col md:flex-row items-center gap-2">
-                            <button className="button-sort-product button-sort-product-active">پربازدیدترین</button>
-                            <button className="button-sort-product">پرفروش‌ترین</button>
-                            <button className="button-sort-product">محبوب‌‌ترین</button>
-                            <button className="button-sort-product">ارزان‌ترین</button>
-                            <button className="button-sort-product">گران‌ترین</button>
+
+                        <div className="flex gap-2 overflow-x-auto">
+                            <div className="flex flex-col md:flex-row items-center gap-2">
+                                {sortItems.map((item, index) =>
+                                    <span
+                                        key={index}
+                                        className={`button-sort-product cursor-pointer ${index === activeItem ? "button-sort-product-active" : ""}`}
+                                        onClick={()=> setHandleOpneSort(false)}
+                                    >
+                                        {item}
+                                    </span>
+                                )}
+                            </div>
+
                         </div>
                     </div>
                 </div>

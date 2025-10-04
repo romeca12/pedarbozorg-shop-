@@ -1,12 +1,15 @@
 "use client"
 
-import Image from "next/image";
+import Image from "next/image"
 import { useState } from "react"
+import Sort from "./Sort";
+import Pagination from "@/components/Pagination";
 
 function Tabs() {
     const [activeTab, setActiveTab] = useState(0);
 
     const tabs = ["معرفی", "مشخصات", "فواید", "نظرات کاربران"];
+    const sortItems = ["جدیدترین", "مفیدترین"];
 
     const scrollToSection = (index: number) => {
         const sectionId = `section-${index + 1}`;
@@ -18,9 +21,9 @@ function Tabs() {
 
     return (
 
-        <div className="mt-[72px] flex flex-col items-center scroll-behavior-smooth">
+        <div className="mt-[72px] flex flex-col items-center mb-12">
             <div className="w-full sticky top-16 lg:top-[117px] right-0 bg-secondary">
-                <div className="pt-2 flex justify-between mb-2 text-text-gray-two">
+                <div className="max-w-[493px] pt-2 flex justify-between mb-2 text-text-gray-two">
                     {tabs.map((tab, index) => (
                         <div
                             key={index}
@@ -28,7 +31,7 @@ function Tabs() {
                             onClick={() => { setActiveTab(index), scrollToSection(index) }}>{tab}</div>
                     ))}
                 </div>
-                <div className="bg-[#e3e3e3] h-0.5 w-full relative">
+                <div className="bg-[#e3e3e3] h-0.5 relative max-w-[493px]">
                     <span
                         style={{ width: `${100 / tabs.length}%`, transform: `translateX(${activeTab * -100}%)` }}
                         className={`bg-primary transition-transform duration-300 rounded-lg h-full absolute top-0 right-0`}></span>
@@ -66,7 +69,7 @@ function Tabs() {
                 </div>
             </div>
 
-            <div id="section-4" className="product-detail-section pt-4 w-full pb-2 md:pb-4 flex flex-col items-center gap-4">
+            <div id="section-4" className="product-detail-section pt-4 w-full md:pb-4 flex flex-col items-center gap-4">
                 <aside className="w-full">
                     <section className="border-custom flex flex-col items-center gap-y-4 py-[17px] px-4 bg-white rounded-2xl">
                         <span className="text-text-gray-two"><span className="text-xl text-primary ml-1">۴.۳</span>از ۵</span>
@@ -85,13 +88,41 @@ function Tabs() {
                         <button className="text-primary border-type-three rounded-lg py-2 px-4 w-full">افزودن نظر</button>
                     </section>
                 </aside>
-                <div className="bg-blue-400">
-                    <h3 className="text-primary">نظرات کاربران</h3>
-                    <div className="flex flex-col gap-4">
+                <div className="w-full">
+                    <h3 className="text-primary text-xl mb-4">نظرات کاربران</h3>
+                    <div className="flex justify-between items-center mb-4">
+                        <Sort sortItems={sortItems} activeItem={0} />
+                        <span className="text-text-gray pl-3">۱۴ نظر</span>
+                    </div>
+                    <div className="flex flex-col border-b-type-two mb-4">
                         {Array(5).fill(1).map((_, index) =>
-                            <div key={index}></div>
+                            <div key={index} className="border-t py-4">
+                                <div className="mb-2 flex gap-6 items-center">
+                                    <span className="flex rounded-[23px] items-center bg-green-600 gap-x-2 text-white py-0.5 px-2 leading-[140%]">
+                                        ۴
+                                        <img src="/icons/star.svg" alt="ستاره" className="w-4 h-4" />
+                                    </span>
+                                    <span className="text-text-gray-two text-sm">۲۳ مهر ۱۴۰۴</span>
+                                    <span className="text-text-gray-two text-sm">پروین مظفری</span>
+                                </div>
+                                <p className="border-t-and-b py-2 text-black text-justify leading-[180%]">اهل طراحان موجود امید شرایط و سطر از علی الخصوص  شرایط شناخت با، که، متنوع سخت که بهبود متن موجود ساختگی کتابهای طراحی جوابگوی که، و سطر گرافیک داشت لورم راهکارها متخصصان اصلی اهل از ابزارهای کاربردی کرد علی الخصوص  و فرهنگ پیشرو در نامفهوم، ارائه ایپسوم</p>
+                                <div className="flex justify-between items-center p-1.5 mt-2">
+                                    <img src="/icons/flag.svg" alt="پرچم" className="w-5 h-5" />
+                                    <div className="flex justify-between gap-x-2">
+                                        <span className="flex items-center text-text-gray gap-x-1.5">
+                                            ۱
+                                            <img src="/icons/dislike.svg" alt="دیسلایک" className="w-5 h-5" />
+                                        </span>
+                                        <span className="flex items-center text-text-gray gap-x-1.5">
+                                            ۲۳۴
+                                            <img src="/icons/like.svg" alt="لایک" className="w-5 h-5" />
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
                         )}
                     </div>
+                    <Pagination />
                 </div>
             </div>
         </div>

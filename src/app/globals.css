@@ -14,6 +14,7 @@ writing variable
   --color-text-gray: #757575;
   --color-text-gray-two: #adadad;
   --color-gray-three: #626262;
+  --color-gray-four: #ededed;
   --color-menu-mobile: #eff2fb;
   --color-input: #383838;
   --color-article: #1f4231;
@@ -52,6 +53,16 @@ writing variable
 }
 .border-b-w-2 {
   border-bottom: 2px solid var(--border-custom-color);
+}
+.border-b-type-two {
+  border-bottom: 1px solid var(--border-custom-color-two);
+}
+.border-t {
+  border-top: 1px solid var(--border-custom-color-two);
+}
+.border-t-and-b {
+  border-top: 1px solid var(--color-gray-four);
+  border-bottom: 1px solid var(--color-gray-four);
 }
 .shadow-action-product {
   transition: filter 0.5s ease;
@@ -266,7 +277,7 @@ button {
 .header .header-cover-desktop .header-midle-desktop .input-header input {
   width: 40vw;
   height: 40px;
-  border: 1px solid #cbcbcb;
+  border: 1px solid var(--border-custom-color-two);
   border-radius: 8px;
   padding: 5px 11px 5px 0px;
 }
@@ -427,8 +438,8 @@ button {
 }
 
 .bottom_login .bottom_login_variable .two-btn {
-  background-color: #ededed;
-  color: #adadad;
+  background-color: var(--color-gray-four);
+  color: var(--color-text-gray-two);
 }
 .bottom_login .bottom_login_variable .number {
   color: #3d8361;

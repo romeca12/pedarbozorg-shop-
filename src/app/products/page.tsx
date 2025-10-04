@@ -11,6 +11,9 @@ export const metadata: Metadata = {
 }
 
 function prodcuts() {
+
+  const sortItems = ["پربازدیدترین", "پرفروش‌ترین", "محبوب‌‌ترین", "ارزان‌ترین", "گران‌ترین"];
+
   return (
     <div className="mt-20 md:mt-[131px] mb-56 md:mb-16 xl:flex xl:gap-x-4">
       <aside className="hidden xl:block xl:w-[272px] sticky top-0 right-0">
@@ -28,7 +31,7 @@ function prodcuts() {
               <Filters />
             </div>
             <FilterMobile />
-            <Sort />
+            <Sort sortItems={sortItems} activeItem={1}/>
           </div>
         </div>
         <div className="overal-products gap-2 md:gap-4 mb-4 lg:mb-8">
