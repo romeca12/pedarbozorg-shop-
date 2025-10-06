@@ -40,14 +40,14 @@ export default function Login({ handleLogin, setHandleLogin }: IPropsLogin) {
                     <div className="top_right">
                         {loginTwo && (
                             <button onClick={() => setLoginTwo(false)}>
-                                <img src="./images/arrow-right.svg" alt="" />
+                                <img src="/images/arrow-right.svg" alt="" />
                             </button>
                         )}
                         <span>ثبت نام | ورود</span>
                     </div>
                     <button>
                         <img
-                            src="./images/remove.svg"
+                            src="/images/remove.svg"
                             alt="برداشتن"
                             onClick={() => {
                                 setHandleLogin(false);
@@ -58,8 +58,8 @@ export default function Login({ handleLogin, setHandleLogin }: IPropsLogin) {
                 </div>
                 <div className="bottom_login">
                     <div className="icon_login">
-                        <img className="img1" src="./images/bg.svg" alt="" />
-                        <img className="img2" src="./images/Layer_1.svg" alt="" />
+                        <img className="img1" src="/images/bg.svg" alt="" />
+                        <img className="img2" src="/images/Layer_1.svg" alt="" />
                     </div>
                     {!loginTwo ? (
                         <div className="bottom_login_variable">

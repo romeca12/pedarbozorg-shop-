@@ -55,7 +55,7 @@ function Header() {
             ${handleMenu && "w-screen h-screen top-0 right-0 left-0 bottom-0 bg-[#0000006d]"}`}
             onClick={() => setHandleMenu(false)}></div>
 
-          <div className={`fixed w-[255px] h-screen bg-menu-mobile top-0 -right-[255px] z-20
+          <div className={`fixed w-[255px] h-screen bg-menu-mobile top-0 -right-[255px] z-10
             ${handleMenu && "right-0"} transition-all duration-300`}>
             <div className="mb-8 px-[19px] h-16 border-b flex justify-between items-center">
               <img src="/images/Buttons.svg"

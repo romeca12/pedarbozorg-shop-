@@ -15,6 +15,7 @@ writing variable
   --color-text-gray-two: #adadad;
   --color-gray-three: #626262;
   --color-gray-four: #ededed;
+  --color-white-light: #e3e3e3;
   --color-menu-mobile: #eff2fb;
   --color-input: #383838;
   --color-article: #1f4231;
@@ -59,6 +60,9 @@ writing variable
 }
 .border-t {
   border-top: 1px solid var(--border-custom-color-two);
+}
+.border-t-type-two {
+  border-top: 1px solid var(--color-gray-four);
 }
 .border-t-and-b {
   border-top: 1px solid var(--color-gray-four);
@@ -114,7 +118,6 @@ writing variable
   box-sizing: border-box;
   font-family: "iranyekan", sans-serif;
   font-weight: 300;
-  scroll-behavior: smooth;
 }
 body {
   font-family: "iranyekan", sans-serif;
@@ -123,7 +126,6 @@ body {
   direction: rtl;
   background-color: var(--color-secondary);
   overflow-x: hidden;
-  scroll-behavior: smooth;
 }
 @layer utilities {
   .hover-img-menu {
@@ -141,7 +143,8 @@ body {
   background: var(--color-primary);
 }
 @supports (-moz-appearance: none) {
-  html {
+  html,
+  * {
     scrollbar-width: thin;
     scrollbar-color: var(--color-primary) var(--color-scrollbar-track);
   }
@@ -564,8 +567,14 @@ button {
   }
 }
 
-@media screen and (max-width: 452px) {
-  #login {
+@media screen and (max-width: 380px) {
+  .buy-single-product {
+    flex-direction: column;
+  }
+  .buy-single-product > div {
+    width: 100%;
+  }
+  /* #login {
     width: 90px;
   }
   #login button {
@@ -577,7 +586,7 @@ button {
   }
   .header .header-cover-desktop .header-midle-desktop .input-header input {
     width: 35vw;
-  }
+  } */
 }
 
 .header .header-cover-mobile {
@@ -659,7 +668,7 @@ button {
     position: absolute;
     top: 0px;
     right: 0px;
-    border-bottom: 1px solid #e3e3e3;
+    border-bottom: 1px solid var(--border-custom-color);
     display: flex;
     justify-content: space-between;
     padding-left: 19px;

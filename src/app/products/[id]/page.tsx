@@ -5,6 +5,8 @@ import Image from "next/image"
 import Link from "next/link"
 import StarProduct from "../components/StarProduct"
 import Tabs from "../components/Tabs"
+import Buy from "../components/Buy"
+import ShareLink from "../components/ShareLink"
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
 
@@ -23,7 +25,7 @@ async function page() {
                 <Link href="/">
                     <span className="p-3 cursor-pointer">پدر بزرگ</span>
                 </Link>/
-                <Link href="/blog">
+                <Link href="/products">
                     <span className="p-3 cursor-pointer">ادویه جات</span>
                 </Link>/
                 <span className="p-3 cursor-pointer">آرد نخودچی</span>
@@ -33,7 +35,7 @@ async function page() {
                 <div className="flex flex-col gap-4 items-center">
                     <div className="flex gap-2 justify-end w-full">
                         <Image src="/icons/notification.svg" alt="اعلان" width="40" height="40" className="cursor-pointer p-2" />
-                        <Image src="/icons/share.svg" alt="اشتراک گذاری" width="40" height="40" className="cursor-pointer p-2" />
+                        <ShareLink />
                         <Image src="/icons/shoping-heart-outline.svg" alt="لایک" width="40" height="40" className="cursor-pointer p-2" />
                     </div>
                     <div className="flex flex-col gap-2 w-[312px] max-w-full">
@@ -96,7 +98,9 @@ async function page() {
                         </div>
                     </div>
                 </div>
-                <div className="pack"></div>
+                <aside>
+                    <Buy />
+                </aside>
             </div>
 
             <Tabs />

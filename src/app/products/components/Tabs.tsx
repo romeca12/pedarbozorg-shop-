@@ -4,6 +4,7 @@ import Image from "next/image"
 import { useState } from "react"
 import Sort from "./Sort";
 import Pagination from "@/components/Pagination";
+import CommentSingleProduct from "./CommentSingleProduct";
 
 function Tabs() {
     const [activeTab, setActiveTab] = useState(0);
@@ -71,22 +72,7 @@ function Tabs() {
 
             <div id="section-4" className="product-detail-section pt-4 w-full md:pb-4 flex flex-col items-center gap-4">
                 <aside className="w-full">
-                    <section className="border-custom flex flex-col items-center gap-y-4 py-[17px] px-4 bg-white rounded-2xl">
-                        <span className="text-text-gray-two"><span className="text-xl text-primary ml-1">۴.۳</span>از ۵</span>
-                        <div className="flex gap-x-4">
-                            {
-                                Array(5).fill(1).map((_, index) =>
-                                    <Image key={index}
-                                        src="/icons/outline-star.svg"
-                                        alt={`ستاره ${index + 1}`}
-                                        width={20} height={20}
-                                        className="cursor-pointer" />
-                                )
-                            }
-                        </div>
-                        <span className="text-xs text-text-gray leading-[180%]">ازمجموع ۱۳ امتیاز</span>
-                        <button className="text-primary border-type-three rounded-lg py-2 px-4 w-full">افزودن نظر</button>
-                    </section>
+                    <CommentSingleProduct />
                 </aside>
                 <div className="w-full">
                     <h3 className="text-primary text-xl mb-4">نظرات کاربران</h3>

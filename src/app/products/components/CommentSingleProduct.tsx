@@ -1,0 +1,85 @@
+"use client"
+
+import Image from "next/image"
+import { Dispatch, SetStateAction, useState } from "react"
+
+function CommentSingleProduct() {
+
+    const [handleComment, setHandleComment] = useState(false);
+    return (
+        <>
+            {true ?
+                <section className="border-custom flex flex-col items-center gap-y-4 py-[17px] px-4 bg-white rounded-2xl">
+                    <span className="text-text-gray-two">
+                        <span className="text-xl text-primary ml-1">۴.۳</span>از ۵</span>
+                    <div className="flex gap-x-4">
+                        {
+                            Array(5).fill(1).map((_, index) =>
+                                <Image key={index}
+                                    src="/icons/outline-star.svg"
+                                    alt={`ستاره ${index + 1}`}
+                                    width={20} height={20}
+                                />
+                            )
+                        }
+                    </div>
+                    <span className="text-xs text-text-gray leading-[180%]">ازمجموع ۱۳ امتیاز</span>
+                    <button className="text-primary border-type-three rounded-lg py-2 px-4 w-full transition-colors duration-300 hover:bg-[#E0F1E9]"
+                        onClick={() => setHandleComment(true)}>افزودن نظر</button>
+                </section> :
+                <section className="border-custom flex flex-col items-center gap-y-4 py-[17px] px-4 bg-white rounded-2xl">
+                    <div className="flex gap-x-4" onClick={() => CommentSingleProduct()}>
+                        {Array(5).fill(1).map((_, index) =>
+                            <Image key={index}
+                                src="/icons/outline-star.svg"
+                                alt={`ستاره ${index + 1}`}
+                                width={20} height={20}
+                                className="cursor-pointer"
+                            />)}
+                    </div>
+                    <span className="text-xs text-text-gray leading-[180%]">هنوز امتیازی ثبت نشده است</span>
+                    <button className="text-primary border-type-three rounded-lg py-2 px-4 w-full transition-colors duration-300 hover:bg-[#E0F1E9]"
+                        onClick={() => setHandleComment(true)}>افزودن نظر</button>
+                </section>
+            }
+            <CommentPopUp
+                handleComment={handleComment}
+                setHandleComment={setHandleComment} />
+        </>
+    )
+}
+
+export default CommentSingleProduct
+
+type IPropsCommentPopUp = {
+    handleComment: boolean,
+    setHandleComment: Dispatch<SetStateAction<boolean>>
+}
+
+function CommentPopUp({ handleComment, setHandleComment }: IPropsCommentPopUp) {
+    return (
+        <>
+            <div
+                className={`fixed z-10 top-0 bottom-0 right-0 left-0 w-screen h-screen transition-all
+                    duration-300 bg-[#0000004d] ${handleComment ? "block" : "hidden"}`}
+                onClick={() => setHandleComment(false)}
+            ></div>
+
+            <div className={`w-[662px] max-w-[90%] fixed bg-blue-400 rounded-2xl p-6 flex flex-col gap-y-6 transition-all duration-[600ms] z-20 left-1/2 -translate-x-1/2 -translate-y-1/2  ${handleComment ? "top-[50%]" : "top-[115%]"}`}>
+                <div className="flex justify-between items-center w-full mb-4 bg-yellow-300">
+                    <h4 className="text-xl text-primary leading-[140%]">افزودن نظر</h4>
+                    <Image src="/images/remove.svg" alt="بستن"
+                        width={32}
+                        height={32}
+                        onClick={() => setHandleComment(false)} />
+                </div>
+                <div></div>
+                <div></div>
+                <div className="flex  gap-x-2 items-center">
+                    <input type="checkbox" className="w-4 h-4 checked:accent-primary" />
+                    <span>ارسال نظر بصورت ناشناس</span>
+                </div>
+            </div>
+        </>
+    )
+}

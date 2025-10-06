@@ -32,7 +32,7 @@ const article = async (Props: IPropsArticle) => {
       <div className="xl:flex mb-60 md:mb-32 xl:gap-x-4">
         <main className="xl:flex-1">
 
-          <div className="flex flex-col gap-y-4">
+          <div className="xl:flex xl:flex-col xl:gap-y-4">
             <img src="/images/article-image.svg" alt="عکس مقاله" className="w-full -mt-4 md:mt-5" />
 
             <div className="flex md:items-center justify-end">

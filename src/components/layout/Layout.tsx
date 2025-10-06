@@ -6,7 +6,6 @@ import Container from "../Container"
 import { usePathname } from "next/navigation"
 import Footer from "../Footer"
 import Header from "../Header"
-import Header1 from "../Header1"
 
 
 type ILayoutProps = {

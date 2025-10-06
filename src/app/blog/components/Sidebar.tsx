@@ -3,7 +3,7 @@ import ProductSuggest from "./ProductSuggest"
 
 function Sidebar() {
     return (
-        <aside className="hidden xl:flex  xl:flex-col xl:gap-y-4 xl:w-[272px] self-start sticky top-[122px] mt-6">
+        <aside className="hidden xl:flex  xl:flex-col xl:gap-y-4 xl:w-[272px] self-start sticky top-[122px] right-0 mt-6">
             <div>
                 <h3 className="mb-4 text-center text-primary">محصولات پیشنهادی پدربزرگ</h3>
                 <div className="flex flex-col gap-y-2 mb-2">
