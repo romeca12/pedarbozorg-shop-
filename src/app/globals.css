@@ -11,11 +11,14 @@ writing variable
   --color-secondary: #f4f6ff;
   --color-secondarytwo: #e7f5ef;
   --color-background: #e0f1e9;
+  --color-green-light: #C1E2D2;
   --color-text-gray: #757575;
   --color-text-gray-two: #adadad;
   --color-gray-three: #626262;
   --color-gray-four: #ededed;
   --color-white-light: #e3e3e3;
+  --color-red-one: #c62020;
+  --color-red-two: #fff2f2;
   --color-menu-mobile: #eff2fb;
   --color-input: #383838;
   --color-article: #1f4231;
@@ -48,6 +51,9 @@ writing variable
 }
 .border-type-three {
   border: 1px solid var(--color-primary);
+}
+.border-type-four {
+  border: 1px solid var(--color-red-one);
 }
 .border-b {
   border-bottom: 1px solid var(--border-custom-color);
@@ -702,13 +708,6 @@ button {
     display: none;
   }
 }
-/* arrow-up  */
-
-.tran-arrow-up {
-  z-index: 1;
-  transition: all 0.7s;
-  background-color: #3d836138;
-}
 
 /* spin in project  */
 .input-spin {
@@ -723,7 +722,7 @@ button {
 }
 .input-spin:focus + .spin-phone,
 .input-spin:not(:placeholder-shown) + .spin-phone {
-  transform: translate(-6px, -14px);
+  transform: translate(-6px, -16px);
   font-size: 12px;
   color: var(--color-input);
   /* margin-right: 10px; */

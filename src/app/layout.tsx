@@ -34,7 +34,6 @@ export default function RootLayout({
         <Layout>
           {children}
         </Layout>
-        <ArrowUp />
       </body>
     </html>
   );

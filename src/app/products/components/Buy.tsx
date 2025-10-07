@@ -16,7 +16,7 @@ function Buy() {
 
     return (
         <>
-            {!true ?
+            {true ?
                 <section className="fixed z-[2] gap-y-2 bottom-0 right-0 left-0 w-full bg-white lg:bg-[#ffffff99] py-[17px] px-4 rounded-2xl border-custom flex flex-col items-center">
                     <Image src="/images/logo.svg" alt="لوگو" width={60} height={56} className="hidden" />
                     <div className="gap-x-2 bg-blue-400 hidden">
@@ -83,11 +83,12 @@ function Buy() {
                         <Image src="/icons/add-to-cart.svg" alt="خرید پک" width={24} height={24} />
                     </button>
                 </section> :
-                <section className="bg-white border-custom py-[17px] px-4 fixed z-[2] bottom-0 right-0 left-0 w-full">
-                    <h5 className="text-text-gray-two mb-2 text-center bg-amber-300">ناموجود</h5>
-                    <button className="bg-primary ec-hover-btn w-full rounded-lg gap-x-2 py-2 px-4 flex justify-center items-center text-white">
-                        افزودن پک به سبد خرید
-                        <Image src="/icons/add-to-cart.svg" alt="خرید پک" width={24} height={24} />
+                <section className="bg-white py-[17px] px-4 fixed z-[2] bottom-0 right-0 left-0">
+                    <h5 className="text-text-gray-two mb-2 text-center">ناموجود</h5>
+                    <button className="bg-background hover:bg-green-light transition-colors duration-300 text-sm text-primary
+                    ec-hover-btn w-full rounded-lg gap-x-2 py-1.5 px-3 flex justify-center items-center">
+                        <Image src="/icons/alarm.svg" alt="خرید پک" width={20} height={20} />
+                        موجود شد اطلاع بده
                     </button>
                 </section>
             }
