@@ -16,10 +16,10 @@ function prodcuts() {
 
   return (
     <div className="mt-20 md:mt-[131px] mb-56 md:mb-16 xl:flex xl:gap-x-4">
-      <aside className="hidden xl:block xl:w-[272px] sticky top-0 right-0">
+      <aside className="hidden xl:flex xl:flex-col gap-4 xl:w-[272px] sticky top-0 right-0">
         <Filters />
-        <img src="/images/Products Banner 1.svg" alt="بنر محصولات" className="mt-4" />
       </aside>
+
       <main className="xl:flex-1">
         <div className="top mb-2 md:mb-4 gap-4 flex flex-col xl:flex-row">
           <div className="search relative border-custom rounded-2xl bg-white lg:flex-1">
@@ -31,7 +31,7 @@ function prodcuts() {
               <Filters />
             </div>
             <FilterMobile />
-            <Sort sortItems={sortItems} activeItem={1}/>
+            <Sort sortItems={sortItems} activeItem={1} />
           </div>
         </div>
         <div className="overal-products gap-2 md:gap-4 mb-4 lg:mb-8">

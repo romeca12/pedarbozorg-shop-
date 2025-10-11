@@ -30,7 +30,7 @@ const Filters = ({ setHandleOpneFilter }: IPropsFilters) => {
         if (rangeValue <= maxPrice) setMinPrice(rangeValue)
     }
     return (
-        <div className="flex flex-col gap-y-4 static">
+        <div className="xl:sticky top-[90px] right-0 flex flex-col gap-y-4 static">
             <div className="flex gap-x-2 items-center justify-between">
                 <span className="flex gap-x-2 items-center">
                     <img src="/icons/filter.svg" alt="مرتب" className="w-6 h-6" />
@@ -113,6 +113,10 @@ const Filters = ({ setHandleOpneFilter }: IPropsFilters) => {
                     <span className="absolute transition-all duration-300 cover-roller rounded-2xl w-full h-full top-0 left-0 bg-[#BFBFBF]"></span>
                 </label>
             </div>
+
+            <img src="/images/Products Banner 1.svg"
+                alt="بنر محصولات"
+                className="hidden xl:block" />
         </div>
     )
 }

@@ -22,7 +22,7 @@ function Tabs() {
 
     return (
 
-        <div className="mt-[72px] flex flex-col items-center mb-12">
+        <div className="mt-[68px] flex flex-col items-center mb-12">
             <div className="w-full sticky top-16 lg:top-[117px] right-0 bg-secondary">
                 <div className="max-w-[493px] pt-2 flex justify-between mb-2 text-text-gray-two">
                     {tabs.map((tab, index) => (
@@ -70,7 +70,7 @@ function Tabs() {
                 </div>
             </div>
 
-            <div id="section-4" className="product-detail-section pt-4 w-full md:pb-4 flex flex-col items-center gap-4">
+            <div id="section-4" className=" product-detail-section pt-4 w-full md:pb-4 flex flex-col items-center gap-4">
                 <aside className="w-full">
                     <CommentSingleProduct />
                 </aside>

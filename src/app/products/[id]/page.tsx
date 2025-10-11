@@ -31,27 +31,32 @@ async function page() {
                 <span className="p-3 cursor-pointer">آرد نخودچی</span>
             </div>
 
-            <div>
-                <div className="flex flex-col gap-4 items-center">
-                    <div className="flex gap-2 justify-end w-full">
+            <div className="xl:flex xl:gap-4">
+                <div className="flex flex-col xl:items-start gap-4 items-center xl:flex-row">
+
+                    <div className="flex gap-2 justify-end xl:flex-col-reverse w-full xl:max-w-10">
                         <Image src="/icons/notification.svg" alt="اعلان" width="40" height="40" className="cursor-pointer p-2" />
                         <ShareLink />
                         <Image src="/icons/shoping-heart-outline.svg" alt="لایک" width="40" height="40" className="cursor-pointer p-2" />
                     </div>
-                    <div className="flex flex-col gap-2 w-[312px] max-w-full">
+
+                    <div className="flex flex-col gap-2 min-w-[312px]">
                         <img src="/images/image-popular-product.svg" alt="عکس محصول" className="rounded-2xl border-custom w-full bg-white" />
                         <div className="flex gap-2 justify-center">
                             {Array(4).fill(1).map((_, index) =>
-                                <img
+                                <Image
                                     src="/images/image-popular-product.svg"
                                     alt="عکس محصول"
                                     key={index}
-                                    className="w-full rounded-2xl border-custom"
+                                    className="rounded-2xl border-custom"
+                                    width={72}
+                                    height={72}
                                 />
                             )}
                         </div>
                     </div>
-                    <div>
+
+                    <div className="flex-1">
                         <div className="pb-4 border-b flex items-center justify-between">
                             <h1 className="text-primary text-2xl">آرد نخودچی</h1>
                             <div className="flex items-center gap-4">
