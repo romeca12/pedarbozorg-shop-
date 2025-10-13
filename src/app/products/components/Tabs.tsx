@@ -5,6 +5,8 @@ import { useState } from "react"
 import Sort from "./Sort";
 import Pagination from "@/components/Pagination";
 import CommentSingleProduct from "./CommentSingleProduct";
+import Buy from "./Buy";
+import BoxAsideTwo from "./BoxAsideTwo";
 
 function Tabs() {
     const [activeTab, setActiveTab] = useState(0);
@@ -22,9 +24,9 @@ function Tabs() {
 
     return (
 
-        <div className="mt-[68px] flex flex-col items-center mb-12">
-            <div className="w-full sticky top-16 lg:top-[117px] right-0 bg-secondary">
-                <div className="max-w-[493px] pt-2 flex justify-between mb-2 text-text-gray-two">
+        <div className="mt-[60px] flex flex-col items-center mb-12">
+            <div className="w-full sticky top-16 lg:top-[117px] right-0 self-start bg-secondary ">
+                <div className="max-w-[493px] pt-2 xl:pt-6 flex justify-between mb-2 xl:mb-6 text-text-gray-two">
                     {tabs.map((tab, index) => (
                         <div
                             key={index}
@@ -70,11 +72,9 @@ function Tabs() {
                 </div>
             </div>
 
-            <div id="section-4" className=" product-detail-section pt-4 w-full md:pb-4 flex flex-col items-center gap-4">
-                <aside className="w-full">
-                    <CommentSingleProduct />
-                </aside>
-                <div className="w-full">
+            <div id="section-4" className="product-detail-section pt-4 w-full md:pb-4 flex flex-col lg:flex-row-reverse lg:items-start gap-4">
+                <BoxAsideTwo />
+                <div className="flex-1">
                     <h3 className="text-primary text-xl mb-4">نظرات کاربران</h3>
                     <div className="flex justify-between items-center mb-4">
                         <Sort sortItems={sortItems} activeItem={0} />

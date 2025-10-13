@@ -21,6 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 async function page() {
     return (
         <>
+            <img src="/images/spin-luck-shop-bg-right-flower.svg" alt="عکس پس زمینه" className="hidden md:block md:absolute md:-left-[15px] md:w-[426px] md:h-[400px] md:top-[35px] -z-10" />
             <div className="text-primary text-sm flex justify-start items-center">
                 <Link href="/">
                     <span className="p-3 cursor-pointer">پدر بزرگ</span>
@@ -48,7 +49,7 @@ async function page() {
                                     src="/images/image-popular-product.svg"
                                     alt="عکس محصول"
                                     key={index}
-                                    className="rounded-2xl border-custom"
+                                    className="rounded-2xl border-custom bg-white"
                                     width={72}
                                     height={72}
                                 />

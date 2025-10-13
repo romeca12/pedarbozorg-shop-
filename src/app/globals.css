@@ -11,7 +11,7 @@ writing variable
   --color-secondary: #f4f6ff;
   --color-secondarytwo: #e7f5ef;
   --color-background: #e0f1e9;
-  --color-green-light: #C1E2D2;
+  --color-green-light: #c1e2d2;
   --color-text-gray: #757575;
   --color-text-gray-two: #adadad;
   --color-gray-three: #626262;
@@ -519,19 +519,19 @@ button {
   }
 }
 /* single product */
-.product-detail-section {
-  scroll-margin-top: 106px;
-}
 @media screen and (min-width: 1024px) {
   .overal-products,
   .overal-blogs {
     grid-template-columns: repeat(4, 1fr);
   }
-  .product-detail-section {
-    scroll-margin-top: 159px;
-  }
+}
+.product-detail-section {
+  scroll-margin-top: 106px;
 }
 @media screen and (min-width: 1280px) {
+  .product-detail-section {
+    scroll-margin-top: 191px;
+  }
 }
 /* home styles */
 /* swiper slider */

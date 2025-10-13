@@ -1,48 +1,56 @@
 "use client"
 
 import Image from "next/image"
+import Buy from "./Buy"
+import CommentSingleProduct from "./CommentSingleProduct"
+
 import { Dispatch, SetStateAction, useState } from "react"
 
-function CommentSingleProduct() {
+function BoxAsideTwo() {
 
     const [handleComment, setHandleComment] = useState(false);
+
     return (
         <>
-            {true ?
-                <section className="lg:sticky top-0 right-0 border-custom flex flex-col items-center gap-y-4 py-[17px] px-4 bg-white rounded-2xl">
-                    <span className="text-text-gray-two">
-                        <span className="text-xl text-primary ml-1">۴.۳</span>از ۵</span>
-                    <div className="flex gap-x-4">
-                        {
-                            Array(5).fill(1).map((_, index) =>
-                                <Image key={index}
-                                    src="/icons/outline-star.svg"
-                                    alt={`ستاره ${index + 1}`}
-                                    width={20} height={20}
-                                />
-                            )
-                        }
-                    </div>
-                    <span className="text-xs text-text-gray leading-[180%]">ازمجموع ۱۳ امتیاز</span>
-                    <button className="text-primary border-type-three rounded-lg py-2 px-4 w-full transition-colors duration-300 hover:bg-[#E0F1E9]"
-                        onClick={() => setHandleComment(true)}>افزودن نظر</button>
-                </section> :
-                <section className="border-custom flex flex-col items-center gap-y-4 py-[17px] px-4 bg-white rounded-2xl">
-                    <div className="flex gap-x-4">
-                        {Array(5).fill(1).map((_, index) =>
-                            <Image key={index}
-                                src="/icons/outline-star.svg"
-                                alt={`ستاره ${index + 1}`}
-                                width={20} height={20}
-                                className="cursor-pointer"
-                            />)}
-                    </div>
-                    <span className="text-xs text-text-gray leading-[180%]">هنوز امتیازی ثبت نشده است</span>
-                    <button className="text-primary border-type-three rounded-lg py-2 px-4 w-full transition-colors duration-300 hover:bg-[#E0F1E9]"
-                        onClick={() => setHandleComment(true)}>افزودن نظر</button>
+            <aside className="lg:w-[360px] lg:sticky lg:top-[125px] lg:mt-[90px] lg:gap-y-2 lg:flex lg:flex-col">
+                <section>
+                    {true ?
+                        <section className="lg:sticky top-0 right-0 border-custom flex flex-col items-center gap-y-4 py-[17px] px-4 bg-white rounded-2xl">
+                            <span className="text-text-gray-two">
+                                <span className="text-xl text-primary ml-1">۴.۳</span>از ۵</span>
+                            <div className="flex gap-x-4">
+                                {
+                                    Array(5).fill(1).map((_, index) =>
+                                        <Image key={index}
+                                            src="/icons/outline-star.svg"
+                                            alt={`ستاره ${index + 1}`}
+                                            width={20} height={20}
+                                        />
+                                    )
+                                }
+                            </div>
+                            <span className="text-xs text-text-gray leading-[180%]">ازمجموع ۱۳ امتیاز</span>
+                            <button className="text-primary border-type-three rounded-lg py-2 px-4 w-full transition-colors duration-300 hover:bg-[#E0F1E9]"
+                                onClick={() => setHandleComment(true)}>افزودن نظر</button>
+                        </section> :
+                        <section className="border-custom flex flex-col items-center gap-y-4 py-[17px] px-4 bg-white rounded-2xl">
+                            <div className="flex gap-x-4">
+                                {Array(5).fill(1).map((_, index) =>
+                                    <Image key={index}
+                                        src="/icons/outline-star.svg"
+                                        alt={`ستاره ${index + 1}`}
+                                        width={20} height={20}
+                                        className="cursor-pointer"
+                                    />)}
+                            </div>
+                            <span className="text-xs text-text-gray leading-[180%]">هنوز امتیازی ثبت نشده است</span>
+                            <button className="text-primary border-type-three rounded-lg py-2 px-4 w-full transition-colors duration-300 hover:bg-[#E0F1E9]"
+                                onClick={() => setHandleComment(true)}>افزودن نظر</button>
+                        </section>
+                    }
                 </section>
-            }
-
+                <Buy />
+            </aside>
             <CommentPopUp
                 handleComment={handleComment}
                 setHandleComment={setHandleComment} />
@@ -50,13 +58,13 @@ function CommentSingleProduct() {
     )
 }
 
-export default CommentSingleProduct
+export default BoxAsideTwo
 
 type IPropsCommentPopUp = {
     handleComment: boolean,
     setHandleComment: Dispatch<SetStateAction<boolean>>
 }
- 
+
 function CommentPopUp({ handleComment, setHandleComment }: IPropsCommentPopUp) {
     return (
         <>

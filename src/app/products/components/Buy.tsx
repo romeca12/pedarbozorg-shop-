@@ -17,7 +17,7 @@ function Buy() {
     return (
         <>
             {true ?
-                <section className="xl:w-[370px] fixed xl:static z-[2] gap-y-2 bottom-0 right-0 left-0 w-full bg-white xl:bg-[#ffffff99] py-[17px] px-4 rounded-2xl border-custom flex flex-col items-center">
+                <section className="xl:w-[360px] fixed xl:static z-[2] gap-y-2 bottom-0 right-0 left-0 w-full bg-white xl:bg-[#ffffff99] py-[17px] px-4 rounded-2xl border-custom flex flex-col items-center">
                     <Image src="/images/logo.svg" alt="لوگوی پدربزرگ" width={60} height={56} className="hidden xl:block" />
                     <div className="gap-x-2 hidden xl:flex text-2xl text-primary">
                         <div className="flex gap-x-2">
@@ -88,7 +88,7 @@ function Buy() {
 
 
                 </section> :
-                <section className="bg-white flex flex-col gap-y-2 items-center min-w-[330px] xl:static py-[17px] px-4 fixed z-[2] bottom-0 right-0 left-0">
+                <section className="bg-white flex flex-col gap-y-2 items-center min-w-[330px] xl:static py-[17px] px-4 fixed z-[2] rounded-2xl bottom-0 right-0 left-0">
                     <Image src="/images/logo.svg" alt="لوگوی پدربزرگ" width={60} height={56}/>
                     <h5 className="text-text-gray-two text-center">ناموجود</h5>
                     <button className="bg-background hover:bg-green-light transition-colors duration-300 text-sm text-primary
