@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import NextTopLoader from "nextjs-toploader";
-import ArrowUp from "@/components/ArrowUp";
 import Layout from "@/components/layout/Layout";
 import { Toaster } from "react-hot-toast";
 
