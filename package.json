@@ -10,13 +10,14 @@
     "json": "npx json-server --watch src/database/db.json --port 8000"
   },
   "dependencies": {
+    "axios": "^1.12.2",
     "json-server": "^1.0.0-beta.3",
-    "next": "15.4.5",
+    "next": "^15.5.5",
     "nextjs-toploader": "^3.8.16",
     "node": "^24.8.0",
     "nodejs": "^0.0.0",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
     "react-hot-toast": "^2.6.0",
     "swiper": "^11.2.10"
   },

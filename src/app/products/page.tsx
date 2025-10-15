@@ -5,12 +5,31 @@ import Filters from "./components/Filters"
 import FilterMobile from "./components/FilterMobile"
 import Pagination from "@/components/Pagination"
 import "@/app/globals.css"
+import axios from "axios"
 
 export const metadata: Metadata = {
   title: "محصولات",
 }
 
-function prodcuts() {
+export type TypeProducts = {
+  id: number,
+  name: string,
+  slug: string,
+  min_price: number,
+  max_price: number,
+  categories: { "id": 1, "title": "روغن" }[],
+  featured_image: string,
+  is_in_cart: boolean,
+  min_sell_price: number,
+  avg_rate: null | number,
+  cheapest_variant_id: number,
+  advantages: { id: number; title: string }[],
+  is_available: boolean
+}
+
+async function prodcuts() {
+
+  const productsList = await axios('http://5.144.132.115:8003/store-api/products-public');
 
   const sortItems = ["پربازدیدترین", "پرفروش‌ترین", "محبوب‌‌ترین", "ارزان‌ترین", "گران‌ترین"];
 
@@ -34,9 +53,10 @@ function prodcuts() {
             <Sort sortItems={sortItems} activeItem={1} />
           </div>
         </div>
+
         <div className="overal-products gap-2 md:gap-4 mb-4 lg:mb-8">
-          {Array(20).fill(1).map((_, index) =>
-            <CardGlobal key={index} id={index + 1} />
+          {productsList.data.results.map((item: TypeProducts) =>
+            <CardGlobal key={item.id} {...item} />
           )}
         </div>
         <Pagination />

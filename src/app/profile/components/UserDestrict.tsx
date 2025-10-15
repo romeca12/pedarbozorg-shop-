@@ -9,7 +9,6 @@ function UserDestrict() {
   console.log(pathname)
   return (
     <section className="bg-white flex flex-col gap-y-2 lg:gap-y-4 p-4 lg:p-8 rounded-2xl border-custom">
-
       <Link href="/profile" className="pr-3 lg:pr-0 flex gap-x-2 items-center">
         <span className="relative w-8 h-8 lg:w-10 lg:h-10 cursor-pointer">
           {pathname === "/profile" ?
@@ -95,7 +94,7 @@ function UserDestrict() {
         </span>
         <span className="text-primary text-sm lg:text-xl">مشخصات حساب کاربری</span>
       </Link>
-      <div className="pr-3 lg:pr-0 flex gap-x-2 items-center">
+      <div className="cursor-pointer pr-3 lg:pr-0 flex gap-x-2 items-center">
         <span className="relative w-8 h-8 lg:w-10 lg:h-10 cursor-pointer">
           {false && <img src="/icons/bg-destrict-icon.svg" className="absolute top-0 right-0 h-full w-full" alt="پس زمینه" />}
           <Image src="/icons/logout.svg" className="p-1.5 relative z-[1] lg:p-2 lg:w-10 lg:h-10" alt="ناحیه کاربری" width={32} height={32} />

@@ -83,7 +83,7 @@ function Header() {
           <img src="/images/logo.svg" alt="لوگو" className="cursor-pointer" />
           <div className="flex gap-2">
             <img src="/images/login.svg" alt="ورود" className="cursor-pointer" onClick={() => setHandleLogin(true)} />
-            <span className="relative -z-10">
+            <span className="relative">
               <img src="/images/cart.svg" alt="سبد خرید" className="cursor-pointer" />
               <span className="bg-[#C62020] absolute top-0.5 right-0.5 text-white text-[10px] px-1 rounded-sm">{toFarsiNumber(cart.length) || null}</span>
             </span>

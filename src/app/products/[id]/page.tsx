@@ -114,9 +114,9 @@ async function page() {
             <div className="mb-56 md:mb-48">
                 <TitleSection title="محصولات مرتبط" />
                 <div className="overal-products gap-2 md:gap-4 mb-4 lg:mb-8">
-                    {Array(8).fill(1).map((_, index) =>
+                    {/* {Array(8).fill(1).map((_, index) =>
                         <CardGlobal key={index} id={index + 1} />
-                    )}
+                    )} */}
                 </div>
                 <Link href="/products" className="flex justify-center">
                     <button className="text-white bg-primary transition-colors duration-300 hover:bg-hover-btn rounded-lg px-4 py-2">مشاهده همه محصولات</button>
