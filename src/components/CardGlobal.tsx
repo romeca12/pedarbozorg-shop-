@@ -1,6 +1,6 @@
 "use client"
 
-import { TypeProducts } from "@/app/products/page";
+import { TypeProducts } from "@/app/products/components/ProductsMain";
 import { AppContext } from "@/context/AppContext";
 import Link from "next/link";
 import { useContext, useState } from "react"
@@ -38,24 +38,18 @@ const CardGlobal = (props: TypeProducts) => {
                         <h3 className="text-base md:text-xl text-primary mb-2 font-black">{props.name}</h3>
                         <div className='mb-2 flex justify-between items-center'>
                             <div className='bg-[#C62020] rounded-2xl flex items-center'>
-                                {props.min_price === props.min_sell_price ?
-                                    null :
-                                    <span className=" text-white text-[10px] md:text-xs font-black px-2 py-0.5">{((props.min_sell_price - props.min_price) / props.min_sell_price) * 100}</span>
-                                }
+                                <span className={`text-white text-[10px] md:text-xs font-black px-2 ${props.min_price - props.min_price && "py-0.5"}`}>
+                                    {props.min_price === props.min_sell_price ? null : ((props.min_sell_price - props.min_price) / props.min_sell_price) * 100}
+                                </span>
                             </div>
                             <div className='flex items-center'>
-                                <span className="text-base  md:text-xl text-[#353535]">{props.min_price}</span>
-                                <img src="/icons/tooman.svg" alt="تومان" className='w-[23px] h-[16px] my-1.5 mr-1 md:mr-2' />
+                                <span className="text-base  md:text-xl text-[#353535]">{props.is_available ? props.min_price : "ناموجود"}</span>
+                                {props.is_available && <img src="/icons/tooman.svg" alt="تومان" className='w-[23px] h-[16px] my-1.5 mr-1 md:mr-2' />}
                             </div>
                         </div>
                         <div className='flex justify-between py-[1px]'>
-                            <span><img src="/icons/star.svg" alt="ستاره" className='inline -mt-0.5 ml-1 w-[13px] h-[13px] md:h-[17px] md:w-[17px]' /><span className='text-xs md:text-sm'>{props.avg_rate}</span></span>
-
-                            {props.min_price == props.min_sell_price ?
-                                null :
-                                <span className="text-gray-400 line-through text-sm">{props.min_sell_price}</span>
-                            }
-
+                            <span><img src="/icons/star.svg" alt="ستاره" className='inline -mt-0.5 ml-1 w-[13px] h-[13px] md:h-[17px] md:w-[17px]' /><span className='text-xs md:text-sm'>{props.avg_rate || 'بدون امتیاز'}</span></span>
+                            <span className="text-gray-400 line-through text-sm">{props.min_price === props.min_sell_price ? null : props.min_sell_price}</span>
                         </div>
                     </div>
                 </div>

@@ -108,7 +108,7 @@ function Tabs() {
                             </div>
                         )}
                     </div>
-                    <Pagination />
+                    {/* <Pagination /> */}
                 </div>
             </div>
         </div>

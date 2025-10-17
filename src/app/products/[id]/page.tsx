@@ -1,4 +1,3 @@
-import CardGlobal from "@/components/CardGlobal"
 import TitleSection from "@/components/TitleSection"
 import { Metadata } from "next"
 import Image from "next/image"
