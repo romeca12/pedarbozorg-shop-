@@ -34,6 +34,13 @@ writing variable
 @utility hover-icon-header {
   @apply transition-all duration-200 ease-in hover:bg-secondarytwo cursor-pointer rounded-[10px];
 }
+@utility tab-navigation {
+  @apply transition-colors duration-200 rounded-lg
+  px-3 h-full flex justify-center items-center md:px-4 hover:bg-gray-four
+}
+@utility active-tab-navigation {
+  @apply bg-primary hover:bg-[#336D51] text-white;
+}
 @utility ec-hover-btn {
   @apply transition-colors duration-300 hover:bg-hover-btn;
 }
