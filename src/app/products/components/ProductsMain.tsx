@@ -48,7 +48,7 @@ function ProductsMain() {
         fetchProducts()
     }, [currentPage])
 
-    const changePge = (changePge: number) => {
+    const handleChangePage = (changePge: number) => {
         router.push(`?page=${changePge}`)
     }
 
@@ -57,7 +57,7 @@ function ProductsMain() {
             {loading ? <ProductsLoading /> : <ProductsList products={products?.results || []} />}
             <Pagination
                 count={products?.count || 0}
-                changePge={changePge}
+                handleChangePage={handleChangePage}
                 currentPage={currentPage}/>
         </>
     )
