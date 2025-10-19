@@ -55,10 +55,11 @@ function ProductsMain() {
     return (
         <>
             {loading ? <ProductsLoading /> : <ProductsList products={products?.results || []} />}
+            {/* {loading ? <ProductsLoading /> : <ProductsLoading />} */}
             <Pagination
                 count={products?.count || 0}
                 handleChangePage={handleChangePage}
-                currentPage={currentPage}/>
+                currentPage={currentPage} />
         </>
     )
 }
@@ -67,7 +68,7 @@ export default ProductsMain
 
 function ProductsList({ products }: { products: TypeProducts[] }) {
     return (
-        <div className="overal-products gap-2 md:gap-4 mb-4 lg:mb-8">
+        <div className="overal-products mb-4 lg:mb-8">
             {products.map((item: TypeProducts) =>
                 <CardGlobal key={item.id} {...item} />
             )}
