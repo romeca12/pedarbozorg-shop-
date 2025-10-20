@@ -70,10 +70,10 @@ function CommentPopUp({ handleComment, setHandleComment }: IPropsCommentPopUp) {
         <>
             <div
                 className={`fixed z-20 top-0 bottom-0 right-0 left-0 w-full h-full transition-all
-                    duration-300 bg-[#0000004d] ${handleComment ? "block" : "hidden"}`}
+                    duration-300 bg-pop-up ${handleComment ? "block" : "hidden"}`}
                 onClick={() => setHandleComment(false)}
             ></div>
-            <div className={`w-[662px] max-w-[90%] fixed bg-white z-30 rounded-2xl p-6 flex flex-col gap-y-6 transition-all duration-[600ms] left-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2 ${handleComment ? "top-1/2" : "top-[140%]"}`}>
+            <div className={`w-[662px] max-w-[90%] bg-white z-30 rounded-2xl p-6 flex flex-col gap-y-6 transition-all duration-[600ms] pop-up ${handleComment ? "top-1/2" : "top-[140%]"}`}>
                 <div className="flex justify-between items-center mb-4">
                     <h4 className="text-xl text-primary leading-[140%]">افزودن نظر</h4>
                     <Image src="/images/remove.svg" alt="بستن"

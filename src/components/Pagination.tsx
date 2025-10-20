@@ -10,7 +10,6 @@ const Pagination = ({ count, handleChangePage, currentPage }: IPropsPagination) 
     const spaceOne = [1, 2, 3, 4].includes(NumberCurrentPage);
     const spaceTwo = [allPages, allPages - 1, allPages - 2, allPages - 3].includes(NumberCurrentPage);
 
-
     return (
         <div className="flex justify-center items-center gap-2 h-10 text-primary text-sm md:text-base cursor-pointer">
             <img src="/images/arrow-right-slider.svg" alt="جهت راست" className={`w-5 h-5 mx-1.5 ${NumberCurrentPage <= 1 ? "hidden" : "block"}`}

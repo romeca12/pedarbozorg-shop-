@@ -55,7 +55,6 @@ function ProductsMain() {
     return (
         <>
             {loading ? <ProductsLoading /> : <ProductsList products={products?.results || []} />}
-            {/* {loading ? <ProductsLoading /> : <ProductsLoading />} */}
             <Pagination
                 count={products?.count || 0}
                 handleChangePage={handleChangePage}

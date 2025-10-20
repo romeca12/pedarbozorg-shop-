@@ -3,8 +3,9 @@
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { Dispatch, SetStateAction } from "react"
 
-function UserDestrict() {
+function UserDestrict({ setPopUpLogout } : { setPopUpLogout: Dispatch<SetStateAction<boolean>> }) {
   const pathname = usePathname()
   console.log(pathname)
   return (
@@ -94,7 +95,8 @@ function UserDestrict() {
         </span>
         <span className="text-primary text-sm lg:text-xl">مشخصات حساب کاربری</span>
       </Link>
-      <div className="cursor-pointer pr-3 lg:pr-0 flex gap-x-2 items-center">
+      <div className="cursor-pointer pr-3 lg:pr-0 flex gap-x-2 items-center"
+        onClick={() => setPopUpLogout(true)}>
         <span className="relative w-8 h-8 lg:w-10 lg:h-10 cursor-pointer">
           {false && <img src="/icons/bg-destrict-icon.svg" className="absolute top-0 right-0 h-full w-full" alt="پس زمینه" />}
           <Image src="/icons/logout.svg" className="p-1.5 relative z-[1] lg:p-2 lg:w-10 lg:h-10" alt="ناحیه کاربری" width={32} height={32} />

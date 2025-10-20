@@ -1,7 +1,16 @@
+"use client"
+
 import Image from "next/image"
 import UserDestrict from "./components/UserDestrict"
+import Logout from "./components/Logout"
+import Link from "next/link"
+import { useState } from "react"
 
 function Profilelayout({ children }: { children: React.ReactNode }) {
+
+    const [popUpLogout, setPopUpLogout] = useState(false);
+    const [popUpWallet, setPopUpWallet] = useState(false);
+
     return (
         <>
             <aside className="flex flex-col gap-y-4 mt-24 lg:mt-[181px] mb-56 w-full lg:max-w-[368px]">
@@ -12,7 +21,9 @@ function Profilelayout({ children }: { children: React.ReactNode }) {
                             <span className="text-xl text-primary">مهرآسا حاتمی</span>
                             <span className="text-text-gray">09123456789</span>
                         </div>
-                        <Image src="/icons/edit.svg" alt="ویرایش" className="cursor-pointer" width={20} height={20} />
+                        <Link href="/profile/personal-info">
+                            <Image src="/icons/edit.svg" alt="ویرایش" className="cursor-pointer" width={20} height={20} />
+                        </Link>
                     </div>
                     <div className="flex justify-between items-center pl-1.5">
                         <div className="flex flex-col gap-y-2">
@@ -22,10 +33,14 @@ function Profilelayout({ children }: { children: React.ReactNode }) {
                         <Image src="/icons/add.svg" alt="اضافه کردن" className="cursor-pointer bg-[#b1cdc0] rounded-[7px]" width={20} height={20} />
                     </div>
                 </section>
-                <UserDestrict />
+                <UserDestrict setPopUpLogout={setPopUpLogout} />
             </aside>
             <main>
-                <div></div>
+                {children}
+                <Logout
+                    setPopUpLogout={setPopUpLogout}
+                    popUpLogout={popUpLogout}
+                />
             </main>
         </>
     )

@@ -1,6 +1,6 @@
 function page() {
   return (
-    <div>page</div>
+    <div>مشخصات حساب کاربری</div>
   )
 }
 

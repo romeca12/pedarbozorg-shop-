@@ -1,5 +1,3 @@
-import CardGlobal from "@/components/CardGlobal"
-import { TypeProducts } from "./ProductsMain"
 
 function ProductsLoading() {
   return (
@@ -18,19 +16,19 @@ function ProductsLoading() {
             </div>
 
             {/* متن‌ها */}
-            <div className="flex-1 space-y-3">
+            <div className="flex-1 space-y-3.5">
               {/* متن اول (کوتاه) */}
               <div className="h-4 bg-gray-300 rounded w-3/4 relative overflow-hidden">
                 <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white to-transparent animate-[shimmer_1.5s_infinite]"></div>
               </div>
 
               {/* متن دوم (بلندتر) */}
-              <div className="h-4 bg-gray-300 rounded w-full relative overflow-hidden">
+              <div className="mr-auto h-4 bg-gray-300 rounded w-[55%] relative overflow-hidden">
                 <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white to-transparent animate-[shimmer_1.5s_infinite]"></div>
               </div>
 
               {/* ادامه متن دوم */}
-              <div className="h-4 bg-gray-300 rounded w-5/6 relative overflow-hidden">
+              <div className="h-4 bg-gray-300 rounded w-1/3 relative overflow-hidden">
                 <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white to-transparent animate-[shimmer_1.5s_infinite]"></div>
               </div>
             </div>

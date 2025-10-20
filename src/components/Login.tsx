@@ -8,7 +8,6 @@ type IPropsLogin = {
 }
 
 export default function Login({ handleLogin, setHandleLogin }: IPropsLogin) {
-
     const [value, setValue] = useState<string>("");
     const [loginTwo, setLoginTwo] = useState<boolean>(false);
 
@@ -30,12 +29,12 @@ export default function Login({ handleLogin, setHandleLogin }: IPropsLogin) {
     return (
         <>
             <div
-                className={`const-cover-login z-20 ${handleLogin ? "cover-login" : ""}`}
+                className={`const-cover-login ${handleLogin ? "cover-login" : ""}`}
                 onClick={() => {
                     setHandleLogin(false);
                 }}
             ></div>
-            <div className={`login z-30 ${handleLogin ? "open-login" : ""}`}>
+            <div className={`login ${handleLogin ? "open-login" : ""}`}>
                 <div className="top-login-stop">
                     <div className="top_right">
                         {loginTwo && (
