@@ -18,6 +18,8 @@ writing variable
   --color-gray-three: #626262;
   --color-gray-four: #ededed;
   --color-gray-five: #353535;
+  --color-yellow-one: #FFC436;
+  --color-yellow-two: #FFF7E2;
   --color-pop-up: #0000005d;
   --color-white-light: #e3e3e3;
   --color-red-one: #c62020;
@@ -64,6 +66,9 @@ writing variable
 }
 .border-type-four {
   border: 1px solid var(--color-red-one);
+}
+.border-type-five {
+  border: 1px solid var(--color-yellow-one);
 }
 .border-b {
   border-bottom: 1px solid var(--border-custom-color);
@@ -162,7 +167,7 @@ body {
     hover:bg-red-two rounded-lg;
   }
   .pop-up {
-    @apply left-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2 fixed;
+    @apply left-1/2 -translate-x-1/2 -translate-y-1/2 fixed;
   }
 }
 

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   },
   description: "فروشگاه طبیعی پدر بزرگ",
   icons: {
-    icon: "./images/logo.svg",
+    icon: "/images/logo.svg",
   },
 };
 

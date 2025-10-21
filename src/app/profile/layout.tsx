@@ -5,6 +5,7 @@ import UserDestrict from "./components/UserDestrict"
 import Logout from "./components/Logout"
 import Link from "next/link"
 import { useState } from "react"
+import IncreaseWallet from "./components/IncreaseWallet"
 
 function Profilelayout({ children }: { children: React.ReactNode }) {
 
@@ -30,13 +31,22 @@ function Profilelayout({ children }: { children: React.ReactNode }) {
                             <span className="text-primary">کیف پول</span>
                             <span className="text-text-gray flex gap-x-2 items-center lg:text-xl">۲۳۴٬۹۴۸<Image src="./icons/tooman-2.svg" alt="تومان" className="lg:w-[27px] lg:h-[18px]" width={19} height={12} /></span>
                         </div>
-                        <Image src="/icons/add.svg" alt="اضافه کردن" className="cursor-pointer bg-[#b1cdc0] rounded-[7px]" width={20} height={20} />
+                        <Image
+                            src="/icons/add.svg"
+                            alt="اضافه کردن"
+                            className="cursor-pointer bg-[#b1cdc0] rounded-[7px]"
+                            width={20} height={20}
+                            onClick={() => setPopUpWallet(true)} />
                     </div>
                 </section>
                 <UserDestrict setPopUpLogout={setPopUpLogout} />
             </aside>
             <main>
                 {children}
+                <IncreaseWallet
+                    setPopUpWallet={setPopUpWallet}
+                    popUpWallet={popUpWallet}
+                />
                 <Logout
                     setPopUpLogout={setPopUpLogout}
                     popUpLogout={popUpLogout}
