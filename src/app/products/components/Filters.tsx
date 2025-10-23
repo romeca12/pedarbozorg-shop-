@@ -1,9 +1,12 @@
 "use client"
 
-import { Dispatch, SetStateAction, useState } from "react";
+import { AppContext } from "@/context/AppContext";
+import { Dispatch, SetStateAction, useContext, useState } from "react";
 
 type IPropsFilters = {
-    setHandleOpneFilter?: Dispatch<SetStateAction<boolean>>
+    setHandleOpneFilter?: Dispatch<SetStateAction<boolean>>,
+    setIsChecked?: Dispatch<SetStateAction<boolean>>,
+    isChecked?: boolean
 }
 
 const Filters = ({ setHandleOpneFilter }: IPropsFilters) => {
@@ -11,6 +14,8 @@ const Filters = ({ setHandleOpneFilter }: IPropsFilters) => {
     const [togglePrice, setTogglePrice] = useState(false);
     const [minPrice, setMinPrice] = useState(0);
     const [maxPrice, setMaxPrice] = useState(1000000)
+    const { isChecked, setIsChecked } = useContext(AppContext);
+
 
     const viewRemoveFilter = () => {
         if (minPrice !== 0 || maxPrice !== 1000000) return true
@@ -109,7 +114,11 @@ const Filters = ({ setHandleOpneFilter }: IPropsFilters) => {
             <div className="bg-white flex items-center justify-between pr-4 pl-3 border-custom rounded-2xl h-12 transition-colors duration-300 hover:bg-[#F9F9F9]">
                 <span className="text-primary">فقط کالاهای موجود</span>
                 <label className="product-toggle w-11 h-[22px] cursor-pointer relative">
-                    <input type="checkbox" className="opacity-0 w-0 h-0 product-toggle-checkbox" />
+                    <input
+                        type="checkbox"
+                        onChange={() => setIsChecked?.((prev) => !prev)}
+                        checked={isChecked}
+                        className="opacity-0 w-0 h-0 product-toggle-checkbox" />
                     <span className="absolute transition-all duration-300 cover-roller rounded-2xl w-full h-full top-0 left-0 bg-[#BFBFBF]"></span>
                 </label>
             </div>

@@ -19,11 +19,15 @@ type ICart = {
 export default function Layout({ children }: ILayoutProps) {
 
     const [cart, setCart] = useState<ICart[]>([]);
+    const [isChecked, setIsChecked] = useState(false)
+
     const pathname = usePathname();
     const hideFooter = ["/spin-luck-shop"].includes(pathname);
     const hideArrowUp = ["/products/5"].includes(pathname);
+
+
     return (
-        <AppContext.Provider value={{ cart, setCart }}>
+        <AppContext.Provider value={{ cart, setCart , isChecked, setIsChecked}}>
             <Header />
             {!hideArrowUp && <ArrowUp />}
             <Container>

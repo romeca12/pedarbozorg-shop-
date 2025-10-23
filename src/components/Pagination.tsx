@@ -1,11 +1,15 @@
+import { Dispatch, SetStateAction } from "react"
+
 
 type IPropsPagination = {
     count: number,
-    handleChangePage: (newPage: number) => void,
+    // handleChangePage: (newPage: number) => void,
+    handleChangePage: Dispatch<SetStateAction<number>>,
     currentPage: string
 }
+
 const Pagination = ({ count, handleChangePage, currentPage }: IPropsPagination) => {
-    const allPages = count / 12
+    const allPages = Math.ceil(count / 12)
     const NumberCurrentPage = Number(currentPage)
     const spaceOne = [1, 2, 3, 4].includes(NumberCurrentPage);
     const spaceTwo = [allPages, allPages - 1, allPages - 2, allPages - 3].includes(NumberCurrentPage);

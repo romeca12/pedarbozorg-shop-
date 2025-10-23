@@ -11,7 +11,6 @@ function spinLuckShop() {
     <>
       <Background />
       <Spin />
-      {/* <div className="mb-[1200px] bg-blue-400"></div>  */}
     </>
   )
 }

@@ -8,13 +8,16 @@ type TPropsIncreaseWallet = {
 
 function IncreaseWallet({ setPopUpWallet, popUpWallet }: TPropsIncreaseWallet) {
 
-    const [InputPrice, setInputPrice] = useState<{item:string, index:number | null}>({ item: "", index: null })
-    const priceReady = ["۵۰٬۰۰۰", "۱۰۰٬۰۰۰", "۲۰۰٬۰۰۰", "۵۰۰٬۰۰۰"];
+    const [inputPrice, setInputPrice] = useState(0)
+    const priceReady = [50_000, 100_000, 200_000, 500_000];
 
-    const handleChoosePrice = (item: string, index: number) => {
-        setInputPrice({ item, index })
+    const handleChoosePrice = (item: string) => {
+        const digitsOnly = item.replace(/[^۰-۹0-9]/g, "");
+        const content = digitsOnly.replace(/[۰-۹]/g, (d) =>
+            String.fromCharCode(d.charCodeAt(0) - 1728)
+        );
+        setInputPrice(+content)
     }
-
     return (
         <>
             <div className={`bg-pop-up z-20 fixed w-full h-full inset-0 ${popUpWallet ? "block" : "hidden"}`}
@@ -29,7 +32,8 @@ function IncreaseWallet({ setPopUpWallet, popUpWallet }: TPropsIncreaseWallet) {
                 <p className="text-gray-three">مبلغ مورد نظر خود را برای افزایش اعتبار کیف پول خود وارد کنید</p>
                 <div className="flex gap-y-4 flex-col items-center">
                     <div className="relative w-[180px]">
-                        <input value={InputPrice.item} onChange={(self) => setInputPrice((prev)=>({...prev, item: self.target.value }))} type="text" placeholder=" " className="pl-8 w-full text-input text-base py-1 pr-2 rounded-[9px] input-spin h-10 md:flex-1" />
+                        <input value={inputPrice.toLocaleString()} onChange={(self) => handleChoosePrice(self.target.value)}
+                            type="text" placeholder=" " style={{ direction: "ltr" }} className=" pl-10 w-full text-input text-base py-1 pr-2 rounded-[9px] input-spin h-10 md:flex-1" />
                         <label className="absolute right-1 top-2 text-text-gray spin-phone bg-white px-1.5 rounded-lg transition-all duration-300 pointer-events-none">مبلغ</label>
                         <Image src="/icons/tooman-1.svg" alt="تومان"
                             width={20} height={20}
@@ -39,9 +43,9 @@ function IncreaseWallet({ setPopUpWallet, popUpWallet }: TPropsIncreaseWallet) {
                         {priceReady.map((item, index) =>
                             <span
                                 key={index}
-                                onClick={() => handleChoosePrice(item, index)}
-                                className={`${InputPrice.index === index ? "border-type-three" : "border-type-five"} hover:bg-yellow-two transition-colors duration-300 text-sm text-primary cursor-pointer gap-x-2 flex rounded-lg px-3 py-1.5`}>
-                                {item}
+                                onClick={() => setInputPrice(item)}
+                                className={`${inputPrice === item ? "border-type-three" : "border-type-five"} hover:bg-yellow-two transition-colors duration-300 text-sm text-primary cursor-pointer gap-x-2 flex rounded-lg px-3 py-1.5`}>
+                                {item.toLocaleString()}
                                 <Image
                                     src="/icons/tooman-square-light.svg" alt="تومان"
                                     width={20} height={20} />
