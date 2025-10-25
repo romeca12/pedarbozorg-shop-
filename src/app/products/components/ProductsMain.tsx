@@ -31,25 +31,26 @@ export type TypeProducts = {
     advantages: { id: number; title: string }[],
     is_available: boolean
 }
-type TCategoryResponse = {
-    count: number,
-    next: string | null,
-    previous: string | null,
-    results: TypeCategory[]
-}
-type TypeCategory = {
-    id: number,
-    title: string,
-    slug: string,
-    icon: null,
-    description: string,
-    status: string
-}
+
+// type TCategoryResponse = {
+//     count: number,
+//     next: string | null,
+//     previous: string | null,
+//     results: TypeCategory[]
+// }
+// type TypeCategory = {
+//     id: number,
+//     title: string,
+//     slug: string,
+//     icon: null,
+//     description: string,
+//     status: string
+// }
 function ProductsMain() {
 
-    const [products, setProducts] = useState<TProductsResponse | null>(null);
-    const [category, setCategory] = useState<TCategoryResponse | null>(null);
-    const { isChecked } = useContext(AppContext);
+    const [products, setProducts] = useState<TProductsResponse | null>(null)
+    // const [category, setCategory] = useState<TCategoryResponse | null>(null);
+    const { filterItem, setFilterItem } = useContext(AppContext);
     const [loading, setLoading] = useState(true);
     const searchParams = useSearchParams()
     const currentPage = searchParams.get("page") || "1";
@@ -57,27 +58,30 @@ function ProductsMain() {
     const [handleRouter, setHandleRouter] = useState(+currentPage)
     const router = useRouter()
 
-    useEffect(() => {
-        const path = `?page=${handleRouter}&available=${isChecked}`;
-        router.push(path)
-    }, [handleRouter, isChecked])
+    // console.log("hello world")
 
-    console.log()
+    useEffect(() => {
+        setFilterItem((prev) => ({ ...prev, maxPrice: products?.max_price || 10195200 }))
+    }, [products?.max_price])
+
+    useEffect(() => {
+        const path = `?page=${handleRouter}${filterItem.isCheck ? "&available=true" : ""}`;
+        router.push(path)
+    }, [handleRouter, filterItem.isCheck, filterItem.hiPrice, filterItem.lowPrice])
 
     useEffect(() => {
         setLoading(true)
-        axios.get(`http://5.144.132.115:8003/store-api/products-public/?page=${currentPage}&available=${isChecked}`)
+        axios.get(`http://5.144.132.115:8003/store-api/products-public/?page=${handleRouter}${filterItem.isCheck ? `&available=true` : ""}`)
             .then(response => setProducts(response.data))
             .catch(() => toast.error("خطا در دریافت اطلاعات"))
             .finally(() => setLoading(false))
-    }, [handleRouter, isChecked])
-    console.log(isChecked, currentPage, handleRouter, products?.count)
+    }, [handleRouter, filterItem.isCheck, filterItem.hiPrice, filterItem.lowPrice])
 
 
-    useEffect(() => {
-        axios.get(`http://5.144.132.115:8003/store-api/categories/`)
-            .then(response => setCategory(response.data));
-    }, [])
+    // useEffect(() => {
+    //     axios.get(`http://5.144.132.115:8003/store-api/categories/`)
+    //         .then(response => setCategory(response.data));
+    // }, [])
 
     return (
         <>

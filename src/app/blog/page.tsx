@@ -23,7 +23,7 @@ function blog() {
                         </Link>
                     )}
                 </div>
-                <Pagination />
+                {/* <Pagination /> */}
             </main>
         </>
     )

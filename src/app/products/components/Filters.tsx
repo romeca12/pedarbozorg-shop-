@@ -1,39 +1,49 @@
 "use client"
 
 import { AppContext } from "@/context/AppContext";
-import { Dispatch, SetStateAction, useContext, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { Dispatch, SetStateAction, use, useContext, useEffect, useState } from "react";
 
 type IPropsFilters = {
-    setHandleOpneFilter?: Dispatch<SetStateAction<boolean>>,
-    setIsChecked?: Dispatch<SetStateAction<boolean>>,
-    isChecked?: boolean
+    setHandleOpenFilter?: Dispatch<SetStateAction<boolean>>,
 }
 
-const Filters = ({ setHandleOpneFilter }: IPropsFilters) => {
+const Filters = ({ setHandleOpenFilter }: IPropsFilters) => {
     const [toggleCategory, setToggleCategory] = useState(false);
     const [togglePrice, setTogglePrice] = useState(false);
+    const { filterItem, setFilterItem } = useContext(AppContext);
     const [minPrice, setMinPrice] = useState(0);
-    const [maxPrice, setMaxPrice] = useState(1000000)
-    const { isChecked, setIsChecked } = useContext(AppContext);
+    const [maxPrice, setMaxPrice] = useState(filterItem.maxPrice || 10195200);
+    const searchParams = useSearchParams()
+    const currentAvailable = searchParams.get("available") || false;
 
+
+    const isAvailable = currentAvailable === "true" ? true : false
+    useEffect(()=>{
+        setFilterItem(prev=>({...prev, isCheck: isAvailable}))
+    },[])
 
     const viewRemoveFilter = () => {
-        if (minPrice !== 0 || maxPrice !== 1000000) return true
+        if (minPrice !== 0 || maxPrice !== filterItem.maxPrice || filterItem.isCheck) return true
     }
 
     const removeFilter = () => {
         setMinPrice(0)
-        setMaxPrice(1000000)
+        setMaxPrice(filterItem.maxPrice)
+        setFilterItem((prev) => ({ ...prev, isCheck: false }))
     }
 
     const handleMaXChange = (e: string) => {
         const rangeValue = Number(e)
         if (rangeValue >= minPrice) setMaxPrice(rangeValue)
+        setFilterItem(prev => ({ ...prev, hiPrice: maxPrice }))
     }
     const handleMinChange = (e: string) => {
         const rangeValue = Number(e)
         if (rangeValue <= maxPrice) setMinPrice(rangeValue)
+        setFilterItem(prev => ({ ...prev, lowPrice: minPrice }))
     }
+
     return (
         <div className="xl:sticky top-[90px] right-0 flex flex-col gap-y-4 static">
             <div className="flex gap-x-2 items-center justify-between">
@@ -43,7 +53,7 @@ const Filters = ({ setHandleOpneFilter }: IPropsFilters) => {
                 </span>
                 {viewRemoveFilter() && <span className="py-1 px-3 text-[#C62020] text-sm cursor-pointer font-extrabold hover:text-shadow-[0_0_24px_#c6202099] transition-all duration-200 ease" onClick={() => {
                     removeFilter();
-                    setHandleOpneFilter?.(false);
+                    setHandleOpenFilter?.(false);
                 }}>حذف فیلترها</span>}
             </div>
 
@@ -67,7 +77,7 @@ const Filters = ({ setHandleOpneFilter }: IPropsFilters) => {
                     <span className="flex gap-x-[5px] items-center">
                         <span className="text-primary">قیمت</span>
                         {
-                            minPrice !== 0 || maxPrice !== 1000000 ?
+                            minPrice !== 0 || maxPrice !== filterItem.maxPrice ?
                                 <span className="w-2 h-2 bg-circle rounded-xl"></span> : null
                         }
                     </span>
@@ -76,21 +86,21 @@ const Filters = ({ setHandleOpneFilter }: IPropsFilters) => {
                 <div className="mt-4 px-4 flex flex-col items-center">
                     <div className="mb-6 flex gap-x-2 h-9 text-sm text-[#383838] w-full">
                         <div className="relative flex-1">
-                            <input type="text" value={minPrice} readOnly className="w-full h-full pr-2 pl-8 rounded-[9px] input-spin" />
+                            <input type="text" value={minPrice.toLocaleString()} readOnly className="w-full h-full pr-2 pl-8 rounded-[9px] input-spin" />
                             <label className="absolute text-[10px] right-3.5 -top-2 bg-white px-1 rounded-lg transition-all duration-300 pointer-events-none">از</label>
-                            <img src="/icons/تومان.svg" alt="تومان" className="absolute left-2 bottom-[11px]" />
+                            <img src="/icons/tooman-1.svg" alt="تومان" className="absolute left-2 bottom-[11px]" />
                         </div>
                         <div className="relative flex-1">
-                            <input type="text" value={maxPrice} readOnly className="w-full h-full pr-2 pl-8 rounded-[9px] input-spin" />
+                            <input type="text" value={maxPrice.toLocaleString()} readOnly className="w-full h-full pr-2 pl-8 rounded-[9px] input-spin" />
                             <label className="absolute text-[10px] right-3.5 -top-2 px-1 bg-white rounded-lg transition-all duration-300">تا</label>
-                            <img src="/icons/تومان.svg" alt="تومان" className="absolute left-2 bottom-[11px]" />
+                            <img src="/icons/tooman-1.svg" alt="تومان" className="absolute left-2 bottom-[11px]" />
                         </div>
                     </div>
                     <div className="bg-primary relative w-full bg-pri h-1 mb-4 flex justify-center rounded-full">
                         <input
                             type="range"
                             min={0}
-                            max={1000000}
+                            max={filterItem.maxPrice}
                             value={maxPrice}
                             onChange={(e) => handleMaXChange(e.target.value)}
                             className="bg-primary cursor-pointer absolute top-1/2 -translate-y-1/2 h-0 w-full appearance-none range-product"
@@ -98,7 +108,7 @@ const Filters = ({ setHandleOpneFilter }: IPropsFilters) => {
                         <input
                             type="range"
                             min={0}
-                            max={1000000}
+                            max={filterItem.maxPrice}
                             value={minPrice}
                             onChange={(e) => handleMinChange(e.target.value)}
                             className="bg-primary w-full absolute cursor-pointer top-1/2 -translate-y-1/2 h-0 appearance-none range-product"
@@ -112,12 +122,17 @@ const Filters = ({ setHandleOpneFilter }: IPropsFilters) => {
             </div>
 
             <div className="bg-white flex items-center justify-between pr-4 pl-3 border-custom rounded-2xl h-12 transition-colors duration-300 hover:bg-[#F9F9F9]">
-                <span className="text-primary">فقط کالاهای موجود</span>
+                <span className="flex gap-x-[5px] items-center">
+                    <span className="text-primary">فقط کالاهای موجود</span>
+                    {
+                        filterItem.isCheck && <span className="w-2 h-2 bg-circle rounded-xl"></span>
+                    }
+                </span>
                 <label className="product-toggle w-11 h-[22px] cursor-pointer relative">
                     <input
                         type="checkbox"
-                        onChange={() => setIsChecked?.((prev) => !prev)}
-                        checked={isChecked}
+                        onChange={() => setFilterItem((prev) => ({ ...prev, isCheck: !prev.isCheck }))}
+                        checked={filterItem.isCheck}
                         className="opacity-0 w-0 h-0 product-toggle-checkbox" />
                     <span className="absolute transition-all duration-300 cover-roller rounded-2xl w-full h-full top-0 left-0 bg-[#BFBFBF]"></span>
                 </label>
