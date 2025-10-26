@@ -22,7 +22,7 @@ export type TypeProducts = {
     slug: string,
     min_price: number,
     max_price: number,
-    categories: { "id": 1, "title": "روغن" }[],
+    categories: { id: number, title: string }[],
     featured_image: string,
     is_in_cart: boolean,
     min_sell_price: number,
@@ -58,24 +58,27 @@ function ProductsMain() {
     const [handleRouter, setHandleRouter] = useState(+currentPage)
     const router = useRouter()
 
-    // console.log("hello world")
+    const isMaxPricePath = filterItem.hiPrice < (products?.max_price || 10195200)
+    const isMinPricePath = filterItem.lowPrice > 0
+    console.log(isMaxPricePath, filterItem.hiPrice,products?.max_price)
 
     useEffect(() => {
         setFilterItem((prev) => ({ ...prev, maxPrice: products?.max_price || 10195200 }))
     }, [products?.max_price])
 
     useEffect(() => {
-        const path = `?page=${handleRouter}${filterItem.isCheck ? "&available=true" : ""}`;
+        const path = `?page=${handleRouter}${filterItem.isCheck ? "&available=true" : ""}${isMaxPricePath ? `&max_price=${filterItem.hiPrice}` : ""}${isMinPricePath ? `&min_price=${filterItem.lowPrice}` : ""}`;
         router.push(path)
-    }, [handleRouter, filterItem.isCheck, filterItem.hiPrice, filterItem.lowPrice])
+    }, [handleRouter, filterItem.isCheck, filterItem.hiPrice, filterItem.lowPrice, filterItem.hiPrice, filterItem.lowPrice])
+
 
     useEffect(() => {
         setLoading(true)
-        axios.get(`http://5.144.132.115:8003/store-api/products-public/?page=${handleRouter}${filterItem.isCheck ? `&available=true` : ""}`)
+        axios.get(`http://5.144.132.115:8003/store-api/products-public/?page=${handleRouter}${filterItem.isCheck ? `&available=true` : ""}${isMaxPricePath ? `&max_price=${filterItem.hiPrice}` : ""}${isMinPricePath ? `&min_price=${filterItem.lowPrice}` : ""}`)
             .then(response => setProducts(response.data))
             .catch(() => toast.error("خطا در دریافت اطلاعات"))
             .finally(() => setLoading(false))
-    }, [handleRouter, filterItem.isCheck, filterItem.hiPrice, filterItem.lowPrice])
+    }, [handleRouter, filterItem.isCheck, filterItem.hiPrice, filterItem.lowPrice, filterItem.hiPrice, filterItem.lowPrice])
 
 
     // useEffect(() => {

@@ -15,13 +15,15 @@ const Filters = ({ setHandleOpenFilter }: IPropsFilters) => {
     const [minPrice, setMinPrice] = useState(0);
     const [maxPrice, setMaxPrice] = useState(filterItem.maxPrice || 10195200);
     const searchParams = useSearchParams()
-    const currentAvailable = searchParams.get("available") || false;
+    const currentAvailable = searchParams.get("available") || null;
+    const currentMaxPrice = searchParams.get("max_price") || null;
+    const currentMinPrice = searchParams.get("min_price") || null;
 
 
-    const isAvailable = currentAvailable === "true" ? true : false
-    useEffect(()=>{
-        setFilterItem(prev=>({...prev, isCheck: isAvailable}))
-    },[])
+    const isAvailable = currentAvailable === "true" ? true : false;
+    const setCurrentMaxPrice = currentMaxPrice !== null ? currentMaxPrice : "";
+    const setCurrentMinPrice = currentMinPrice !== null ? currentMinPrice : "";
+
 
     const viewRemoveFilter = () => {
         if (minPrice !== 0 || maxPrice !== filterItem.maxPrice || filterItem.isCheck) return true
@@ -30,10 +32,10 @@ const Filters = ({ setHandleOpenFilter }: IPropsFilters) => {
     const removeFilter = () => {
         setMinPrice(0)
         setMaxPrice(filterItem.maxPrice)
-        setFilterItem((prev) => ({ ...prev, isCheck: false }))
+        setFilterItem((prev) => ({ ...prev, isCheck: false, hiPrice: 6000, lowPrice: 0 }))
     }
 
-    const handleMaXChange = (e: string) => {
+    const handleMaXChange = (e?: string) => {
         const rangeValue = Number(e)
         if (rangeValue >= minPrice) setMaxPrice(rangeValue)
         setFilterItem(prev => ({ ...prev, hiPrice: maxPrice }))
@@ -43,6 +45,11 @@ const Filters = ({ setHandleOpenFilter }: IPropsFilters) => {
         if (rangeValue <= maxPrice) setMinPrice(rangeValue)
         setFilterItem(prev => ({ ...prev, lowPrice: minPrice }))
     }
+
+    useEffect(() => {
+        setFilterItem(prev => ({ ...prev, isCheck: isAvailable, hiPrice: +setCurrentMaxPrice, lowPrice: +setCurrentMinPrice }));
+    }, [])
+    // console.log(filterItem.hiPrice, filterItem.lowPrice)
 
     return (
         <div className="xl:sticky top-[90px] right-0 flex flex-col gap-y-4 static">
