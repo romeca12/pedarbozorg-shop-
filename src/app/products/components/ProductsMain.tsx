@@ -58,9 +58,8 @@ function ProductsMain() {
     const [handleRouter, setHandleRouter] = useState(+currentPage)
     const router = useRouter()
 
-    const isMaxPricePath = filterItem.hiPrice < (products?.max_price || 10195200)
+    const isMaxPricePath = (filterItem.hiPrice || 10195200) < (products?.max_price || 10195200)
     const isMinPricePath = filterItem.lowPrice > 0
-    console.log(isMaxPricePath, filterItem.hiPrice,products?.max_price)
 
     useEffect(() => {
         setFilterItem((prev) => ({ ...prev, maxPrice: products?.max_price || 10195200 }))
@@ -69,22 +68,16 @@ function ProductsMain() {
     useEffect(() => {
         const path = `?page=${handleRouter}${filterItem.isCheck ? "&available=true" : ""}${isMaxPricePath ? `&max_price=${filterItem.hiPrice}` : ""}${isMinPricePath ? `&min_price=${filterItem.lowPrice}` : ""}`;
         router.push(path)
-    }, [handleRouter, filterItem.isCheck, filterItem.hiPrice, filterItem.lowPrice, filterItem.hiPrice, filterItem.lowPrice])
+    }, [handleRouter, filterItem])
 
 
     useEffect(() => {
         setLoading(true)
         axios.get(`http://5.144.132.115:8003/store-api/products-public/?page=${handleRouter}${filterItem.isCheck ? `&available=true` : ""}${isMaxPricePath ? `&max_price=${filterItem.hiPrice}` : ""}${isMinPricePath ? `&min_price=${filterItem.lowPrice}` : ""}`)
             .then(response => setProducts(response.data))
-            .catch(() => toast.error("خطا در دریافت اطلاعات"))
+            // .catch(() => toast.error("خطا در دریافت اطلاعات"))
             .finally(() => setLoading(false))
-    }, [handleRouter, filterItem.isCheck, filterItem.hiPrice, filterItem.lowPrice, filterItem.hiPrice, filterItem.lowPrice])
-
-
-    // useEffect(() => {
-    //     axios.get(`http://5.144.132.115:8003/store-api/categories/`)
-    //         .then(response => setCategory(response.data));
-    // }, [])
+    }, [handleRouter, filterItem])
 
     return (
         <>

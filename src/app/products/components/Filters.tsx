@@ -1,17 +1,29 @@
 "use client"
 
 import { AppContext } from "@/context/AppContext";
+import axios from "axios";
 import { useSearchParams } from "next/navigation";
-import { Dispatch, SetStateAction, use, useContext, useEffect, useState } from "react";
+import { ChangeEvent, Dispatch, SetStateAction, useContext, useEffect, useState } from "react";
 
 type IPropsFilters = {
     setHandleOpenFilter?: Dispatch<SetStateAction<boolean>>,
 }
 
+type TCategoriesProps = {
+    id: number;
+    title: string;
+    slug: string;
+    icon?: any;
+    description: string;
+    status: string;
+}
+
 const Filters = ({ setHandleOpenFilter }: IPropsFilters) => {
+
     const [toggleCategory, setToggleCategory] = useState(false);
     const [togglePrice, setTogglePrice] = useState(false);
     const { filterItem, setFilterItem } = useContext(AppContext);
+    const [categories, setCategories] = useState<TCategoriesProps[]>([])
     const [minPrice, setMinPrice] = useState(0);
     const [maxPrice, setMaxPrice] = useState(filterItem.maxPrice || 10195200);
     const searchParams = useSearchParams()
@@ -24,15 +36,40 @@ const Filters = ({ setHandleOpenFilter }: IPropsFilters) => {
     const setCurrentMaxPrice = currentMaxPrice !== null ? currentMaxPrice : "";
     const setCurrentMinPrice = currentMinPrice !== null ? currentMinPrice : "";
 
+    const inputHiPrice = filterItem.hiPrice || 10195200
+
+    useEffect(() => {
+        setFilterItem(prev => ({ ...prev, isCheck: isAvailable, hiPrice: +setCurrentMaxPrice, lowPrice: +setCurrentMinPrice }));
+        axios.get(`http://5.144.132.115:8003/store-api/categories/`)
+            .then(response => setCategories(response.data.results));
+    }, []);
+
+    // useEffect(() => {
+    //     const ids = categories.map((item) => item.id);
+    //     setFilterItem(prev => ({ ...prev, categories: ids }));
+    // }, [categories]);
+
+    const handleCategories = (e: ChangeEvent<HTMLInputElement>, id: number) => {
+        const { checked } = e.target
+        setFilterItem((prev) => {
+            if (checked) {
+                return { ...prev, categories: [id, ...prev.categories] }
+            } else {
+                const res = prev.categories.findIndex((item) => item === id)
+                const res1 = prev.categories.filter((_, index) => index !== res)
+                return { ...prev, categories: res1 }
+            }
+        })
+    }
 
     const viewRemoveFilter = () => {
-        if (minPrice !== 0 || maxPrice !== filterItem.maxPrice || filterItem.isCheck) return true
+        if (minPrice !== 0 || maxPrice !== filterItem.maxPrice || filterItem.isCheck || +setCurrentMaxPrice || +setCurrentMinPrice) return true
     }
 
     const removeFilter = () => {
         setMinPrice(0)
         setMaxPrice(filterItem.maxPrice)
-        setFilterItem((prev) => ({ ...prev, isCheck: false, hiPrice: 6000, lowPrice: 0 }))
+        setFilterItem((prev) => ({ ...prev, isCheck: false, hiPrice: filterItem.maxPrice, lowPrice: 0 }))
     }
 
     const handleMaXChange = (e?: string) => {
@@ -46,13 +83,8 @@ const Filters = ({ setHandleOpenFilter }: IPropsFilters) => {
         setFilterItem(prev => ({ ...prev, lowPrice: minPrice }))
     }
 
-    useEffect(() => {
-        setFilterItem(prev => ({ ...prev, isCheck: isAvailable, hiPrice: +setCurrentMaxPrice, lowPrice: +setCurrentMinPrice }));
-    }, [])
-    // console.log(filterItem.hiPrice, filterItem.lowPrice)
-
     return (
-        <div className="xl:sticky top-[90px] right-0 flex flex-col gap-y-4 static">
+        <div className="xl:sticky top-[50px] right-0 flex flex-col gap-y-4 static">
             <div className="flex gap-x-2 items-center justify-between">
                 <span className="flex gap-x-2 items-center">
                     <img src="/icons/filter.svg" alt="مرتب" className="w-6 h-6" />
@@ -70,10 +102,13 @@ const Filters = ({ setHandleOpenFilter }: IPropsFilters) => {
                     <img src="/images/arrow-left-slider.svg" alt="جهت" className={`w-6 h-6 transition-transform duration-300 ${toggleCategory && "-rotate-[90deg]"}`} />
                 </div>
                 <div className="mt-4 pr-4 gap-1.5 flex flex-col max-h-40 overflow-y-auto">
-                    {Array(6).fill(1).map((_, index) =>
-                        <label className="gap-x-2 flex items-center text-sm text-[#626262]" key={index}>
-                            <input type="checkbox" className="w-4 h-4 checked:accent-primary" />
-                            ادویه جات
+                    {categories.map((item: TCategoriesProps) =>
+                        <label className="gap-x-2 flex items-center text-sm text-[#626262]" key={item.id}>
+                            <input
+                                onChange={(e) => handleCategories(e, item.id)}
+                                // checked={filterItem.categories.indexOf(item.id) === item.id}
+                                type="checkbox" className="w-4 h-4 checked:accent-primary" />
+                            {item.title}
                         </label>
                     )}
                 </div>
@@ -93,12 +128,12 @@ const Filters = ({ setHandleOpenFilter }: IPropsFilters) => {
                 <div className="mt-4 px-4 flex flex-col items-center">
                     <div className="mb-6 flex gap-x-2 h-9 text-sm text-[#383838] w-full">
                         <div className="relative flex-1">
-                            <input type="text" value={minPrice.toLocaleString()} readOnly className="w-full h-full pr-2 pl-8 rounded-[9px] input-spin" />
+                            <input type="text" value={filterItem.lowPrice.toLocaleString()} readOnly className="w-full h-full pr-2 pl-8 rounded-[9px] input-spin" />
                             <label className="absolute text-[10px] right-3.5 -top-2 bg-white px-1 rounded-lg transition-all duration-300 pointer-events-none">از</label>
                             <img src="/icons/tooman-1.svg" alt="تومان" className="absolute left-2 bottom-[11px]" />
                         </div>
                         <div className="relative flex-1">
-                            <input type="text" value={maxPrice.toLocaleString()} readOnly className="w-full h-full pr-2 pl-8 rounded-[9px] input-spin" />
+                            <input type="text" value={inputHiPrice.toLocaleString()} readOnly className="w-full h-full pr-2 pl-8 rounded-[9px] input-spin" />
                             <label className="absolute text-[10px] right-3.5 -top-2 px-1 bg-white rounded-lg transition-all duration-300">تا</label>
                             <img src="/icons/tooman-1.svg" alt="تومان" className="absolute left-2 bottom-[11px]" />
                         </div>
@@ -108,7 +143,8 @@ const Filters = ({ setHandleOpenFilter }: IPropsFilters) => {
                             type="range"
                             min={0}
                             max={filterItem.maxPrice}
-                            value={maxPrice}
+                            value={filterItem.hiPrice || 10195200}
+                            step={10000}
                             onChange={(e) => handleMaXChange(e.target.value)}
                             className="bg-primary cursor-pointer absolute top-1/2 -translate-y-1/2 h-0 w-full appearance-none range-product"
                         />
@@ -116,7 +152,8 @@ const Filters = ({ setHandleOpenFilter }: IPropsFilters) => {
                             type="range"
                             min={0}
                             max={filterItem.maxPrice}
-                            value={minPrice}
+                            value={filterItem.lowPrice}
+                            step={10000}
                             onChange={(e) => handleMinChange(e.target.value)}
                             className="bg-primary w-full absolute cursor-pointer top-1/2 -translate-y-1/2 h-0 appearance-none range-product"
                         />

@@ -20,7 +20,7 @@ const CardGlobal = (props: TypeProducts) => {
             }
             return [...prevCart, { id: productId }];
         });
-
+        
         const result = cart.find(item => item.id === props.id);
         if (result) {
             toast.success("این کالا از سبد خریدتان حذف شد");
