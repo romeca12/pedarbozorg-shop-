@@ -61,19 +61,24 @@ function ProductsMain() {
     const isMaxPricePath = (filterItem.hiPrice || 10195200) < (products?.max_price || 10195200)
     const isMinPricePath = filterItem.lowPrice > 0
 
+    // const queryCategories = filterItem.categories.map(item => )
+    // const queryCategories = if(filterItem.categories[0]){
+    // queryCategories += `&catcategories${item.id}`;
+    // }
+
     useEffect(() => {
         setFilterItem((prev) => ({ ...prev, maxPrice: products?.max_price || 10195200 }))
     }, [products?.max_price])
 
+    // useEffect(() => {
+
+    // }, [handleRouter, filterItem])
+
     useEffect(() => {
-        const path = `?page=${handleRouter}${filterItem.isCheck ? "&available=true" : ""}${isMaxPricePath ? `&max_price=${filterItem.hiPrice}` : ""}${isMinPricePath ? `&min_price=${filterItem.lowPrice}` : ""}`;
+        const path = `?page=${handleRouter}${filterItem.isCheck ? "&available=true" : ""}${isMaxPricePath ? `&max_price=${filterItem.hiPrice}` : ""}${isMinPricePath ? `&min_price=${filterItem.lowPrice}` : ""}${filterItem.categories[0] ? `&categories=${filterItem.categories.join(',')}` : ""}`;
         router.push(path)
-    }, [handleRouter, filterItem])
-
-
-    useEffect(() => {
         setLoading(true)
-        axios.get(`http://5.144.132.115:8003/store-api/products-public/?page=${handleRouter}${filterItem.isCheck ? `&available=true` : ""}${isMaxPricePath ? `&max_price=${filterItem.hiPrice}` : ""}${isMinPricePath ? `&min_price=${filterItem.lowPrice}` : ""}`)
+        axios.get(`http://5.144.132.115:8003/store-api/products-public/?page=${handleRouter}${filterItem.isCheck ? `&available=true` : ""}${isMaxPricePath ? `&max_price=${filterItem.hiPrice}` : ""}${isMinPricePath ? `&min_price=${filterItem.lowPrice}` : ""}${`${filterItem.categories.map(id => `&categories=${id}`).join('')}` || ""}`)
             .then(response => setProducts(response.data))
             // .catch(() => toast.error("خطا در دریافت اطلاعات"))
             .finally(() => setLoading(false))

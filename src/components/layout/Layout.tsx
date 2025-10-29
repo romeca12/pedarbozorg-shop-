@@ -33,7 +33,6 @@ export default function Layout({ children }: ILayoutProps) {
         lowPrice: 0,
         categories: []
     })
-    console.log(filterItem.categories)
     const pathname = usePathname();
     const hideFooter = ["/spin-luck-shop"].includes(pathname);
     // const hideArrowUp = ["/products/5"].includes(pathname);

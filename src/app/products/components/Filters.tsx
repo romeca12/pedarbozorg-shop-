@@ -30,11 +30,16 @@ const Filters = ({ setHandleOpenFilter }: IPropsFilters) => {
     const currentAvailable = searchParams.get("available") || null;
     const currentMaxPrice = searchParams.get("max_price") || null;
     const currentMinPrice = searchParams.get("min_price") || null;
+    const currentCategories = searchParams.get("categories") || null;
 
 
     const isAvailable = currentAvailable === "true" ? true : false;
     const setCurrentMaxPrice = currentMaxPrice !== null ? currentMaxPrice : "";
     const setCurrentMinPrice = currentMinPrice !== null ? currentMinPrice : "";
+    const setCurrentCategories = currentCategories !== null ? currentCategories : "";
+
+    const categoriesToArray = setCurrentCategories.split(',').map(Number);
+    // console.log(categoriesToArray);
 
     const inputHiPrice = filterItem.hiPrice || 10195200
 
@@ -42,6 +47,9 @@ const Filters = ({ setHandleOpenFilter }: IPropsFilters) => {
         setFilterItem(prev => ({ ...prev, isCheck: isAvailable, hiPrice: +setCurrentMaxPrice, lowPrice: +setCurrentMinPrice }));
         axios.get(`http://5.144.132.115:8003/store-api/categories/`)
             .then(response => setCategories(response.data.results));
+        if (categoriesToArray[0] !== 0) {
+            setFilterItem(prev => ({ ...prev, categories: categoriesToArray }))
+        }
     }, []);
 
     // useEffect(() => {
@@ -63,13 +71,13 @@ const Filters = ({ setHandleOpenFilter }: IPropsFilters) => {
     }
 
     const viewRemoveFilter = () => {
-        if (minPrice !== 0 || maxPrice !== filterItem.maxPrice || filterItem.isCheck || +setCurrentMaxPrice || +setCurrentMinPrice) return true
+        if ((filterItem.hiPrice || 10195200) < filterItem.maxPrice ||filterItem.lowPrice || filterItem.isCheck || filterItem.categories[0]) return true
     }
 
+    console.log(filterItem.hiPrice, filterItem.maxPrice)
+
     const removeFilter = () => {
-        setMinPrice(0)
-        setMaxPrice(filterItem.maxPrice)
-        setFilterItem((prev) => ({ ...prev, isCheck: false, hiPrice: filterItem.maxPrice, lowPrice: 0 }))
+        setFilterItem((prev) => ({ ...prev, isCheck: false, hiPrice: filterItem.maxPrice, lowPrice: 0 , categories: []}))
     }
 
     const handleMaXChange = (e?: string) => {
@@ -106,7 +114,7 @@ const Filters = ({ setHandleOpenFilter }: IPropsFilters) => {
                         <label className="gap-x-2 flex items-center text-sm text-[#626262]" key={item.id}>
                             <input
                                 onChange={(e) => handleCategories(e, item.id)}
-                                // checked={filterItem.categories.indexOf(item.id) === item.id}
+                                checked={filterItem.categories.includes(item.id)}
                                 type="checkbox" className="w-4 h-4 checked:accent-primary" />
                             {item.title}
                         </label>
