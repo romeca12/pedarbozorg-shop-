@@ -15,23 +15,30 @@ type ILayoutProps = {
 type ICart = {
     id: number;
 }
-type TFilterItem = {
-    isCheck: boolean;
-    maxPrice: number;
-    hiPrice: number;
-    lowPrice: number;
-    categories: number[];
+type TFilterItemProducts = {
+    isCheck: boolean,
+    maxPrice: number,
+    hiPrice: number,
+    lowPrice: number,
+    categories: number[],
+    sort: string
+}
+export type TTabSort = {
+    id: number,
+    text: string,
+    category: string
 }
 
 export default function Layout({ children }: ILayoutProps) {
 
     const [cart, setCart] = useState<ICart[]>([]);
-    const [filterItem, setFilterItem] = useState<TFilterItem>({
+    const [filterItem, setFilterItem] = useState<TFilterItemProducts>({
         isCheck: false,
         maxPrice: 0,
         hiPrice: 0,
         lowPrice: 0,
-        categories: []
+        categories: [],
+        sort: ""
     })
     const pathname = usePathname();
     const hideFooter = ["/spin-luck-shop"].includes(pathname);

@@ -75,12 +75,12 @@ function ProductsMain() {
     // }, [handleRouter, filterItem])
 
     useEffect(() => {
-        const path = `?page=${handleRouter}${filterItem.isCheck ? "&available=true" : ""}${isMaxPricePath ? `&max_price=${filterItem.hiPrice}` : ""}${isMinPricePath ? `&min_price=${filterItem.lowPrice}` : ""}${filterItem.categories[0] ? `&categories=${filterItem.categories.join(',')}` : ""}`;
+        const path = `?page=${handleRouter}${filterItem.isCheck ? "&available=true" : ""}${isMaxPricePath ? `&max_price=${filterItem.hiPrice}` : ""}${isMinPricePath ? `&min_price=${filterItem.lowPrice}` : ""}${filterItem.categories[0] ? `&categories=${filterItem.categories.join(',')}` : ""}${filterItem.sort ? `&ordering=${filterItem.sort}` : ""}`;
         router.push(path)
         setLoading(true)
-        axios.get(`http://5.144.132.115:8003/store-api/products-public/?page=${handleRouter}${filterItem.isCheck ? `&available=true` : ""}${isMaxPricePath ? `&max_price=${filterItem.hiPrice}` : ""}${isMinPricePath ? `&min_price=${filterItem.lowPrice}` : ""}${`${filterItem.categories.map(id => `&categories=${id}`).join('')}` || ""}`)
+        axios.get(`http://5.144.132.115:8003/store-api/products-public/?page=${handleRouter}${filterItem.isCheck ? `&available=true` : ""}${isMaxPricePath ? `&max_price=${filterItem.hiPrice}` : ""}${isMinPricePath ? `&min_price=${filterItem.lowPrice}` : ""}${`${filterItem.categories.map(id => `&categories=${id}`).join('')}` || ""}${filterItem.sort ? `&ordering=${filterItem.sort}` : ""}`)
             .then(response => setProducts(response.data))
-            // .catch(() => toast.error("خطا در دریافت اطلاعات"))
+            .catch(() => toast.error("خطا در دریافت اطلاعات"))
             .finally(() => setLoading(false))
     }, [handleRouter, filterItem])
 

@@ -1,14 +1,32 @@
 "use client"
 
-import { useState } from "react"
+import { AppContext } from "@/context/AppContext"
+import { useSearchParams } from "next/navigation"
+import { useContext, useEffect, useState } from "react"
+
+const tabFilterItemProducts = [
+    { id: 1, text: 'پربازدیدترین', category: '-view_count' },
+    { id: 2, text: 'پرفروش‌ترین', category: '-order_count' },
+    { id: 3, text: 'محبوب‌‌ترین', category: '-avg_rate' },
+    { id: 4, text: 'ارزان‌ترین', category: 'min_price' },
+    { id: 5, text: 'گران‌ترین', category: '-max_price' },
+]
 
 type IPropsSort = {
-    sortItems: string[],
-    activeItem?: number
+    sortQuery?: string[]
 }
 
-const Sort = ({ sortItems, activeItem }: IPropsSort) => {
-    const [handleOpneSort, setHandleOpneSort] = useState<boolean>(false);
+const Sort = ({ sortQuery }: IPropsSort) => {
+    const [handleOpneSort, setHandleOpneSort] = useState(false);
+    const { filterItem, setFilterItem } = useContext(AppContext)
+    const searchParams = useSearchParams();
+    const orderItem = searchParams.get("ordering") || "";
+
+    useEffect(() => {
+        setFilterItem((prev) => ({ ...prev, sort: orderItem }))
+    }, [])
+
+    console.log(filterItem.sort)
 
     return (
         <>
@@ -29,13 +47,16 @@ const Sort = ({ sortItems, activeItem }: IPropsSort) => {
 
                         <div className="flex gap-2 overflow-x-auto">
                             <div className="flex flex-col md:flex-row items-center gap-2">
-                                {sortItems.map((item, index) =>
+                                {tabFilterItemProducts.map((item, index) =>
                                     <span
-                                        key={index}
-                                        className={`button-sort-product cursor-pointer ${index === activeItem ? "button-sort-product-active" : ""}`}
-                                        onClick={()=> setHandleOpneSort(false)}
+                                        key={item.id}
+                                        className={`button-sort-product cursor-pointer ${filterItem.sort.includes(item.category) ? "button-sort-product-active" : (filterItem.sort === "" && item.id === 1 ) && "button-sort-product-active"}`}
+                                        onClick={() => {
+                                            setFilterItem((prev)=> ({...prev, sort: item.category}))
+                                            setHandleOpneSort(false)
+                                        }}
                                     >
-                                        {item}
+                                        {item.text}
                                     </span>
                                 )}
                             </div>

@@ -30,16 +30,15 @@ const Filters = ({ setHandleOpenFilter }: IPropsFilters) => {
     const currentAvailable = searchParams.get("available") || null;
     const currentMaxPrice = searchParams.get("max_price") || null;
     const currentMinPrice = searchParams.get("min_price") || null;
-    const currentCategories = searchParams.get("categories") || null;
+    const setCurrentCategories = searchParams.get("categories") || "";
 
 
     const isAvailable = currentAvailable === "true" ? true : false;
     const setCurrentMaxPrice = currentMaxPrice !== null ? currentMaxPrice : "";
     const setCurrentMinPrice = currentMinPrice !== null ? currentMinPrice : "";
-    const setCurrentCategories = currentCategories !== null ? currentCategories : "";
+    // const setCurrentCategories = currentCategories !== null ? currentCategories : "";
 
     const categoriesToArray = setCurrentCategories.split(',').map(Number);
-    // console.log(categoriesToArray);
 
     const inputHiPrice = filterItem.hiPrice || 10195200
 
@@ -73,8 +72,6 @@ const Filters = ({ setHandleOpenFilter }: IPropsFilters) => {
     const viewRemoveFilter = () => {
         if ((filterItem.hiPrice || 10195200) < filterItem.maxPrice ||filterItem.lowPrice || filterItem.isCheck || filterItem.categories[0]) return true
     }
-
-    console.log(filterItem.hiPrice, filterItem.maxPrice)
 
     const removeFilter = () => {
         setFilterItem((prev) => ({ ...prev, isCheck: false, hiPrice: filterItem.maxPrice, lowPrice: 0 , categories: []}))

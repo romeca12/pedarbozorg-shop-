@@ -1,3 +1,4 @@
+import { TTabSort } from "@/components/layout/Layout";
 import { createContext, Dispatch, SetStateAction } from "react";
 
 type ICreateContext = {
@@ -9,14 +10,16 @@ type ICreateContext = {
         maxPrice: number,
         hiPrice: number,
         lowPrice: number,
-        categories: number[]
+        categories: number[],
+        sort: string
     },
     setFilterItem: Dispatch<SetStateAction<{
         isCheck: boolean,
         maxPrice: number,
         hiPrice: number,
         lowPrice: number,
-        categories: number[]
+        categories: number[],
+        sort: string
     }>>
 }
 export const AppContext = createContext({} as ICreateContext);

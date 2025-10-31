@@ -77,7 +77,7 @@ function Header() {
               src="/images/menu.svg"
               onClick={() => setHandleMenu(true)}
               alt="منو" className="cursor-pointer" />
-            <img src="/images/instagram.svg" alt="ُسرچ" className="cursor-pointer" />
+            <img src="/images/instagram.svg" alt="ُسرچ" className="cursor-pointer" />  
             <img src="/images/know.svg" alt="گردونه شانس" className="cursor-pointer" />
           </div>
           <img src="/images/logo.svg" alt="لوگو" className="cursor-pointer" />
