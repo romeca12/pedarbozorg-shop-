@@ -4,19 +4,16 @@ import { AppContext } from "@/context/AppContext"
 import { useSearchParams } from "next/navigation"
 import { useContext, useEffect, useState } from "react"
 
-const tabFilterItemProducts = [
-    { id: 1, text: 'پربازدیدترین', category: '-view_count' },
-    { id: 2, text: 'پرفروش‌ترین', category: '-order_count' },
-    { id: 3, text: 'محبوب‌‌ترین', category: '-avg_rate' },
-    { id: 4, text: 'ارزان‌ترین', category: 'min_price' },
-    { id: 5, text: 'گران‌ترین', category: '-max_price' },
-]
-
-type IPropsSort = {
-    sortQuery?: string[]
+type TPropsSort = {
+    itemsQuery: TPropsSortItems[]
+}
+type TPropsSortItems = {
+    id: number;
+    text: string;
+    category: string;
 }
 
-const Sort = ({ sortQuery }: IPropsSort) => {
+const Sort = ({ itemsQuery }: TPropsSort) => {
     const [handleOpneSort, setHandleOpneSort] = useState(false);
     const { filterItem, setFilterItem } = useContext(AppContext)
     const searchParams = useSearchParams();
@@ -47,12 +44,12 @@ const Sort = ({ sortQuery }: IPropsSort) => {
 
                         <div className="flex gap-2 overflow-x-auto">
                             <div className="flex flex-col md:flex-row items-center gap-2">
-                                {tabFilterItemProducts.map((item, index) =>
+                                {itemsQuery.map((item, index) =>
                                     <span
                                         key={item.id}
-                                        className={`button-sort-product cursor-pointer ${filterItem.sort.includes(item.category) ? "button-sort-product-active" : (filterItem.sort === "" && item.id === 1 ) && "button-sort-product-active"}`}
+                                        className={`button-sort-product cursor-pointer ${filterItem.sort.includes(item.category) ? "button-sort-product-active" : (filterItem.sort === "" && item.id === 1) && "button-sort-product-active"}`}
                                         onClick={() => {
-                                            setFilterItem((prev)=> ({...prev, sort: item.category}))
+                                            setFilterItem((prev) => ({ ...prev, sort: item.category }))
                                             setHandleOpneSort(false)
                                         }}
                                     >

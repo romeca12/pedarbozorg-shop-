@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 function prodcuts() {
 
+  const tabFilterItemProducts = [
+    { id: 1, text: 'پربازدیدترین', category: '-view_count' },
+    { id: 2, text: 'پرفروش‌ترین', category: '-order_count' },
+    { id: 3, text: 'محبوب‌‌ترین', category: '-avg_rate' },
+    { id: 4, text: 'ارزان‌ترین', category: 'min_price' },
+    { id: 5, text: 'گران‌ترین', category: '-max_price' },
+  ]
+
   return (
     <div className="mt-20 md:mt-[131px] mb-56 md:mb-16 xl:flex xl:gap-x-4">
       <aside className="hidden xl:flex xl:flex-col gap-4 xl:w-[272px] sticky top-0 right-0">
@@ -27,7 +35,7 @@ function prodcuts() {
               <Filters />
             </div>
             <FilterMobile />
-            <Sort />
+            <Sort itemsQuery={tabFilterItemProducts}/>
           </div>
         </div>
         <ProductsMain />

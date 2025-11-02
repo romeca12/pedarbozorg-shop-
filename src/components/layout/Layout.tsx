@@ -23,11 +23,6 @@ type TFilterItemProducts = {
     categories: number[],
     sort: string
 }
-export type TTabSort = {
-    id: number,
-    text: string,
-    category: string
-}
 
 export default function Layout({ children }: ILayoutProps) {
 

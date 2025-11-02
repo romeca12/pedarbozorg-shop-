@@ -18,8 +18,8 @@ writing variable
   --color-gray-three: #626262;
   --color-gray-four: #ededed;
   --color-gray-five: #353535;
-  --color-yellow-one: #FFC436;
-  --color-yellow-two: #FFF7E2;
+  --color-yellow-one: #ffc436;
+  --color-yellow-two: #fff7e2;
   --color-pop-up: #0000005d;
   --color-white-light: #e3e3e3;
   --color-red-one: #c62020;
@@ -364,20 +364,18 @@ button {
   display: none;
 }
 
-.const-cover-login {
+/* .const-cover-login {
   transition: top 1s, left 1s;
-}
+} */
 
 .cover-login {
-  transition: 1s;
+  transition: 0.5 top;
   position: fixed;
-  transition: 1s;
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
+  inset: 0;
   z-index: 20;
-  background-color: rgba(0, 0, 0, 0.575);
+  background-color: var(--color-pop-up);
 }
 
 .login {
@@ -389,18 +387,18 @@ button {
   flex-direction: column;
   align-items: center;
   gap: 24px;
-  bottom: -50%;
+  top: 140%;
   left: 50%;
   max-width: 419px;
   width: 90%;
   height: auto;
   text-align: center;
-  transform: translate(-50%, 100%);
-  transition: 0.8s;
+  transform: translate(-50%, -50%);
+  transition: 0.5s;
   z-index: 30;
 }
 .open-login {
-  bottom: 90%;
+  top: 50%;
 }
 .login .top-login-stop {
   width: 100%;
@@ -762,11 +760,11 @@ button {
 }
 
 /* spin in project  */
-.input-spin {
-  border: 1px solid var(--border-custom-color-two);
-}
+/* .input-spin {
+  border: 1px solid var(--border-primary);
+} */
 .input-spin:focus {
-  border-color: var(--color-primary);
+  border: 1px solid var(--color-primary) !important;
 }
 .spin-center {
   left: calc(50% - 38px);
@@ -776,9 +774,7 @@ button {
 .input-spin:not(:placeholder-shown) + .spin-phone {
   transform: translate(-6px, -16px);
   font-size: 12px;
-  color: var(--color-input);
-  /* margin-right: 10px; */
-  /* color: #757575;   */
+  color: var(--color-primary);
 }
 .p-about {
   text-align-last: center;
