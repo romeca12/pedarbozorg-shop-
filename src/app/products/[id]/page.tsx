@@ -108,7 +108,7 @@ async function page() {
                 </aside>
             </div>
 
-            <Tabs />
+            <Tabs />    
 
             <div className="mb-56 md:mb-48">
                 <TitleSection title="محصولات مرتبط" />

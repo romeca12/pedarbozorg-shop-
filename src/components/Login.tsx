@@ -4,6 +4,8 @@ import { Dispatch, SetStateAction, useState } from "react";
 import "../app/globals.css";
 import toast from "react-hot-toast";
 import OTPInput from "./OTPInput";
+import LoadingCricle from "./LoadingCricle";
+import axios from "axios";
 
 type IPropsLogin = {
     handleLogin: boolean,
@@ -13,13 +15,30 @@ type IPropsLogin = {
 export default function Login({ handleLogin, setHandleLogin }: IPropsLogin) {
     const [value, setValue] = useState<string>("");
     const [loginTwo, setLoginTwo] = useState<boolean>(false);
+    const [isLoadingOne, setIsLoadingOne] = useState(false)
+    const [otp, setOtp] = useState<string[]>(['', '', '', '', '']);
 
-    function openLoginTwo(amount: string, e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>) {
+    async function openLoginTwo(amount: string, e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>) {
         e.preventDefault();
         const regexInvalid = /^[۰0][۹9][۰-۹0-9]{9}$/;
         if (amount === '') return toast.error('شماره موبایل نمیتواند خالی باشد');
         if (!(regexInvalid.test(amount))) return toast.error('شماره موبایل معتبر نیست');
-        setLoginTwo(true);
+        setIsLoadingOne(true)
+        try {
+            await axios.post(
+                'http://5.144.132.115:8003/core-api/auth/send-sms/', {
+                phone_number: amount
+            })
+            setLoginTwo(true);
+        } catch {
+            toast.error("خطا در ارسال شماره همراه")
+        } finally {
+            setIsLoadingOne(false)
+        }
+    }
+
+    const handleSendOtp = async () => {
+
     }
 
     return (
@@ -65,12 +84,10 @@ export default function Login({ handleLogin, setHandleLogin }: IPropsLogin) {
                                     placeholder=" "
                                     value={value}
                                     onChange={(e) => /^[۰-۹0-9]*$/.test(e.target.value) && setValue(e.target.value)}
-                                    className="text-text-gray text-base py-1 pr-2 rounded-[9px] input-spin h-10" />
+                                    className="text-text-gray text-base py-1 pr-2 rounded-[9px] input-spin h-10 otp-input" />
                                 <label className="absolute right-1 top-2 text-text-gray spin-phone bg-white px-1.5 rounded-lg transition-all duration-300 pointer-events-none">شماره همراه</label>
                             </form>
-                            <button className="success-btn w-full mt-6" onClick={(event) => openLoginTwo(value, event)}>
-                                ورود
-                            </button>
+                            <button className="success-btn w-full mt-6" type="submit" onClick={(event) => openLoginTwo(value, event)}>{isLoadingOne ? <LoadingCricle /> : "ورود"}</button>
                         </div>
                     ) : (
                         <div className="bottom_login_variable">
@@ -78,8 +95,11 @@ export default function Login({ handleLogin, setHandleLogin }: IPropsLogin) {
                                 لطفا کد را که به شماره <span className="number">{value}</span>{" "}
                                 را وارد کنید
                             </p>
-                            <OTPInput/>
-                            <button className="btn-login two-btn">ورود</button>
+                            <OTPInput otp={otp}
+                                setOtp={setOtp}
+                                handleResendOtp={handleSendOtp}
+                            />
+                            <button className="success-btn w-full mt-4">{true ? "ورود" : <LoadingCricle />}</button>
                         </div>
                     )}
                 </div>

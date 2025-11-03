@@ -77,7 +77,7 @@ function Tabs() {
                 <div className="flex-1">
                     <h3 className="text-primary text-xl mb-4">نظرات کاربران</h3>
                     <div className="flex justify-between items-center mb-4">
-                        <Sort sortItems={sortItems} activeItem={0} />
+                        {/* <Sort sortItems={sortItems} activeItem={0} /> */}
                         <span className="text-text-gray pl-3">۱۴ نظر</span>
                     </div>
                     <div className="flex flex-col border-b-type-two mb-4">

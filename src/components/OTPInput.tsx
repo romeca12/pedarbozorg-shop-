@@ -1,9 +1,15 @@
-'use client';
+'use client'
 
-import React, { useState, useRef, ChangeEvent, KeyboardEvent, ClipboardEvent } from 'react';
+import React, { useState, useRef, ChangeEvent, KeyboardEvent, ClipboardEvent, useEffect, SetStateAction, Dispatch } from 'react';
 
-const OTPInput = () => {
-    const [otp, setOtp] = useState<string[]>(['', '', '', '', '']);
+type TOtpInput = {
+    otp: string[],
+    setOtp: Dispatch<SetStateAction<string[]>>
+    handleResendOtp: () => void
+}
+
+const OTPInput = ({ otp, setOtp, handleResendOtp }: TOtpInput) => {
+    const [timer, setTimer] = useState<number>(120); // 2 minutes in seconds
     const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
     const handleChange = (index: number, value: string) => {
@@ -53,9 +59,50 @@ const OTPInput = () => {
         return document.activeElement === inputRefs.current[index];
     };
 
+    // Focus first input on mount
+    useEffect(() => {
+        inputRefs.current[0]?.focus();
+    }, []);
+
+    // Timer countdown effect
+    useEffect(() => {
+        let interval: NodeJS.Timeout | null = null;
+        if (timer > 0) {
+            interval = setInterval(() => {
+                setTimer((prev) => prev - 1);
+            }, 1000);
+        }
+        return () => {
+            if (interval) clearInterval(interval);
+        };
+    }, [timer]);
+
+    const toPersianDigits = (str: string): string => {
+        const persianDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+        return str.replace(/\d/g, (digit) => persianDigits[parseInt(digit)]);
+    };
+
+    const formatTime = (seconds: number): string => {
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        const timeString = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        return toPersianDigits(timeString);
+    };
+
+    const handleResend = () => {
+        // Reset timer to 2 minutes
+        setTimer(120);
+        // Clear OTP inputs
+        setOtp(['', '', '', '', '']);
+        // Focus first input
+        setTimeout(() => {
+            inputRefs.current[0]?.focus();
+        }, 100);
+    };
+
     return (
-        <div className="flex justify-center" dir="rtl">
-            <div className="flex flex-row-reverse">
+        <div className="flex flex-col items-center" dir="rtl">
+            <div className="flex flex-row-reverse mb-4">
                 {otp.map((digit, index) => (
                     <div key={index} className="mx-1.5">
                         <input
@@ -73,7 +120,7 @@ const OTPInput = () => {
                 rounded-[8px]
                 transition-all duration-200 ease-in-out
                 focus:outline-none
-                ${digit
+                ${digit || index === 0
                                     ? 'border-[1px] border-[#2162E0] bg-white shadow-[0_0_4px_0_#2162E0_inset,_0_0_4px_0_#2162E0]'
                                     : isInputFocused(index)
                                         ? 'border-[1px] border-[#2162E0] bg-white shadow-[0_0_4px_0_#2162E0_inset,_0_0_8px_0_#2162E0]'
@@ -83,6 +130,19 @@ const OTPInput = () => {
                         />
                     </div>
                 ))}
+            </div>
+
+            <div className="flex justify-between items-center w-full max-w-[288px]">
+                <span className="text-sm font-medium text-gray-600 font-sans">
+                    {formatTime(timer)}
+                </span>
+                <button
+                    onClick={() => { handleResend(), handleResendOtp() }}
+                    disabled={timer > 0}
+                    className={`text-sm font-medium ${timer > 0 ? 'text-gray-400 cursor-not-allowed' : 'text-[#2162E0] hover:text-[#1a4fb8]'}`}
+                >
+                    ارسال مجدد کد
+                </button>
             </div>
         </div>
     );

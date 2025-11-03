@@ -14,18 +14,13 @@ function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
-  // hideInput
+
   const hideInput = ["/products"].includes(pathname);
 
-  // EnglishNumber to farsiNumber
   const toFarsiNumber = (number: number) => {
     if (cart.length === 0) return
     return number.toString().replace(/\d/g, d => "۰۱۲۳۴۵۶۷۸۹"[+d]);
   }
-
-  // function closeMenu() {
-  //   setStatusMenu(false);
-  // }
 
   useEffect(() => {
     window?.scrollTo(0, 0);
@@ -44,7 +39,7 @@ function Header() {
     };
   }
     , [])
-
+    
   return (
     <>
       <header className={`px-4 fixed top-0 right-0 h-16 lg:h-20 z-10 w-full
@@ -77,7 +72,7 @@ function Header() {
               src="/images/menu.svg"
               onClick={() => setHandleMenu(true)}
               alt="منو" className="cursor-pointer" />
-            <img src="/images/instagram.svg" alt="ُسرچ" className="cursor-pointer" />  
+            <img src="/images/instagram.svg" alt="ُسرچ" className="cursor-pointer" />
             <img src="/images/know.svg" alt="گردونه شانس" className="cursor-pointer" />
           </div>
           <img src="/images/logo.svg" alt="لوگو" className="cursor-pointer" />

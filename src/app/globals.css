@@ -763,8 +763,12 @@ button {
 /* .input-spin {
   border: 1px solid var(--border-primary);
 } */
-.input-spin:focus {
+.input-spin {
   border: 1px solid var(--color-primary) !important;
+}
+.otp-input:focus {
+  border: 1px solid var(--color-primary) !important;
+  outline: 1px solid var(--color-primary) !important;
 }
 .spin-center {
   left: calc(50% - 38px);
