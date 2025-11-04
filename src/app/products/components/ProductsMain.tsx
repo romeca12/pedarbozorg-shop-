@@ -2,12 +2,12 @@
 
 import CardGlobal from "@/components/CardGlobal";
 import Pagination from "@/components/Pagination";
-import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import ProductsLoading from "./ProductsLoading";
 import toast from "react-hot-toast";
 import { useRouter, useSearchParams } from "next/navigation";
 import { AppContext } from "@/context/AppContext";
+import api from "@/utils/API/axios-cofig";
 
 type TProductsResponse = {
     count: number,
@@ -78,7 +78,7 @@ function ProductsMain() {
         const path = `?page=${handleRouter}${filterItem.isCheck ? "&available=true" : ""}${isMaxPricePath ? `&max_price=${filterItem.hiPrice}` : ""}${isMinPricePath ? `&min_price=${filterItem.lowPrice}` : ""}${filterItem.categories[0] ? `&categories=${filterItem.categories.join(',')}` : ""}${filterItem.sort ? `&ordering=${filterItem.sort}` : ""}`;
         router.push(path)
         setLoading(true)
-        axios.get(`http://5.144.132.115:8003/store-api/products-public/?page=${handleRouter}${filterItem.isCheck ? `&available=true` : ""}${isMaxPricePath ? `&max_price=${filterItem.hiPrice}` : ""}${isMinPricePath ? `&min_price=${filterItem.lowPrice}` : ""}${`${filterItem.categories.map(id => `&categories=${id}`).join('')}` || ""}${filterItem.sort ? `&ordering=${filterItem.sort}` : ""}`)
+        api.get(`/store-api/products-public/?page=${handleRouter}${filterItem.isCheck ? `&available=true` : ""}${isMaxPricePath ? `&max_price=${filterItem.hiPrice}` : ""}${isMinPricePath ? `&min_price=${filterItem.lowPrice}` : ""}${`${filterItem.categories.map(id => `&categories=${id}`).join('')}` || ""}${filterItem.sort ? `&ordering=${filterItem.sort}` : ""}`)
             .then(response => setProducts(response.data))
             .catch(() => toast.error("خطا در دریافت اطلاعات"))
             .finally(() => setLoading(false))

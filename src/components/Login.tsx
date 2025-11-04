@@ -1,11 +1,11 @@
 "use client"
 
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import "../app/globals.css";
 import toast from "react-hot-toast";
 import OTPInput from "./OTPInput";
 import LoadingCricle from "./LoadingCricle";
-import axios from "axios";
+import api from "@/utils/API/axios-cofig";
 
 type IPropsLogin = {
     handleLogin: boolean,
@@ -15,30 +15,62 @@ type IPropsLogin = {
 export default function Login({ handleLogin, setHandleLogin }: IPropsLogin) {
     const [value, setValue] = useState<string>("");
     const [loginTwo, setLoginTwo] = useState<boolean>(false);
-    const [isLoadingOne, setIsLoadingOne] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
     const [otp, setOtp] = useState<string[]>(['', '', '', '', '']);
 
-    async function openLoginTwo(amount: string, e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>) {
+    async function handleCheckPhoneNumber(amount: string, e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>) {
         e.preventDefault();
         const regexInvalid = /^[۰0][۹9][۰-۹0-9]{9}$/;
         if (amount === '') return toast.error('شماره موبایل نمیتواند خالی باشد');
         if (!(regexInvalid.test(amount))) return toast.error('شماره موبایل معتبر نیست');
-        setIsLoadingOne(true)
+        setIsLoading(true);
+        handleSendPhoneNumber();
+    }
+    const handleSendPhoneNumber = async () => {
         try {
-            await axios.post(
-                'http://5.144.132.115:8003/core-api/auth/send-sms/', {
-                phone_number: amount
+            await api.post(
+                '/core-api/auth/send-sms/', {
+                phone_number: value
             })
+            toast.success("لطفا کد ارسالی را وارد کنید")
             setLoginTwo(true);
         } catch {
-            toast.error("خطا در ارسال شماره همراه")
+            toast.error("خطا در ارسال تلفن همراه")
         } finally {
-            setIsLoadingOne(false)
+            setIsLoading(false)
         }
     }
 
-    const handleSendOtp = async () => {
 
+    useEffect(() => { (otp.join("").length === 5) && handleLoginOtp() }, [otp]);
+
+    const enteredOtp = otp.join('');
+
+    const isCheckCode = () => {
+        if (enteredOtp.length === 0) return toast.error('لطفا کد را وارد کیند')
+        if (enteredOtp.length < 5) return toast.error('لطفا کد را به طور کامل وارد کنید')
+        handleLoginOtp()
+    }
+
+    const handleLoginOtp = async () => {
+        try {
+            setIsLoading(true)
+            const response = await api.post(
+                '/core-api/auth/login/', {
+                phone_number: value,
+                code: enteredOtp
+            })
+            // console.log("OTP verified successfully", response.data, response.data.refresh);
+            toast.success("شما با موفقیت وارد شدید")
+            setHandleLogin(false);
+            setLoginTwo(false);
+            setValue("");
+            setOtp(['', '', '', '', '']);
+        } catch {
+            toast.error("کد وارد شده اشتباه است")
+        } finally {
+            setIsLoading(false)
+        }
     }
 
     return (
@@ -54,7 +86,7 @@ export default function Login({ handleLogin, setHandleLogin }: IPropsLogin) {
                 <div className="top-login-stop">
                     <div className="top_right">
                         {loginTwo && (
-                            <button onClick={() => setLoginTwo(false)}>
+                            <button onClick={() => { setLoginTwo(false); setOtp(['', '', '', '', '']); }}>
                                 <img src="/images/arrow-right.svg" alt="" />
                             </button>
                         )}
@@ -78,7 +110,7 @@ export default function Login({ handleLogin, setHandleLogin }: IPropsLogin) {
                     {!loginTwo ? (
                         <div className="bottom_login_variable">
                             <p>شماره همراه خود را وارد کنید</p>
-                            <form className="relative w-full" onSubmit={(event) => openLoginTwo(value, event)}>
+                            <form className="relative w-full" onSubmit={(event) => handleCheckPhoneNumber(value, event)}>
                                 <input
                                     type="text"
                                     placeholder=" "
@@ -87,7 +119,7 @@ export default function Login({ handleLogin, setHandleLogin }: IPropsLogin) {
                                     className="text-text-gray text-base py-1 pr-2 rounded-[9px] input-spin h-10 otp-input" />
                                 <label className="absolute right-1 top-2 text-text-gray spin-phone bg-white px-1.5 rounded-lg transition-all duration-300 pointer-events-none">شماره همراه</label>
                             </form>
-                            <button className="success-btn w-full mt-6" type="submit" onClick={(event) => openLoginTwo(value, event)}>{isLoadingOne ? <LoadingCricle /> : "ورود"}</button>
+                            <button className="success-btn w-full mt-6" type="submit" disabled={isLoading} onClick={(event) => handleCheckPhoneNumber(value, event)}>{isLoading ? <LoadingCricle /> : "ورود"}</button>
                         </div>
                     ) : (
                         <div className="bottom_login_variable">
@@ -97,9 +129,14 @@ export default function Login({ handleLogin, setHandleLogin }: IPropsLogin) {
                             </p>
                             <OTPInput otp={otp}
                                 setOtp={setOtp}
-                                handleResendOtp={handleSendOtp}
+                                handleResendOtp={handleSendPhoneNumber}
                             />
-                            <button className="success-btn w-full mt-4">{true ? "ورود" : <LoadingCricle />}</button>
+                            <button
+                                type="submit"
+                                className="success-btn w-full mt-4"
+                                onClick={isCheckCode}
+                                disabled={isLoading}
+                            >{isLoading ? <LoadingCricle /> : "ورود"}</button>
                         </div>
                     )}
                 </div>
