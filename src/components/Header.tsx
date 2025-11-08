@@ -42,7 +42,7 @@ function Header() {
     
   return (
     <>
-      <header className={`px-4 fixed top-0 right-0 h-16 lg:h-20 z-10 w-full
+      <header className={`px-4 fixed top-0 right-0 h-16 lg:h-20 z-20 w-full
         ${isScrolled ? "shadow bg-secondary" : "bg-transparent"} ${isScrolled && !hideInput ? "lg:h-[117px]" : ""}`}>
 
         <div className="lg:hidden flex justify-between items-center h-full">

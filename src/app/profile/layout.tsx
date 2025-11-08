@@ -7,14 +7,15 @@ import Link from "next/link"
 import { useState } from "react"
 import IncreaseWallet from "./components/IncreaseWallet"
 
+
 function Profilelayout({ children }: { children: React.ReactNode }) {
 
     const [popUpLogout, setPopUpLogout] = useState(false);
     const [popUpWallet, setPopUpWallet] = useState(false);
 
     return (
-        <>
-            <aside className="flex flex-col gap-y-4 mt-24 lg:mt-[181px] mb-56 w-full lg:max-w-[368px]">
+        <div className="lg:flex gap-4 mb-56 md:mb-32">
+            <aside className="flex flex-col gap-y-4 w-full lg:max-w-[368px]">
                 <section className="flex flex-col gap-y-6 lg:gap-y-8 overflow-hidden relative p-4 lg:p-8 rounded-2xl bg-white border-custom">
                     <Image src="/icons/bg-Vector-profile.svg" className="absolute -top-[14px] lg:top-0 right-0" alt="پس زمینه" width={311} height={315} />
                     <div className="flex justify-between items-center pl-1.5 z-[1]">
@@ -41,7 +42,7 @@ function Profilelayout({ children }: { children: React.ReactNode }) {
                 </section>
                 <UserDestrict setPopUpLogout={setPopUpLogout} />
             </aside>
-            <main>
+            <main className="mt-4 lg:mt-0 lg:flex-auto">
                 {children}
                 <IncreaseWallet
                     setPopUpWallet={setPopUpWallet}
@@ -52,7 +53,7 @@ function Profilelayout({ children }: { children: React.ReactNode }) {
                     popUpLogout={popUpLogout}
                 />
             </main>
-        </>
+        </div>
     )
 }
 

@@ -27,9 +27,9 @@ const Sort = ({ itemsQuery }: TPropsSort) => {
 
     return (
         <>
-            <span className="py-1.5 px-3 flex gap-2 cover-shadow-action-product items-center cursor-pointer md:hidden" onClick={() => setHandleOpneSort(true)}>
-                <img src="/icons/sort.svg" alt="مرتب" className="shadow-action-product" />
-                <span className="text-primary text-sm shadow-action-product md:cursor-default">مرتب سازی</span>
+            <span className="py-1.5 px-3 flex gap-2 cover-shadow-success items-center cursor-pointer md:hidden" onClick={() => setHandleOpneSort(true)}>
+                <img src="/icons/sort.svg" alt="مرتب" className="img-shadow-success duretion-150-ms" />
+                <span className="text-primary text-sm text-shadow-success duretion-150-ms md:cursor-default">مرتب سازی</span>
             </span>
             <div>
                 <div className={`cover-filter z-10 fixed top-0 right-0 left-0 bottom-0 bg-[#00000048] ${handleOpneSort ? "block" : "hidden"}`} onClick={() => setHandleOpneSort(false)}></div>

@@ -8,9 +8,9 @@ const FilterMobile = () => {
 
     return (
         <>
-            <span className="py-1.5 px-3 flex gap-2 cover-shadow-action-product cursor-pointer items-center md:hidden" onClick={() => setHandleOpenFilter(true)}>
-                <img src="/icons/filter.svg" alt="فیلتر" className="shadow-action-product w-5 h-5 md:h-6 md:w-6" />
-                <span className="text-primary shadow-action-product md:text-xl md:font-black">فیلترها</span>
+            <span className="py-1.5 px-3 flex gap-2 cover-shadow-success cursor-pointer items-center md:hidden" onClick={() => setHandleOpenFilter(true)}>
+                <img src="/icons/filter.svg" alt="فیلتر" className="img-shadow-success duretion-150-ms w-5 h-5 md:h-6 md:w-6" />
+                <span className="text-primary text-sm text-shadow-success duretion-150-ms md:text-xl md:font-black">فیلترها</span>
             </span>
             <div className={`cover-filter z-10 fixed top-0 right-0 left-0 bottom-0 bg-[#00000048] ${handleOpenFilter ? "block" : "hidden"}`} onClick={() => setHandleOpenFilter(false)}></div>
 

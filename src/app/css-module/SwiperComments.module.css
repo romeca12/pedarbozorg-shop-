@@ -1,0 +1,51 @@
+/* .myCustomSwiper2 {
+  background-color: var(--color-primary);
+  border-radius: 16px;
+  position: relative;
+}
+.myCustomSwiper2 :global(.swiper) {
+  height: auto;
+  width: fit-content;
+}
+.myCustomSwiper2 :global(.swiper-slide) {
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-white);
+  overflow: hidden;
+}
+.myCustomSwiper2 :global(.button-slider) {
+  position: absolute;
+  background-color: var(--color-background) !important;
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  cursor: pointer;
+  z-index: 1;
+  top: 50%;
+}
+.myCustomSwiper2 :global(.prev-slider-2) {
+  right: 8px;
+}
+.myCustomSwiper2 :global(.next-slider-2) {
+  left: 8px;
+}
+
+@media (min-width: 1024px) {
+  .myCustomSwiper2 :global(.swiper) {
+    margin-top: 24px;
+  }
+  .myCustomSwiper2 :global(.button-slider) {
+    background-color: var(--color-white);
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+  }
+  .myCustomSwiper2 :global(.prev-slider-2) {
+    right: 24px;
+  }
+  .myCustomSwiper2 :global(.next-slider-2) {
+    left: 24px;
+  }
+} */

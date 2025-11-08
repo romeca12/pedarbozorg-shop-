@@ -15,9 +15,7 @@ import api from "@/utils/API/axios-cofig";
 
 export default async function Home() {
 
-  const { data } = await api.get('/core-api/site/landing/');
-
-  console.log(data.slider);
+  // const { data } = await api.get('/core-api/site/landing/');
 
   return (
     <>

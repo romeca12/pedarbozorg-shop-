@@ -89,9 +89,6 @@ writing variable
   border-top: 1px solid var(--color-gray-four);
   border-bottom: 1px solid var(--color-gray-four);
 }
-.shadow-action-product {
-  transition: filter 0.3s ease;
-}
 .cover-label-checkbox {
 }
 .cover-label-checkbox span {
@@ -109,9 +106,6 @@ writing variable
   cursor: pointer;
 } */
 
-.cover-shadow-action-product:hover .shadow-action-product {
-  filter: drop-shadow(rgba(61, 131, 97, 0.6) 0px 0px 10px);
-}
 .cover-roller::after {
   content: "";
   width: 18px;
@@ -156,8 +150,18 @@ body {
   .button-sort-product-active {
     @apply bg-primary text-white hover:bg-[#336D51];
   }
+
+  .border-l-type-one:not(:last-child) {
+    border-left: 1px solid var(--border-custom-color) !important;
+  }
 }
 @layer components {
+  .duretion-150-ms {
+    @apply transition-all duration-150;
+  }
+  .duretion-300-ms {
+    @apply transition-all duration-300;
+  }
   .success-btn {
     @apply bg-primary text-white hover:bg-green-one transition-colors duration-300
     py-2 px-4 rounded-lg;
@@ -168,6 +172,18 @@ body {
   }
   .pop-up {
     @apply left-1/2 -translate-x-1/2 -translate-y-1/2 fixed;
+  }
+  .cover-shadow-success:hover .text-shadow-success {
+    text-shadow: 0 0 24px #3d836199;
+  }
+  .cover-shadow-success:hover .img-shadow-success {
+    filter: drop-shadow(#3d836199 0px 0px 24px);
+  }
+  .cover-shadow-danger:hover .text-shadow-danger {
+    text-shadow: 0 0 24px #c6202099;
+  }
+  .cover-shadow-danger:hover .img-shadow-danger {
+    filter: drop-shadow(#c6202099 0px 0px 10px);
   }
 }
 
