@@ -25,6 +25,7 @@ function Tabs() {
     return (
 
         <div className="mt-[60px] flex flex-col items-center mb-12">
+
             <div className="w-full sticky top-16 lg:top-[117px] right-0 self-start bg-secondary ">
                 <div className="max-w-[493px] pt-2 xl:pt-6 flex justify-between mb-2 xl:mb-6 text-text-gray-two">
                     {tabs.map((tab, index) => (

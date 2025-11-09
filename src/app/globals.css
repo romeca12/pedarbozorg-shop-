@@ -95,7 +95,7 @@ writing variable
   gap: 8px;
   display: flex;
   align-items: center;
-  color: #626262;
+  color: var(--color-gray-three);
 }
 
 /* .cover-label-checkbox span input[type="checkbox"] {
