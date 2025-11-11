@@ -50,7 +50,7 @@ const CardSliderProfile = ({ navigationKey }: { navigationKey: string }) => {
                 )}
             </Swiper>
             {/* دکمه‌های ناوبری سفارشی */}
-            <button className={`custom-prev-${navigationKey} absolute right-3.5 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-lg flex items-center justify-center bg-background hover:bg-green-light duretion-300-ms`}>
+            <button className={`custom-prev-${navigationKey} absolute right-3.5 top-1/2 -translate-y-1/2 z-[8] w-10 h-10 rounded-lg flex items-center justify-center bg-background hover:bg-green-light duretion-300-ms`}>
                 <img
                     src="/images/arrow-right-slider.svg"
                     alt="ناوبری راست"
@@ -58,7 +58,7 @@ const CardSliderProfile = ({ navigationKey }: { navigationKey: string }) => {
                 />
             </button>
 
-            <button className={`custom-next-${navigationKey} absolute left-3.5 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-lg flex items-center justify-center bg-background hover:bg-green-light duretion-300-ms`}>
+            <button className={`custom-next-${navigationKey} absolute left-3.5 top-1/2 -translate-y-1/2 z-[8] w-10 h-10 rounded-lg flex items-center justify-center bg-background hover:bg-green-light duretion-300-ms`}>
                 <img
                     src="/images/arrow-left-slider.svg"
                     alt="ناوبری چپ"

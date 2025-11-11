@@ -185,6 +185,9 @@ body {
   .cover-shadow-danger:hover .img-shadow-danger {
     filter: drop-shadow(#c6202099 0px 0px 10px);
   }
+  .profile-orders-card:not(:last-child) {
+    border-bottom: 2px solid var(--border-custom-color) !important;
+  }
 }
 
 ::-webkit-scrollbar {
@@ -510,6 +513,7 @@ button {
 /* صفحه بلاگ  */
 .popular-product-card,
 .overal-products,
+.profile-favorite-products,
 .overal-blogs,
 .overal-blogs-suggest {
   display: grid;
@@ -524,6 +528,7 @@ button {
 @media screen and (min-width: 420px) {
   .popular-product-card,
   .overal-products,
+  .profile-favorite-products,
   .overal-blogs,
   .overal-blogs-suggest {
     grid-template-columns: repeat(2, 1fr);
@@ -595,6 +600,9 @@ button {
   scroll-margin-top: 106px;
 }
 @media screen and (min-width: 1280px) {
+  .profile-favorite-products {
+    grid-template-columns: repeat(3, 1fr);
+  }
   .product-detail-section {
     scroll-margin-top: 191px;
   }

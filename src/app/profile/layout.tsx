@@ -74,7 +74,7 @@ function Profilelayout({ children }: { children: React.ReactNode }) {
                 <UserDestrict setPopUpLogout={setPopUpLogout} />
             </aside>}
             <div className="mt-4 lg:mt-0 lg:flex-auto">
-                <main>
+                <main className="">
                     {children}
                 </main>
                 <IncreaseWallet
