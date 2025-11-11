@@ -7,7 +7,7 @@ import { Dispatch, SetStateAction } from "react"
 
 function UserDestrict({ setPopUpLogout }: { setPopUpLogout: Dispatch<SetStateAction<boolean>> }) {
   const pathname = usePathname()
-  console.log(pathname)
+  
   return (
     <section className="bg-white flex flex-col gap-y-2 lg:gap-y-4 p-4 lg:p-8 rounded-2xl border-custom">
       <Link href="/profile" className="pr-3 lg:pr-0 flex gap-x-2 items-center cover-shadow-success">

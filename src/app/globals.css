@@ -25,6 +25,8 @@ writing variable
   --color-red-one: #c62020;
   --color-red-two: #fff2f2;
   --color-red-tree: #b21e1e;
+  --color-red-four: #F9E3E3;
+  --color-red-five: #F8C8C8;
   --color-red-light: #fff2f2;
   --color-menu-mobile: #eff2fb;
   --color-input: #383838;
@@ -53,41 +55,6 @@ writing variable
 }
 @utility button-sort-product {
   @apply flex h-8 py-1.5 px-3 items-center justify-center text-primary text-sm rounded-lg w-fit transition-colors duration-300;
-}
-
-.border-custom {
-  border: 1px solid var(--border-custom-color);
-}
-.border-type-two {
-  border: 1px solid var(--border-custom-color-two);
-}
-.border-type-three {
-  border: 1px solid var(--color-primary);
-}
-.border-type-four {
-  border: 1px solid var(--color-red-one);
-}
-.border-type-five {
-  border: 1px solid var(--color-yellow-one);
-}
-.border-b {
-  border-bottom: 1px solid var(--border-custom-color);
-}
-.border-b-w-2 {
-  border-bottom: 2px solid var(--border-custom-color);
-}
-.border-b-type-two {
-  border-bottom: 1px solid var(--border-custom-color-two);
-}
-.border-t {
-  border-top: 1px solid var(--border-custom-color-two);
-}
-.border-t-type-two {
-  border-top: 1px solid var(--color-gray-four);
-}
-.border-t-and-b {
-  border-top: 1px solid var(--color-gray-four);
-  border-bottom: 1px solid var(--color-gray-four);
 }
 .cover-label-checkbox {
 }
@@ -154,6 +121,10 @@ body {
   .border-l-type-one:not(:last-child) {
     border-left: 1px solid var(--border-custom-color) !important;
   }
+  /* .profile-button-success {
+    @apply bg-primary text-white hover:bg-green-one transition-colors duration-300
+    py-2 px-4 rounded-lg;
+  } */
 }
 @layer components {
   .duretion-150-ms {
@@ -188,6 +159,44 @@ body {
   .profile-orders-card:not(:last-child) {
     border-bottom: 2px solid var(--border-custom-color) !important;
   }
+}
+
+.border-custom {
+  border: 1px solid var(--border-custom-color);
+}
+.border-type-two {
+  border: 1px solid var(--border-custom-color-two);
+}
+.border-type-three {
+  border: 1px solid var(--color-primary);
+}
+.border-type-four {
+  border: 1px solid var(--color-red-one);
+}
+.border-type-five {
+  border: 1px solid var(--color-yellow-one);
+}
+.border-b {
+  border-bottom: 1px solid var(--border-custom-color);
+}
+.border-b-w-2 {
+  border-bottom: 2px solid var(--border-custom-color);
+}
+.border-b-type-two {
+  border-bottom: 1px solid var(--border-custom-color-two);
+}
+.border-t {
+  border-top: 1px solid var(--border-custom-color-two);
+}
+.border-t-type-two {
+  border-top: 1px solid var(--color-gray-four);
+}
+.border-t-type-three {
+  border-top: 2px solid var(--border-custom-color);
+}
+.border-t-and-b {
+  border-top: 1px solid var(--color-gray-four);
+  border-bottom: 1px solid var(--color-gray-four);
 }
 
 ::-webkit-scrollbar {

@@ -2,11 +2,11 @@
 
 import Image from "next/image"
 import UserDestrict from "./components/UserDestrict"
-import Logout from "./components/Logout"
 import Link from "next/link"
 import { useState } from "react"
 import IncreaseWallet from "./components/IncreaseWallet"
 import { usePathname } from "next/navigation"
+import PopUpProfile from "./components/PopUpProfile"
 
 
 function Profilelayout({ children }: { children: React.ReactNode }) {
@@ -81,9 +81,12 @@ function Profilelayout({ children }: { children: React.ReactNode }) {
                     setPopUpWallet={setPopUpWallet}
                     popUpWallet={popUpWallet}
                 />
-                <Logout
-                    setPopUpLogout={setPopUpLogout}
-                    popUpLogout={popUpLogout}
+                <PopUpProfile
+                    setPopUp={setPopUpLogout}
+                    popUp={popUpLogout}
+                    title="خروج از حساب کاربری"
+                    desc="برای سفارش و مشاهده سبد خرید بایستی وارد حساب خود باشید"
+                    operation="خروج از حساب"
                 />
             </div >
         </div >
