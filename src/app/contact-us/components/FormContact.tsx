@@ -52,9 +52,9 @@ const FormContact = () => {
                     <img src="./icons/document-upload.svg" alt="" />
                     <p className="text-center text-text-gray">حداکثر ۵ تصویر jpeg یا PNG حداکثر یک مگابایت، یک ویدیو MP4 حداکثر ۵۰ مگابایت</p>
                     <label htmlFor="file" className="relative flex rounded-lg border-upload items-center justify-center py-2 px-4 gap-x-2">
-                        <img src="./icons/export.svg" alt=""/>
+                        <img src="./icons/export.svg" alt="" />
                         <span className="text-primary">بارگذاری عکس یا ویدئو</span>
-                        <input id="file" type="file" className="absolute opacity-0 w-0 h-full"/>
+                        <input id="file" type="file" className="absolute opacity-0 w-0 h-full" />
                     </label>
                 </div>
 

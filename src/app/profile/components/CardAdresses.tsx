@@ -33,7 +33,7 @@ function CardAdresses({ setPopUpDelete, setPopUpAddAdress }: TPropsCardAdresses)
             </div>
             <div className="flex flex-col gap-y-2 self-center">
                 <button className="w-8 h-8 flex justify-center items-center bg-background hover:bg-green-light duration-300 transition-colors rounded-lg">
-                    <Image src="/icons/edit-two.svg" onClick={() => setPopUpAddAdress({ status: true, title: "ویرایش آدرس جدید", operation: "ویرایش" })} alt="ویرایش" width={20} height={20} />
+                    <Image src="/icons/edit-two.svg" onClick={() => setPopUpAddAdress({ status: true, title: "ویرایش آدرس", operation: "ذخیره" })} alt="ویرایش" width={20} height={20} />
                 </button>
                 <button className="w-8 h-8 flex justify-center items-center bg-red-four hover:bg-red-five duration-300 transition-colors rounded-lg">
                     <Image src="/icons/trash-two.svg" onClick={() => setPopUpDelete(true)} alt="حذف" width={20} height={20} />

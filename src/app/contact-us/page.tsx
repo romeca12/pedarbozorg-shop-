@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     title: "تماس باما"
 }
 
-const countactUs = () => {
+const ContactUs = () => {
     return (
         <>
             <TopPageBackground name="تماس باما" />
@@ -60,4 +60,4 @@ const countactUs = () => {
     )
 }
 
-export default countactUs;
+export default ContactUs;

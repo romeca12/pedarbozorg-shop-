@@ -25,8 +25,8 @@ writing variable
   --color-red-one: #c62020;
   --color-red-two: #fff2f2;
   --color-red-tree: #b21e1e;
-  --color-red-four: #F9E3E3;
-  --color-red-five: #F8C8C8;
+  --color-red-four: #f9e3e3;
+  --color-red-five: #f8c8c8;
   --color-red-light: #fff2f2;
   --color-menu-mobile: #eff2fb;
   --color-input: #383838;
@@ -796,9 +796,6 @@ button {
 /* .input-spin {
   border: 1px solid var(--border-primary);
 } */
-.input-spin {
-  border: 1px solid var(--color-primary) !important;
-}
 .otp-input:focus {
   border: 1px solid var(--color-primary) !important;
   outline: 1px solid var(--color-primary) !important;
@@ -807,11 +804,17 @@ button {
   left: calc(50% - 38px);
   top: calc(50% - 44px);
 }
+.input-spin {
+  border: 1px solid var(--border-custom-color-two);
+}
 .input-spin:focus + .spin-phone,
 .input-spin:not(:placeholder-shown) + .spin-phone {
   transform: translate(-6px, -16px);
   font-size: 12px;
   color: var(--color-primary);
+}
+.input-spin:focus {
+  border-color: var(--color-primary)
 }
 .p-about {
   text-align-last: center;
