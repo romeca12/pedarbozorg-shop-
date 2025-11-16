@@ -5,7 +5,7 @@ import ProfileTopPages from "../components/ProfileTopPages"
 import CardAdresses from "../components/CardAdresses"
 import PopUpProfile from "../components/PopUpProfile"
 import { useState } from "react";
-import AddAdress from "../comments/AddAdress"
+import AddAdress from "../components/AddAdress"
 
 function Adresses() {
   const [popUpDelateAdress, setPopUpDelateAdress] = useState(false);

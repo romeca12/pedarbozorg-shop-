@@ -51,7 +51,7 @@ function CardOrder({ status }: { status: string }) {
             <div className="flex justify-between">
                 <Image src="/images/image-popular-product.svg" alt="محصول" width={80} height={80} />
                 <span className="flex gap-x-2 items-center pt-0.5 px-3 self-end">
-                    <span className="text-primary text-sm">چزئیات سفارش</span>
+                    <span className="text-primary text-sm">جزئیات سفارش</span>
                     <Image src="/icons/arrow-left.svg" alt="چزئیات" width={20} height={20} />
                 </span>
             </div>

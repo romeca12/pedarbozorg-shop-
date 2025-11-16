@@ -59,12 +59,12 @@ function UserDestrict({ setPopUpLogout }: { setPopUpLogout: Dispatch<SetStateAct
         </span>
         <span className="text-primary text-sm lg:text-xl text-shadow-success duretion-150-ms">آدرس‌ها</span>
       </Link>
-      <Link href="/profile/notification" className="pr-3 lg:pr-0 flex gap-x-2 items-center cover-shadow-success">
+      <Link href="/profile/messages" className="pr-3 lg:pr-0 flex gap-x-2 items-center cover-shadow-success">
         <span className="relative w-8 h-8 lg:w-10 lg:h-10 cursor-pointer">
-          {pathname === "/profile/notification" ?
+          {pathname === "/profile/messages" ?
             <img src="/icons/bg-destrict-icon.svg" className="absolute top-0 right-0 h-full w-full" alt="پس زمینه" /> :
             null}
-          {pathname === "/profile/notification" ?
+          {pathname === "/profile/messages" ?
             <Image src="/icons/sms-active.svg" className="p-1.5 relative z-[1] lg:p-2 lg:w-10 lg:h-10" alt="ناحیه کاربری" width={32} height={32} /> :
             <Image src="/icons/sms.svg" className="img-shadow-success duretion-150-ms p-1.5 relative z-[1] lg:p-2 lg:w-10 lg:h-10" alt="ناحیه کاربری" width={32} height={32} />
           }

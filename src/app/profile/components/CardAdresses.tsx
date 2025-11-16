@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { Dispatch, SetStateAction } from "react"
-import { TPopUpAddAdress } from "../comments/AddAdress"
+import { TPopUpAddAdress } from "./AddAdress"
 
 type TPropsCardAdresses = {
     setPopUpDelete: Dispatch<SetStateAction<boolean>>,

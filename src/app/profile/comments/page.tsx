@@ -1,7 +1,7 @@
-function page() {
+function Comments() {
   return (
-    <div>page</div>
+    <div>نظرات</div>
   )
 }
 
-export default page
+export default Comments

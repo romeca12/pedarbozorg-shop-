@@ -29,26 +29,26 @@ function AddAdress({ popUp, setPopUp }: TPropsAddAdress) {
 
                 <div className="space-y-4">
                     <div className="relative w-full">
-                        <textarea name="" id="" required placeholder=" " className="w-full text-input rounded-[9px] min-h-[90px] resize-none px-2 pt-3 input-spin"></textarea>
+                        <textarea required placeholder=" " className="w-full text-input rounded-[9px] min-h-[90px] resize-none px-2 pt-3 input-spin"></textarea>
                         <label className="absolute right-1 top-2 text-text-gray spin-phone bg-white px-1.5 rounded-lg transition-all duration-300 pointer-events-none">نشانی پستی*</label>
                     </div>
 
                     <div className="flex flex-col gap-4 sm:flex-row">
                         <div className="flex gap-x-4 items-center h-10 sm:w-1/2">
                             <span className="text-[#353535] text-lg">استان*:</span>
-                            <select required name="" id="" className="flex-1 h-full bg-white rounded-lg select-content text-input text-lg pr-4 pb-1">
-                                <option selected>قم</option>
-                                <option>شیراز</option>
-                                <option>تهران</option>
+                            <select defaultValue="1" className="flex-1 h-full bg-white rounded-lg select-content text-input text-lg pr-4 pb-1">
+                                <option value="1">قم</option>
+                                <option value="2">شیراز</option>
+                                <option value="3">تهران</option>
                             </select>
                         </div>
 
                         <div className="flex gap-x-4 items-center h-10 sm:w-1/2">
                             <span className="text-[#353535] text-lg">شهر*:</span>
-                            <select required name="" id="" className="flex-1 h-full bg-white rounded-lg select-content text-input text-lg pr-4 pb-1">
-                                <option selected>قم</option>
-                                <option>شیراز</option>
-                                <option>تهران</option>
+                            <select defaultValue="1" className="flex-1 h-full bg-white rounded-lg select-content text-input text-lg pr-4 pb-1">
+                                <option value="1">قم</option>
+                                <option value="2">شیراز</option>
+                                <option value="3">تهران</option>
                             </select>
                         </div>
                         {/* <div className="relative md:w-1/2">
@@ -61,10 +61,10 @@ function AddAdress({ popUp, setPopUp }: TPropsAddAdress) {
 
                         <div className="flex gap-x-4 items-center h-10">
                             <span className="text-[#353535] text-lg">منطقه*:</span>
-                            <select required name="" id="" className="w-[114px] h-full bg-white rounded-lg select-content text-input text-lg pr-4 pb-1">
-                                <option selected>قم</option>
-                                <option>شیراز</option>
-                                <option>تهران</option>
+                            <select required defaultValue={2} name="" id="" className="w-[114px] h-full bg-white rounded-lg select-content text-input text-lg pr-4 pb-1">
+                                <option value={1}>قم</option>
+                                <option value={2}>شیراز</option>
+                                <option value={3}>تهران</option>
                             </select>
                         </div>
                         <div className="relative w-[91px]">
