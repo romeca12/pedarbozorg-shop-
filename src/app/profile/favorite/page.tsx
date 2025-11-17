@@ -1,7 +1,7 @@
 import CardGlobal from "@/components/CardGlobal"
 import ProfileTopPages from "../components/ProfileTopPages"
 
-function favorite() {
+function Favorite() {
   return (
     <div className="p-4 lg:p-8 bg-white rounded-2xl border-custom">
       <ProfileTopPages title="محصولات مورد علاقه من" />
@@ -14,4 +14,4 @@ function favorite() {
   )
 }
 
-export default favorite
+export default Favorite
