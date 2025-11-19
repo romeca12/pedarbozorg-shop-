@@ -5,7 +5,7 @@ import { useState } from "react"
 import CardOrder from "../components/CardOrder";
 import ProfileTopPages from "../components/ProfileTopPages";
 
-function orders() {
+function Orders() {
 
   const [activeTab, setActiveTab] = useState(0);
   const tabs = ['جاری', 'تحویل داده شده', 'لغو شده'];
@@ -107,4 +107,4 @@ function orders() {
   )
 }
 
-export default orders
+export default Orders

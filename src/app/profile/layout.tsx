@@ -33,7 +33,7 @@ function Profilelayout({ children }: { children: React.ReactNode }) {
                     <div className="flex justify-between items-center pl-1.5">
                         <div className="flex flex-col gap-y-2">
                             <span className="text-primary">کیف پول</span>
-                            <span className="text-text-gray flex gap-x-2 items-center lg:text-xl">۲۳۴٬۹۴۸<Image src="./icons/tooman-2.svg" alt="تومان" className="lg:w-[27px] lg:h-[18px]" width={19} height={12} /></span>
+                            <span className="text-text-gray flex gap-x-2 items-center lg:text-xl">۲۳۴٬۹۴۸<Image src="/icons/tooman-2.svg" alt="تومان" className="lg:w-[27px] lg:h-[18px]" width={19} height={12} /></span>
                         </div>
                         <Image
                             src="/icons/add.svg"
@@ -61,7 +61,7 @@ function Profilelayout({ children }: { children: React.ReactNode }) {
                     <div className="flex justify-between items-center pl-1.5">
                         <div className="flex flex-col gap-y-2">
                             <span className="text-primary">کیف پول</span>
-                            <span className="text-text-gray flex gap-x-2 items-center lg:text-xl">۲۳۴٬۹۴۸<Image src="./icons/tooman-2.svg" alt="تومان" className="lg:w-[27px] lg:h-[18px]" width={19} height={12} /></span>
+                            <span className="text-text-gray flex gap-x-2 items-center lg:text-xl">۲۳۴٬۹۴۸<Image src="/icons/tooman-2.svg" alt="تومان" className="lg:w-[27px] lg:h-[18px]" width={19} height={12} /></span>
                         </div>
                         <Image
                             src="/icons/add.svg"

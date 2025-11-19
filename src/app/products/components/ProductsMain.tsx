@@ -68,6 +68,7 @@ function ProductsMain() {
 
     useEffect(() => {
         setFilterItem((prev) => ({ ...prev, maxPrice: products?.max_price || 10195200 }))
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [products?.max_price])
 
     // useEffect(() => {
@@ -82,6 +83,7 @@ function ProductsMain() {
             .then(response => setProducts(response.data))
             .catch(() => toast.error("خطا در دریافت اطلاعات"))
             .finally(() => setLoading(false))
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [handleRouter, filterItem])
 
     return (

@@ -16,9 +16,9 @@ export default function PopularProductSlider() {
     return (
         <div className={`px-12 lg:px-[88px] pb-2 sm:pb-6 mt-4 lg:mt-10 pt-4 md:pt-6 ${styles.myCustomSwiper2}`}>
             <div className="h-[51px] md:h-[68px] mb-2 font-extrabold flex items-center justify-center text-center">
-                <img src="./images/flower-slider-right.svg" alt="گل1" className="w-[46px] h-[32px] sm:w-[69px] sm:h-[65px]" />
+                <img src="/images/flower-slider-right.svg" alt="گل1" className="w-[46px] h-[32px] sm:w-[69px] sm:h-[65px]" />
                 <h3 className="mt-[32] text-white pb-8 mx-4 md:text-2xl">پرفروش ترین محصولات</h3>
-                <img src="./images/flower-slider-left.svg" alt="گل2" className="w-[46px] h-[32px] sm:w-[69px] sm:h-[65px]" />
+                <img src="/images/flower-slider-left.svg" alt="گل2" className="w-[46px] h-[32px] sm:w-[69px] sm:h-[65px]" />
             </div>
             <Swiper
                 spaceBetween={16}
@@ -58,10 +58,10 @@ export default function PopularProductSlider() {
                     </SwiperSlide>)}
             </Swiper>
             <div className="button-slider prev-slider-2">
-                <img src="./images/arrow-right-slider.svg" alt="ناوبری راست" className="lg:w-[24px] lg:h-[24px]" />
+                <img src="/images/arrow-right-slider.svg" alt="ناوبری راست" className="lg:w-[24px] lg:h-[24px]" />
             </div>
             <div className="button-slider next-slider-2">
-                <img src="./images/arrow-left-slider.svg" alt="ناوبری چپ" className="lg:w-[24px] lg:h-[24px]" />
+                <img src="/images/arrow-left-slider.svg" alt="ناوبری چپ" className="lg:w-[24px] lg:h-[24px]" />
             </div>
         </div>
     );

@@ -1,6 +1,6 @@
 import Image from "next/image"
 import PopUpProfile from "./PopUpProfile"
-import { Dispatch, SetStateAction, useState } from "react"
+import { useState } from "react"
 
 function CardMessage() {
 

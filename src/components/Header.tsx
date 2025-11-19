@@ -39,7 +39,7 @@ function Header() {
     };
   }
     , [])
-    
+
   return (
     <>
       <header className={`px-4 fixed top-0 right-0 h-16 lg:h-20 z-10 w-full
@@ -73,7 +73,9 @@ function Header() {
               onClick={() => setHandleMenu(true)}
               alt="منو" className="cursor-pointer" />
             <img src="/images/instagram.svg" alt="ُسرچ" className="cursor-pointer" />
-            <img src="/images/know.svg" alt="گردونه شانس" className="cursor-pointer" />
+            <Link href="/spin-luck-shop">
+              <img src="/images/know.svg" alt="گردونه شانس" className="cursor-pointer" />
+            </Link>
           </div>
           <img src="/images/logo.svg" alt="لوگو" className="cursor-pointer" />
           <div className="flex gap-2">

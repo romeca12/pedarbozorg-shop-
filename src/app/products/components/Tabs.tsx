@@ -2,17 +2,13 @@
 
 import Image from "next/image"
 import { useState } from "react"
-import Sort from "./Sort";
-import Pagination from "@/components/Pagination";
-import CommentSingleProduct from "./CommentSingleProduct";
-import Buy from "./Buy";
 import BoxAsideTwo from "./BoxAsideTwo";
 
 function Tabs() {
     const [activeTab, setActiveTab] = useState(0);
 
     const tabs = ["معرفی", "مشخصات", "فواید", "نظرات کاربران"];
-    const sortItems = ["جدیدترین", "مفیدترین"];
+    // const sortItems = ["جدیدترین", "مفیدترین"];
 
     const scrollToSection = (index: number) => {
         const sectionId = `section-${index + 1}`;
@@ -32,7 +28,7 @@ function Tabs() {
                         <div
                             key={index}
                             className={`cursor-pointer ${activeTab === index ? "text-primary" : ""}`}
-                            onClick={() => { setActiveTab(index), scrollToSection(index) }}>{tab}</div>
+                            onClick={() => { setActiveTab(index); scrollToSection(index); }}>{tab}</div>
                     ))}
                 </div>
                 <div className="bg-[#e3e3e3] h-0.5 relative max-w-[493px]">

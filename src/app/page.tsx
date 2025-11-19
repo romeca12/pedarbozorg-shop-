@@ -10,7 +10,6 @@ import ChooseCorrect from "./components/ChooseCorrect";
 import OnlyABuy from "./components/OnlyABuy";
 import PopularProductCart from "./components/PopularProductCart";
 import Cooperation from "./components/cooperation";
-import api from "@/utils/API/axios-cofig";
 
 
 export default async function Home() {

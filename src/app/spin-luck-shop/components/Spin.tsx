@@ -83,7 +83,7 @@ export default function Spin() {
                 </div>
                 <div className="relative">
                     <img style={{ rotate: `${spin}deg` }} src="./images/spin.svg" alt="" className="w-[429px] h-[427px] max-md:w-[280px] max-md:h-[278px] transition duration-1000 ease-in-out" />
-                    <img src="./images/spin-center.svg" alt="" className="absolute spin-center w-[76px] h-[88px] -rotate-[0deg]" />
+                    <img src="/images/spin-center.svg" alt="" className="absolute spin-center w-[76px] h-[88px] -rotate-[0deg]" />
                 </div>
             </div>
             {isPopUp && <PopUp setIsPopUp={setIsPopUp} setSpin={setSpin} resultSpin={resultSpin} />}
@@ -108,9 +108,9 @@ const PopUp = ({ setIsPopUp, setSpin, resultSpin }: IPropsPopUp) => {
             <div className="fixed top-[60px] w-[662px] gap-6 text-primary bg-white rounded-2xl flex flex-col items-center p-6 max-w-[90%] z-20">
                 <div className="flex justify-between items-center w-full">
                     <h2 className="text-xl">نتیجه گردونه شانس شما</h2>
-                    <img src="./images/remove.svg" alt="" className="w-8 h-8" onClick={closeAndReset} />
+                    <img src="/images/remove.svg" alt="" className="w-8 h-8" onClick={closeAndReset} />
                 </div>
-                <img src="./images/spin-null.svg" alt="" className="w-[216px] h-[196px]" />
+                <img src="/images/spin-null.svg" alt="" className="w-[216px] h-[196px]" />
                 <span className="text-xl">{resultSpin}</span>
                 <p className="text-sm text-[#757575]">امیدواریم در تجربیات بعدی بیشتر خوشحالتان کنیم</p>
             </div>

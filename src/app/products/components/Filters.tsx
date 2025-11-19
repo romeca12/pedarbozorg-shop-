@@ -13,7 +13,7 @@ type TCategoriesProps = {
     id: number;
     title: string;
     slug: string;
-    icon?: any;
+    icon?: string;
     description: string;
     status: string;
 }
@@ -43,12 +43,18 @@ const Filters = ({ setHandleOpenFilter }: IPropsFilters) => {
     const inputHiPrice = filterItem.hiPrice || 10195200
 
     useEffect(() => {
-        setFilterItem(prev => ({ ...prev, isCheck: isAvailable, hiPrice: +setCurrentMaxPrice, lowPrice: +setCurrentMinPrice }));
+        setFilterItem(prev => ({
+            ...prev, isCheck: isAvailable,
+            hiPrice: +setCurrentMaxPrice,
+            lowPrice: +setCurrentMinPrice,
+            ...(categoriesToArray[0] !== 0 && { categories: categoriesToArray })
+        }));
+        // if (categoriesToArray[0] !== 0) {
+        //     setFilterItem(prev => ({ ...prev, categories: categoriesToArray }))
+        // }
         axios.get(`http://5.144.132.115:8003/store-api/categories/`)
             .then(response => setCategories(response.data.results));
-        if (categoriesToArray[0] !== 0) {
-            setFilterItem(prev => ({ ...prev, categories: categoriesToArray }))
-        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     // useEffect(() => {
@@ -70,11 +76,11 @@ const Filters = ({ setHandleOpenFilter }: IPropsFilters) => {
     }
 
     const viewRemoveFilter = () => {
-        if ((filterItem.hiPrice || 10195200) < filterItem.maxPrice ||filterItem.lowPrice || filterItem.isCheck || filterItem.categories[0]) return true
+        if ((filterItem.hiPrice || 10195200) < filterItem.maxPrice || filterItem.lowPrice || filterItem.isCheck || filterItem.categories[0]) return true
     }
 
     const removeFilter = () => {
-        setFilterItem((prev) => ({ ...prev, isCheck: false, hiPrice: filterItem.maxPrice, lowPrice: 0 , categories: []}))
+        setFilterItem((prev) => ({ ...prev, isCheck: false, hiPrice: filterItem.maxPrice, lowPrice: 0, categories: [] }))
     }
 
     const handleMaXChange = (e?: string) => {

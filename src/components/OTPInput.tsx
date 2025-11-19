@@ -137,7 +137,7 @@ const OTPInput = ({ otp, setOtp, handleResendOtp }: TOtpInput) => {
                     {formatTime(timer)}
                 </span>
                 <button
-                    onClick={() => { handleResend(), handleResendOtp() }}
+                    onClick={() => { handleResend(); handleResendOtp(); }}
                     disabled={timer > 0}
                     className={`text-sm font-medium ${timer > 0 ? 'text-gray-400 cursor-not-allowed' : 'text-[#2162E0] hover:text-[#1a4fb8]'}`}
                 >

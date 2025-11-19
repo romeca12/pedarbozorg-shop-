@@ -42,7 +42,11 @@ export default function Login({ handleLogin, setHandleLogin }: IPropsLogin) {
     }
 
 
-    useEffect(() => { (otp.join("").length === 5) && handleLoginOtp() }, [otp]);
+    useEffect(() => {
+        if (otp.join("").length === 5) {
+            handleLoginOtp()
+        };
+    }, [otp]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const enteredOtp = otp.join('');
 
@@ -55,12 +59,11 @@ export default function Login({ handleLogin, setHandleLogin }: IPropsLogin) {
     const handleLoginOtp = async () => {
         try {
             setIsLoading(true)
-            const response = await api.post(
+            await api.post(
                 '/core-api/auth/login/', {
                 phone_number: value,
                 code: enteredOtp
             })
-            // console.log("OTP verified successfully", response.data, response.data.refresh);
             toast.success("شما با موفقیت وارد شدید")
             setHandleLogin(false);
             setLoginTwo(false);

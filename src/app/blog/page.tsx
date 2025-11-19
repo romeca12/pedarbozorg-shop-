@@ -1,6 +1,5 @@
 import TopPageBackground from "@/components/TopPageBackground";
 import { Metadata } from "next";
-import Pagination from "@/components/Pagination";
 import CategoryAndSearch from "./components/CategoryAndSearch";
 import BlogCart from "./components/BlogCart";
 import Link from "next/link";

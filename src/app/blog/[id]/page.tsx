@@ -1,7 +1,6 @@
 import TopPageBackground from "@/components/TopPageBackground";
 import Share from "../components/share";
 import TitleSection from "@/components/TitleSection";
-import CardGlobal from "@/components/CardGlobal";
 import BlogCart from "../components/BlogCart";
 import Link from "next/link";
 import Sidebar from "../components/Sidebar";
@@ -96,18 +95,21 @@ const article = async (Props: IPropsArticle) => {
             </p>
           </div>
           <Share />
-
+{/* 
           <div className="mb-16">
             <TitleSection title="محصولات پیشنهادی پدربزرگ" />
             <div className="overal-products gap-2 md:gap-4 my-4 lg:my-8">
               {Array(4).fill(1).map((_, index) =>
-                <CardGlobal key={index} id={index + 1} />
+
+              
               )}
+
+
             </div>
             <Link href="/products" className="flex justify-center">
               <button className="text-white bg-primary transition-colors duration-300 hover:bg-hover-btn rounded-lg px-4 py-2">مشاهده همه محصولات</button>
             </Link>
-          </div>
+          </div> */}
 
           <div>
             <TitleSection title="مقالات مرتبط" />

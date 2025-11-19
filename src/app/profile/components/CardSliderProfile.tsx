@@ -5,7 +5,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import CardGlobal from '@/components/CardGlobal';
 
 const CardSliderProfile = ({ navigationKey }: { navigationKey: string }) => {
 
@@ -28,7 +27,7 @@ const CardSliderProfile = ({ navigationKey }: { navigationKey: string }) => {
 
             >
                 {Array(8).fill(1).map((_, i) =>
-                    <SwiperSlide className="!w-64 md:!w-72">
+                    <SwiperSlide key={i} className="!w-64 md:!w-72">
                         <div className="bg-white rounded-2xl p-5 md:p-6 text-center shadow-md hover:shadow-xl transition-all duration-300 flex flex-col h-full">
                             <div className="w-24 h-24 md:w-28 md:h-28 bg-gradient-to-br from-amber-500 to-amber-600 rounded-full mx-auto mb-4 md:mb-5 flex items-center justify-center text-white text-3xl md:text-4xl">
                                 🧴

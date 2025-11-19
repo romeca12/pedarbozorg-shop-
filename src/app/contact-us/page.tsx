@@ -52,7 +52,7 @@ const ContactUs = () => {
                     </div>
 
 
-                    <img src="./images/image 17.svg" alt="نقشه" className="h-auto rounded-2xl max-h-[350px]" />
+                    <img src="/images/image 17.svg" alt="نقشه" className="h-auto rounded-2xl max-h-[350px]" />
 
                 </div>
             </main>

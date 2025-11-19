@@ -21,9 +21,8 @@ const Sort = ({ itemsQuery }: TPropsSort) => {
 
     useEffect(() => {
         setFilterItem((prev) => ({ ...prev, sort: orderItem }))
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-
-    console.log(filterItem.sort)
 
     return (
         <>
@@ -44,7 +43,7 @@ const Sort = ({ itemsQuery }: TPropsSort) => {
 
                         <div className="flex gap-2 overflow-x-auto">
                             <div className="flex flex-col md:flex-row items-center gap-2">
-                                {itemsQuery.map((item, index) =>
+                                {itemsQuery.map((item) =>
                                     <span
                                         key={item.id}
                                         className={`button-sort-product cursor-pointer ${filterItem.sort.includes(item.category) ? "button-sort-product-active" : (filterItem.sort === "" && item.id === 1) && "button-sort-product-active"}`}
